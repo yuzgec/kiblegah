@@ -85,8 +85,7 @@
                                 {!! $Detay->short !!}
                             </ul>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                        <p><strong>SKU</strong>: FW511948218</p>
+                        <p><strong>SKU</strong>: {{ $Detay->sku }}</p>
                         <div class="mb-4">
                             <div class="d-flex align-items-baseline">
                                 <ins class="font-size-36 text-decoration-none">{{ money($Detay->price) }}</ins>
@@ -96,7 +95,6 @@
                         <div class="d-md-flex align-items-end mb-3">
                             <div class="max-width-150 mb-4 mb-md-0">
                                 <h6 class="font-size-14">Adet</h6>
-                                <!-- Quantity -->
                                 <div class="border rounded-pill py-2 px-3 border-color-1">
                                     <div class="js-quantity row align-items-center">
                                         <div class="col">
@@ -145,11 +143,13 @@
                 <div class="tab-content" id="Jpills-tabContent">
                     <div class="tab-pane fade active show" id="Jpills-one-example1" role="tabpanel" aria-labelledby="Jpills-one-example1-tab">
                         <div class="row no-gutters">
-
+                            <h3 class="font-size-24 mb-3">Özellikleri</h3>
+                            {!! $Detay->desc !!}
                         </div>
                     </div>
                     <div class="tab-pane fade" id="Jpills-two-example1" role="tabpanel" aria-labelledby="Jpills-two-example1-tab">
-                        <h3 class="font-size-24 mb-3">Perfectly Done</h3>
+                        <h3 class="font-size-24 mb-3">Özellikleri</h3>
+                        {{ $Detay->featrues }}
 
                     </div>
                     <div class="tab-pane fade" id="Jpills-four-example1" role="tabpanel" aria-labelledby="Jpills-four-example1-tab">

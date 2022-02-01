@@ -13,7 +13,7 @@
                 </div>
                 <div class="flex-center-between mb-1">
                     <div class="prodcut-price d-flex align-items-center flex-wrap position-relative">
-                        <ins class="font-size-20 text-black text-decoration-none mr-2 font-weight-bold">{{ $item->price }}₺ - <del class="font-size-1">{{ $item->oldu_price }}</del></ins>
+                        <ins class="font-size-20 text-black text-decoration-none mr-2 font-weight-bold">{{ money($item->price) }}₺ - <del class="font-size-1">{{ money($item->oldu_price) }}</del></ins>
                     </div>
                     <div class="d-none d-xl-block prodcut-add-cart">
                         <a href="#" class="btn px-2 btn-sm transition-3d-hover"><i class="ec ec-add-to-cart mr-2 font-size-16"></i> Sepete Ekle</a>
