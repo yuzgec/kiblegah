@@ -1,3 +1,4 @@
+{{--
 
     <div class="col-12 col-md-9">
         <div class="row">
@@ -147,6 +148,7 @@
     </div>
         </div>
     </div>
+--}}
 
     <div class="col-12 col-md-3">
         <div class="card mt-2" style="height: calc(24rem + 10px)">

@@ -15,10 +15,11 @@ use Spatie\Sitemap\SitemapGenerator;
     Route::get('/kargosorgulama', 'HomeController@kargosorgulama')->name('kargosorgulama');
     Route::get('/sepet', 'HomeController@sepet')->name('sepet');
     Route::get('/siparis', 'HomeController@siparis')->name('siparis');
-
+    Route::get('/urun/{$url}', 'HomeController@urun')->name('urun');
     Route::get('/iletisim', 'HomeController@iletisim')->name('iletisim');
 
     Route::group(["prefix"=>"go", 'middleware' => ['auth']],function() {
+        Route::get('/', 'DashboardController@index')->name('go');
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
         Route::auto('/page', PageController::class);
         Route::auto('/page-categories', PageCategoryController::class);
