@@ -7,6 +7,7 @@
     define('SWEETALERT_MESSAGE_DELETE', 'Silindi');
 
     //KULLANICI ADI BAŞ HARFLERİNİ GÖSTERME
+
     function isim($isim){
         $parcala = explode(" ", $isim);
         $ilk = substr(current($parcala), 0,1);
@@ -14,6 +15,9 @@
         return mb_convert_encoding($ilk.' '.$son, "UTF-8", "ISO-8859-9");
     }
 
+    function money($deger){
+        return number_format((float)$deger, 2, '.', '');
+    }
 
     //SEO URL
     function seo($str, $options = []) {
