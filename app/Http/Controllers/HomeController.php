@@ -38,6 +38,11 @@ class HomeController extends Controller
         return view('frontend.shop.siparis');
     }
 
+    public function urun($url){
+        $Detay = Product::where('slug', $url)->firstOrFail();
+        return view('frontend.shop.siparis', compact('Detay'));
+    }
+
     public function kargosorgulama(){
         return view('frontend.kargo.index');
     }
