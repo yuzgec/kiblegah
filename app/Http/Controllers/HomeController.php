@@ -40,7 +40,7 @@ class HomeController extends Controller
 
     public function urun($url){
         $Detay = Product::where('slug', $url)->firstOrFail();
-        return view('frontend.shop.siparis', compact('Detay'));
+        return view('frontend.urun.index', compact('Detay'));
     }
 
     public function kargosorgulama(){
