@@ -46,7 +46,7 @@
                         </div>
                         @foreach($Detay->getMedia('gallery') as $item)
                             <div class="js-slide" style="cursor: pointer;">
-                                <img src="{{ $item->getUrl('thumb') }}"  class="img-fluid" alt="{{ $Detay->title }}">
+                                <img src="{{ $item->getUrl('small') }}"  class="img-fluid" alt="{{ $Detay->title }}">
                             </div>
                         @endforeach
                     </div>
@@ -408,7 +408,7 @@
 
         </div>
 
-        <div class="mb-6">
+{{--        <div class="mb-6">
             <div class="d-flex justify-content-between align-items-center border-bottom border-color-1 flex-lg-nowrap flex-wrap mb-4">
                 <h3 class="section-title mb-0 pb-2 font-size-22">Related products</h3>
             </div>
@@ -578,7 +578,7 @@
                     </div>
                 </li>
             </ul>
-        </div>
+        </div>--}}
 
     </div>
 
