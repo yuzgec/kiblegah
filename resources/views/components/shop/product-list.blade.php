@@ -1,5 +1,6 @@
+@foreach($Product as $item)
 <li class="col-6 {{ (!$size) ? 'col-md-4' :  $size }} product-item">
-    @foreach($Product as $item)
+
     <div class="product-item__outer h-100">
         <div class="product-item__inner px-xl-4 p-3">
             <div class="product-item__body pb-xl-2">
@@ -28,5 +29,6 @@
             </div>
         </div>
     </div>
-    @endforeach
+
 </li>
+@endforeach
