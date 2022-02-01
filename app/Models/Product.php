@@ -9,6 +9,7 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Product extends Model implements HasMedia
 {
@@ -24,5 +25,16 @@ class Product extends Model implements HasMedia
 
     public function getCategory(){
         return $this->belongsTo(ProductCategoryPivot::class, 'id', 'product_id');
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(400)
+            ->nonOptimized();
+
+        $this->addMediaConversion('small')
+            ->width(150)
+            ->nonOptimized();
     }
 }
