@@ -78,7 +78,7 @@
                         </div>
                         <div class="flex-horizontal-center flex-wrap mb-4">
                             <a href="#" class="text-gray-6 font-size-13 mr-2"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                            <a href="#" class="text-gray-6 font-size-13 ml-2"><i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
+                            <a href="#" class="text-gray-6 font-size-13 ml-2"><i class="ec ec-compare mr-1 font-size-15"></i> Tavsiye Et</a>
                         </div>
                         <div class="mb-2">
                             <ul class="font-size-14 pl-3 ml-1 text-gray-110">
@@ -142,10 +142,7 @@
             <div class="borders-radius-17 border p-4 mt-4 mt-md-0 px-lg-10 py-lg-9">
                 <div class="tab-content" id="Jpills-tabContent">
                     <div class="tab-pane fade active show" id="Jpills-one-example1" role="tabpanel" aria-labelledby="Jpills-one-example1-tab">
-                        <div class="row no-gutters">
-                            <h3 class="font-size-24 mb-3">Özellikleri</h3>
                             {!! $Detay->desc !!}
-                        </div>
                     </div>
                     <div class="tab-pane fade" id="Jpills-two-example1" role="tabpanel" aria-labelledby="Jpills-two-example1-tab">
                         <h3 class="font-size-24 mb-3">Özellikleri</h3>
