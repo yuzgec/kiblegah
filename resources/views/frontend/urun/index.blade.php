@@ -46,7 +46,7 @@
                         </div>
                         @foreach($Detay->getMedia('gallery') as $item)
                             <div class="js-slide" style="cursor: pointer;">
-                                {{ $item }}
+                                <img src="{{ (!$Detay->getFirstMediaUrl('gallery')) ? '/backend/resimyok.jpg': $Detay->getFirstMediaUrl('gallery')}}"  class="img-fluid" alt="{{ $Detay->title }}">
                             </div>
                         @endforeach
                     </div>
