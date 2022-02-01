@@ -46,6 +46,10 @@ class ProductController extends Controller
         $New->featrues = $request->featrues;
         $New->desc = $request->desc;
 
+        $New->freecargo = $request->freecargo;
+        $New->fastkargo = $request->fastkargo;
+        $New->bigopportunity = $request->bigopportunity;
+
         $New->opportunity = $request->opportunity;
         $New->offer = $request->offer;
         $New->bestselling = $request->bestselling;
@@ -113,6 +117,10 @@ class ProductController extends Controller
         $Update->opportunity = $request->opportunity;
         $Update->offer = $request->offer;
         $Update->bestselling = $request->bestselling;
+
+        $Update->freecargo = $request->freecargo;
+        $Update->fastkargo = $request->fastkargo;
+        $Update->bigopportunity = $request->bigopportunity;
 
         $Update->seo_desc = $request->seo_desc;
         $Update->seo_key = $request->seo_key;
