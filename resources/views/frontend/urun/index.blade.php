@@ -42,20 +42,13 @@
                          data-is-thumbs="true"
                          data-nav-for="#sliderSyncingNav">
                         <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img1.jpg" alt="{{ $Detay->title }}">
+                            <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $Detay->getFirstMediaUrl('page')}}"  class="img-fluid" alt="{{ $Detay->title }}">
                         </div>
-                        <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img2.jpg" alt="{{ $Detay->title }}">
-                        </div>
-                        <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img3.jpg" alt="{{ $Detay->title }}">
-                        </div>
-                        <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img4.jpg" alt="{{ $Detay->title }}">
-                        </div>
-                        <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img5.jpg" alt="{{ $Detay->title }}">
-                        </div>
+                        @foreach($Detay->getMedia('gallery') as $item)
+                            <div class="js-slide" style="cursor: pointer;">
+                                {{ $item }}
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-md-7 mb-md-6 mb-lg-0">
