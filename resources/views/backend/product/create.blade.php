@@ -15,7 +15,7 @@
                 </div>
                 <div class="card-body">
 
-                <x-form-inputtext label="Başlık Adı Giriniz" name="title"/>
+                <x-form-inputtext label="Adı Giriniz" name="title"/>
                 <x-form-select label="Kategori" name="category[]" multiple :list="$Kategori"/>
 
                 <div class="form-group mb-3 row">
@@ -33,6 +33,24 @@
                     <div class="col-3">
                         <label class="form-check form-check-single form-switch mt-2">&nbsp; Çok Satan
                             <input class="form-check-input switch" name="bestselling" type="checkbox" value="0">
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group mb-3 row">
+                    <label class="form-label col-3 col-form-label"> </label>
+                    <div class="col-3">
+                        <label class="form-check form-check-single form-switch mt-2">&nbsp; Ücretsiz Kargo
+                            <input class="form-check-input switch" name="freecargo" type="checkbox" value="0">
+                        </label>
+                    </div>
+                    <div class="col-3">
+                        <label class="form-check form-check-single form-switch mt-2">&nbsp; Hızlı Gönderi
+                            <input class="form-check-input switch" name="fastkargo" type="checkbox" value="0">
+                        </label>
+                    </div>
+                    <div class="col-3">
+                        <label class="form-check form-check-single form-switch mt-2">&nbsp; Büyük Fırsat
+                            <input class="form-check-input switch" name="bigopportunity" type="checkbox" value="0">
                         </label>
                     </div>
                 </div>

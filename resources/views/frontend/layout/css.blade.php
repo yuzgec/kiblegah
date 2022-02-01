@@ -10,3 +10,4 @@
 <link rel="stylesheet" href="/frontend/assets/vendor/slick-carousel/slick/slick.css">
 <link rel="stylesheet" href="/frontend/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
 <link rel="stylesheet" href="/frontend/assets/css/theme.css">
+<livewire:styles />

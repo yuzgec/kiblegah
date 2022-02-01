@@ -1,4 +1,3 @@
-<!-- Go to Top -->
 <a class="js-go-to u-go-to" href="#"
    data-position='{"bottom": 15, "right": 15 }'
    data-type="fixed"
@@ -17,7 +16,6 @@
 <script src="/frontend/assets/vendor/appear.js"></script>
 <script src="/frontend/assets/vendor/jquery.countdown.min.js"></script>
 <script src="/frontend/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="/frontend/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="/frontend/assets/vendor/fancybox/jquery.fancybox.min.js"></script>
 <script src="/frontend/assets/vendor/slick-carousel/slick/slick.js"></script>
 <script src="/frontend/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
@@ -30,27 +28,16 @@
 <script src="/frontend/assets/js/components/hs.unfold.js"></script>
 <script src="/frontend/assets/js/components/hs.focus-state.js"></script>
 <script src="/frontend/assets/js/components/hs.malihu-scrollbar.js"></script>
-<script src="/frontend/assets/js/components/hs.validation.js"></script>
 <script src="/frontend/assets/js/components/hs.fancybox.js"></script>
 <script src="/frontend/assets/js/components/hs.onscroll-animation.js"></script>
 <script src="/frontend/assets/js/components/hs.slick-carousel.js"></script>
 <script src="/frontend/assets/js/components/hs.show-animation.js"></script>
-<script src="/frontend/assets/js/components/hs.svg-injector.js"></script>
 <script src="/frontend/assets/js/components/hs.go-to.js"></script>
 <script src="/frontend/assets/js/components/hs.selectpicker.js"></script>
+<livewire:scripts />
 
-<!-- JS Plugins Init. -->
 <script>
-    $(window).on('load', function () {
-        // initialization of HSMegaMenu component
-        $('.js-mega-menu').HSMegaMenu({
-            event: 'hover',
-            direction: 'horizontal',
-            pageContainer: $('.container'),
-            breakpoint: 767.98,
-            hideTimeOut: 0
-        });
-    });
+
 
     $(document).on('ready', function () {
         // initialization of header
@@ -85,14 +72,7 @@
         // initialization of forms
         $.HSCore.components.HSFocusState.init();
 
-        // initialization of form validation
-        $.HSCore.components.HSValidation.init('.js-validate', {
-            rules: {
-                confirmPassword: {
-                    equalTo: '#signupPassword'
-                }
-            }
-        });
+
 
         // initialization of show animations
         $.HSCore.components.HSShowAnimation.init('.js-animation-link');
