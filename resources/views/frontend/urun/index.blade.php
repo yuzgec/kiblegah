@@ -1,25 +1,22 @@
 @extends('frontend.layout.app')
-@section('title2', 'Kıblegah Aile Oyunları Online Satış Sitesi'),
+@section('title2', $Detay->title. '| Kıblegah Aile Oyunları Online Satış Sitesi'),
 @section('content')
     <div class="bg-gray-13 bg-md-transparent">
         <div class="container">
-            <!-- breadcrumb -->
+
             <div class="my-md-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
                         <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{ route('home') }}">Anasayfa</a></li>
-                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../shop/shop.html">Accessories</a></li>
-                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../shop/shop.html">Headphones</a></li>
-                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Ultra Wireless S50 Headphones S50 with Bluetooth</li>
+                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">{{ $Detay->title }}</li>
                     </ol>
                 </nav>
             </div>
-            <!-- End breadcrumb -->
+
         </div>
     </div>
-    <!-- End breadcrumb -->
+
     <div class="container">
-        <!-- Single Product Body -->
         <div class="mb-xl-14 mb-6">
             <div class="row">
                 <div class="col-md-5 mb-4 mb-md-0">
@@ -30,20 +27,13 @@
                          data-arrow-right-classes="fas fa-arrow-right u-slick__arrow-classic-inner u-slick__arrow-classic-inner--right mr-lg-2 mr-xl-4"
                          data-nav-for="#sliderSyncingThumb">
                         <div class="js-slide">
-                            <img class="img-fluid" src="../../assets/img/720X660/img1.jpg" alt="Image Description">
+                           <img src="{{ (!$Edit->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $Edit->getFirstMediaUrl('page')}}"  class="img-fluid" alt="{{ $Detay->title }}">
                         </div>
+                        @foreach($Edit->getMedia('gallery') as $item)
                         <div class="js-slide">
-                            <img class="img-fluid" src="../../assets/img/720X660/img2.jpg" alt="Image Description">
+                            {{ $item }}
                         </div>
-                        <div class="js-slide">
-                            <img class="img-fluid" src="../../assets/img/720X660/img3.jpg" alt="Image Description">
-                        </div>
-                        <div class="js-slide">
-                            <img class="img-fluid" src="../../assets/img/720X660/img4.jpg" alt="Image Description">
-                        </div>
-                        <div class="js-slide">
-                            <img class="img-fluid" src="../../assets/img/720X660/img5.jpg" alt="Image Description">
-                        </div>
+                        @endforeach
                     </div>
 
                     <div id="sliderSyncingThumb" class="js-slick-carousel u-slick u-slick--slider-syncing u-slick--slider-syncing-size u-slick--gutters-1 u-slick--transform-off"
@@ -52,19 +42,19 @@
                          data-is-thumbs="true"
                          data-nav-for="#sliderSyncingNav">
                         <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img1.jpg" alt="Image Description">
+                            <img class="img-fluid" src="../../assets/img/720X660/img1.jpg" alt="{{ $Detay->title }}">
                         </div>
                         <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img2.jpg" alt="Image Description">
+                            <img class="img-fluid" src="../../assets/img/720X660/img2.jpg" alt="{{ $Detay->title }}">
                         </div>
                         <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img3.jpg" alt="Image Description">
+                            <img class="img-fluid" src="../../assets/img/720X660/img3.jpg" alt="{{ $Detay->title }}">
                         </div>
                         <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img4.jpg" alt="Image Description">
+                            <img class="img-fluid" src="../../assets/img/720X660/img4.jpg" alt="{{ $Detay->title }}">
                         </div>
                         <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img5.jpg" alt="Image Description">
+                            <img class="img-fluid" src="../../assets/img/720X660/img5.jpg" alt="{{ $Detay->title }}">
                         </div>
                     </div>
                 </div>
@@ -86,7 +76,7 @@
                                 </a>
                             </div>
                             <div class="d-md-flex align-items-center">
-                                <a href="#" class="max-width-150 ml-n2 mb-2 mb-md-0 d-block"><img class="img-fluid" src="../../assets/img/200X60/img1.png" alt="Image Description"></a>
+                                <a href="#" class="max-width-150 ml-n2 mb-2 mb-md-0 d-block"><img class="img-fluid" src="../../assets/img/200X60/img1.png" alt="{{ $Detay->title }}"></a>
                                 <div class="ml-md-3 text-gray-9 font-size-14">Availability: <span class="text-green font-weight-bold">26 in stock</span></div>
                             </div>
                         </div>
@@ -186,7 +176,7 @@
                                                     <div class="mb-2 d-none d-md-block"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                                     <h5 class="mb-1 product-item__title d-none d-md-block"><a href="#" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img1.jpg" alt="Image Description"></a>
+                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img1.jpg" alt="{{ $Detay->title }}"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1 d-none d-md-block">
                                                         <div class="prodcut-price">
@@ -204,7 +194,7 @@
                                                     <div class="mb-2 d-none d-md-block"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                                     <h5 class="mb-1 product-item__title d-none d-md-block"><a href="#" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img2.jpg" alt="Image Description"></a>
+                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img2.jpg" alt="{{ $Detay->title }}"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1 d-none d-md-block">
                                                         <div class="prodcut-price d-flex align-items-center position-relative">
@@ -223,7 +213,7 @@
                                                     <div class="mb-2 d-none d-md-block"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                                     <h5 class="mb-1 product-item__title d-none d-md-block"><a href="#" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img3.jpg" alt="Image Description"></a>
+                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img3.jpg" alt="{{ $Detay->title }}"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1 d-none d-md-block">
                                                         <div class="prodcut-price">
@@ -280,10 +270,10 @@
                                 </div>
                             </div>
                             <div class="col-md-6 text-right">
-                                <img class="img-fluid mr-n4 mr-lg-n10" src="../../assets/img/580X580/img1.jpg" alt="Image Description">
+                                <img class="img-fluid mr-n4 mr-lg-n10" src="../../assets/img/580X580/img1.jpg" alt="{{ $Detay->title }}">
                             </div>
                             <div class="col-md-6 text-left">
-                                <img class="img-fluid ml-n4 ml-lg-n10" src="../../assets/img/580X580/img2.jpg" alt="Image Description">
+                                <img class="img-fluid ml-n4 ml-lg-n10" src="../../assets/img/580X580/img2.jpg" alt="{{ $Detay->title }}">
                             </div>
                             <div class="col-md-6 align-self-center">
                                 <div class="pt-lg-8 pt-xl-10 text-right">
@@ -683,7 +673,7 @@
                                 <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                 <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                 <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img1.jpg" alt="Image Description"></a>
+                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img1.jpg" alt="{{ $Detay->title }}"></a>
                                 </div>
                                 <div class="flex-center-between mb-1">
                                     <div class="prodcut-price">
@@ -710,7 +700,7 @@
                                 <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                 <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                 <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img2.jpg" alt="Image Description"></a>
+                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img2.jpg" alt="{{ $Detay->title }}"></a>
                                 </div>
                                 <div class="flex-center-between mb-1">
                                     <div class="prodcut-price d-flex align-items-center position-relative">
@@ -738,7 +728,7 @@
                                 <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                 <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                 <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img3.jpg" alt="Image Description"></a>
+                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img3.jpg" alt="{{ $Detay->title }}"></a>
                                 </div>
                                 <div class="flex-center-between mb-1">
                                     <div class="prodcut-price">
@@ -765,7 +755,7 @@
                                 <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                 <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
                                 <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img4.jpg" alt="Image Description"></a>
+                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img4.jpg" alt="{{ $Detay->title }}"></a>
                                 </div>
                                 <div class="flex-center-between mb-1">
                                     <div class="prodcut-price">
@@ -792,7 +782,7 @@
                                 <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                 <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
                                 <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img5.jpg" alt="Image Description"></a>
+                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img5.jpg" alt="{{ $Detay->title }}"></a>
                                 </div>
                                 <div class="flex-center-between mb-1">
                                     <div class="prodcut-price">
@@ -819,7 +809,7 @@
                                 <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                 <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                 <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img2.jpg" alt="Image Description"></a>
+                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img2.jpg" alt="{{ $Detay->title }}"></a>
                                 </div>
                                 <div class="flex-center-between mb-1">
                                     <div class="prodcut-price d-flex align-items-center position-relative">
@@ -870,32 +860,32 @@
                             }]'>
                     <div class="js-slide">
                         <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img1.png" alt="Image Description">
+                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img1.png" alt="{{ $Detay->title }}">
                         </a>
                     </div>
                     <div class="js-slide">
                         <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img2.png" alt="Image Description">
+                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img2.png" alt="{{ $Detay->title }}">
                         </a>
                     </div>
                     <div class="js-slide">
                         <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img3.png" alt="Image Description">
+                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img3.png" alt="{{ $Detay->title }}">
                         </a>
                     </div>
                     <div class="js-slide">
                         <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img4.png" alt="Image Description">
+                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img4.png" alt="{{ $Detay->title }}">
                         </a>
                     </div>
                     <div class="js-slide">
                         <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img5.png" alt="Image Description">
+                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img5.png" alt="{{ $Detay->title }}">
                         </a>
                     </div>
                     <div class="js-slide">
                         <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img6.png" alt="Image Description">
+                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img6.png" alt="{{ $Detay->title }}">
                         </a>
                     </div>
                 </div>
