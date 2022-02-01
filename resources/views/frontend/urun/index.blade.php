@@ -30,9 +30,9 @@
                            <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $Detay->getFirstMediaUrl('page')}}"  class="img-fluid" alt="{{ $Detay->title }}">
                         </div>
                         @foreach($Detay->getMedia('gallery') as $item)
-                        <div class="js-slide">
-                            {{ $item }}
-                        </div>
+                            <div class="js-slide">
+                                <img src="{{ $item->getUrl() }}"  class="img-fluid" alt="{{ $Detay->title }}">
+                            </div>
                         @endforeach
                     </div>
 
@@ -46,7 +46,7 @@
                         </div>
                         @foreach($Detay->getMedia('gallery') as $item)
                             <div class="js-slide" style="cursor: pointer;">
-                                <img src="{{ (!$Detay->getFirstMediaUrl('gallery')) ? '/backend/resimyok.jpg': $Detay->getFirstMediaUrl('gallery')}}"  class="img-fluid" alt="{{ $Detay->title }}">
+                                <img src="{{ $item->getUrl('thumb') }}"  class="img-fluid" alt="{{ $Detay->title }}">
                             </div>
                         @endforeach
                     </div>
