@@ -27,9 +27,9 @@
                          data-arrow-right-classes="fas fa-arrow-right u-slick__arrow-classic-inner u-slick__arrow-classic-inner--right mr-lg-2 mr-xl-4"
                          data-nav-for="#sliderSyncingThumb">
                         <div class="js-slide">
-                           <img src="{{ (!$Edit->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $Edit->getFirstMediaUrl('page')}}"  class="img-fluid" alt="{{ $Detay->title }}">
+                           <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $Detay->getFirstMediaUrl('page')}}"  class="img-fluid" alt="{{ $Detay->title }}">
                         </div>
-                        @foreach($Edit->getMedia('gallery') as $item)
+                        @foreach($Detay->getMedia('gallery') as $item)
                         <div class="js-slide">
                             {{ $item }}
                         </div>
