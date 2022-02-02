@@ -1,5 +1,5 @@
 @extends('frontend.layout.app')
-@section('title2', $Detay->title. '| Kıblegah Aile Oyunları Online Satış Sitesi'),
+@section('title2', $Detay->title. '| Kıblegah Aile Oyunları Online Satış Sitesi')
 @section('content')
     <div class="bg-gray-13 bg-md-transparent">
         <div class="container">
@@ -19,7 +19,7 @@
     <div class="container">
         <div class="mb-xl-14 mb-6">
             <div class="row">
-                <div class="col-md-5 mb-4 mb-md-0">
+                <div class="col-md-6 col-lg-4 col-xl-5 mb-4 mb-md-0">
                     <div id="sliderSyncingNav" class="js-slick-carousel u-slick mb-2"
                          data-infinite="true"
                          data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-classic u-slick__arrow-centered--y rounded-circle"
@@ -27,7 +27,7 @@
                          data-arrow-right-classes="fas fa-arrow-right u-slick__arrow-classic-inner u-slick__arrow-classic-inner--right mr-lg-2 mr-xl-4"
                          data-nav-for="#sliderSyncingThumb">
                         <div class="js-slide">
-                           <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $Detay->getFirstMediaUrl('page')}}"  class="img-fluid" alt="{{ $Detay->title }}">
+                            <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $Detay->getFirstMediaUrl('page')}}"  class="img-fluid" alt="{{ $Detay->title }}">
                         </div>
                         @foreach($Detay->getMedia('gallery') as $item)
                             <div class="js-slide">
@@ -51,7 +51,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-md-7 mb-md-6 mb-lg-0">
+                <div class="col-md-6 col-lg-4 col-xl-4 mb-md-6 mb-lg-0">
                     <div class="mb-2">
                         <div class="border-bottom mb-3 pb-md-1 pb-3">
                             <a href="#" class="font-size-12 text-gray-5 mb-2 d-inline-block">Kategori Adı</a>
@@ -86,16 +86,22 @@
                             </ul>
                         </div>
                         <p><strong>SKU</strong>: {{ $Detay->sku }}</p>
-                        <div class="mb-4">
-                            <div class="d-flex align-items-baseline">
-                                <ins class="font-size-36 text-decoration-none">{{ money($Detay->price) }}</ins>
-                                <del class="font-size-20 ml-2 text-gray-6">{{ money($Detay->old_price) }}</del>
+
+
+                    </div>
+                </div>
+                <div class="mx-md-auto mx-lg-0 col-md-6 col-lg-4 col-xl-3">
+                    <div class="mb-2">
+                        <div class="card p-5 border-width-2 border-color-1 borders-radius-17">
+                            <div class="text-gray-9 font-size-14 pb-2 border-color-1 border-bottom mb-3">
+                                Stok Durmu: <span class="text-green font-weight-bold">Stokta Mevcut</span></div>
+                            <div class="mb-3">
+                                <div class="font-size-36">{{ money($Detay->price) }} - <del class="font-size-20">{{ money($Detay->old_price) }}</del></div>
                             </div>
-                        </div>
-                        <div class="d-md-flex align-items-end mb-3">
-                            <div class="max-width-150 mb-4 mb-md-0">
+                            <div class="mb-3">
                                 <h6 class="font-size-14">Adet</h6>
-                                <div class="border rounded-pill py-2 px-3 border-color-1">
+                                <!-- Quantity -->
+                                <div class="border rounded-pill py-1 w-md-60 height-35 px-3 border-color-1">
                                     <div class="js-quantity row align-items-center">
                                         <div class="col">
                                             <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="text" value="1">
@@ -111,9 +117,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="ml-md-3">
-                                <a href="#" class="btn px-2 btn-sm transition-3d-hover"><i class="ec ec-add-to-cart mr-2 font-size-16"></i> Sepete Ekle</a>
+                            <div class="mb-2 pb-0dot5">
+                                <a href="#" class="btn btn-block btn-primary-dark"><i class="ec ec-add-to-cart mr-2 font-size-20"></i> Sepete Ekle</a>
                             </div>
+                            <div class="mb-3">
+                                <a href="#" class="btn btn-block btn-green"><i class="fab fa-whatsapp"></i> Whatsapp Sipariş</a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -142,7 +152,7 @@
             <div class="borders-radius-17 border p-4 mt-4 mt-md-0 px-lg-10 py-lg-9">
                 <div class="tab-content" id="Jpills-tabContent">
                     <div class="tab-pane fade active show" id="Jpills-one-example1" role="tabpanel" aria-labelledby="Jpills-one-example1-tab">
-                            {!! $Detay->desc !!}
+                        {!! $Detay->desc !!}
                     </div>
                     <div class="tab-pane fade" id="Jpills-two-example1" role="tabpanel" aria-labelledby="Jpills-two-example1-tab">
                         <h3 class="font-size-24 mb-3">Özellikleri</h3>
@@ -153,12 +163,10 @@
                         <div class="row mb-8">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <h3 class="font-size-18 mb-6">Based on 3 reviews</h3>
+                                    <h3 class="font-size-18 mb-6">Ürün için toplam <b>(3)</b> yorum vardır </h3>
                                     <h2 class="font-size-30 font-weight-bold text-lh-1 mb-0">4.3</h2>
                                     <div class="text-lh-1">overall</div>
                                 </div>
-
-                                <!-- Ratings -->
                                 <ul class="list-unstyled">
                                     <li class="py-1">
                                         <a class="row align-items-center mx-gutters-2 font-size-1" href="javascript:;">
@@ -181,100 +189,14 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li class="py-1">
-                                        <a class="row align-items-center mx-gutters-2 font-size-1" href="javascript:;">
-                                            <div class="col-auto mb-2 mb-md-0">
-                                                <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto mb-2 mb-md-0">
-                                                <div class="progress ml-xl-5" style="height: 10px; width: 200px;">
-                                                    <div class="progress-bar" role="progressbar" style="width: 53%;" aria-valuenow="53" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto text-right">
-                                                <span class="text-gray-90">55</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="py-1">
-                                        <a class="row align-items-center mx-gutters-2 font-size-1" href="javascript:;">
-                                            <div class="col-auto mb-2 mb-md-0">
-                                                <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto mb-2 mb-md-0">
-                                                <div class="progress ml-xl-5" style="height: 10px; width: 200px;">
-                                                    <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto text-right">
-                                                <span class="text-gray-90">23</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="py-1">
-                                        <a class="row align-items-center mx-gutters-2 font-size-1" href="javascript:;">
-                                            <div class="col-auto mb-2 mb-md-0">
-                                                <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto mb-2 mb-md-0">
-                                                <div class="progress ml-xl-5" style="height: 10px; width: 200px;">
-                                                    <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto text-right">
-                                                <span class="text-muted">0</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="py-1">
-                                        <a class="row align-items-center mx-gutters-2 font-size-1" href="javascript:;">
-                                            <div class="col-auto mb-2 mb-md-0">
-                                                <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto mb-2 mb-md-0">
-                                                <div class="progress ml-xl-5" style="height: 10px; width: 200px;">
-                                                    <div class="progress-bar" role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto text-right">
-                                                <span class="text-gray-90">4</span>
-                                            </div>
-                                        </a>
-                                    </li>
                                 </ul>
-                                <!-- End Ratings -->
                             </div>
                             <div class="col-md-6">
-                                <h3 class="font-size-18 mb-5">Add a review</h3>
-                                <!-- Form -->
+                                <h3 class="font-size-18 mb-5">Yorum Ekle</h3>
                                 <form class="js-validate">
                                     <div class="row align-items-center mb-4">
                                         <div class="col-md-4 col-lg-3">
-                                            <label for="rating" class="form-label mb-0">Your Review</label>
+                                            <label for="rating" class="form-label mb-0">Puanınız</label>
                                         </div>
                                         <div class="col-md-8 col-lg-9">
                                             <a href="#" class="d-block">
@@ -290,112 +212,33 @@
                                     </div>
                                     <div class="js-form-message form-group mb-3 row">
                                         <div class="col-md-4 col-lg-3">
-                                            <label for="descriptionTextarea" class="form-label">Your Review</label>
+                                            <label for="descriptionTextarea" class="form-label">Yorumunuz</label>
                                         </div>
                                         <div class="col-md-8 col-lg-9">
-                                                    <textarea class="form-control" rows="3" id="descriptionTextarea"
-                                                              data-msg="Please enter your message."
-                                                              data-error-class="u-has-error"
-                                                              data-success-class="u-has-success"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="js-form-message form-group mb-3 row">
-                                        <div class="col-md-4 col-lg-3">
-                                            <label for="inputName" class="form-label">Name <span class="text-danger">*</span></label>
-                                        </div>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input type="text" class="form-control" name="name" id="inputName" aria-label="Alex Hecker" required
-                                                   data-msg="Please enter your name."
-                                                   data-error-class="u-has-error"
-                                                   data-success-class="u-has-success">
-                                        </div>
-                                    </div>
-                                    <div class="js-form-message form-group mb-3 row">
-                                        <div class="col-md-4 col-lg-3">
-                                            <label for="emailAddress" class="form-label">Email <span class="text-danger">*</span></label>
-                                        </div>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input type="email" class="form-control" name="emailAddress" id="emailAddress" aria-label="alexhecker@pixeel.com" required
-                                                   data-msg="Please enter a valid email address."
-                                                   data-error-class="u-has-error"
-                                                   data-success-class="u-has-success">
+                                            <textarea class="form-control" rows="3" data-success-class="u-has-success"></textarea>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="offset-md-4 offset-lg-3 col-auto">
-                                            <button type="submit" class="btn btn-primary-dark btn-wide transition-3d-hover">Add Review</button>
+                                            <button type="submit" class="btn btn-primary-dark btn-wide transition-3d-hover">Yorumu Ekleyin</button>
                                         </div>
                                     </div>
                                 </form>
-                                <!-- End Form -->
                             </div>
                         </div>
-                        <!-- Review -->
                         <div class="border-bottom border-color-1 pb-4 mb-4">
-                            <!-- Review Rating -->
                             <div class="d-flex justify-content-between align-items-center text-secondary font-size-1 mb-2">
                                 <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
                                     <small class="fas fa-star"></small>
                                     <small class="fas fa-star"></small>
                                     <small class="fas fa-star"></small>
-                                    <small class="far fa-star text-muted"></small>
-                                    <small class="far fa-star text-muted"></small>
+                                    <small class="fas fa-star"></small>
+                                    <small class="fas fa-star"></small>
                                 </div>
                             </div>
-                            <!-- End Review Rating -->
-
                             <p class="text-gray-90">Fusce vitae nibh mi. Integer posuere, libero et ullamcorper facilisis, enim eros tincidunt orci, eget vestibulum sapien nisi ut leo. Cras finibus vel est ut mollis. Donec luctus condimentum ante et euismod.</p>
-
-                            <!-- Reviewer -->
                             <div class="mb-2">
                                 <strong>John Doe</strong>
-                                <span class="font-size-13 text-gray-23">- April 3, 2019</span>
-                            </div>
-                            <!-- End Reviewer -->
-                        </div>
-                        <!-- End Review -->
-                        <!-- Review -->
-                        <div class="border-bottom border-color-1 pb-4 mb-4">
-                            <!-- Review Rating -->
-                            <div class="d-flex justify-content-between align-items-center text-secondary font-size-1 mb-2">
-                                <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
-                                    <small class="fas fa-star"></small>
-                                    <small class="fas fa-star"></small>
-                                    <small class="fas fa-star"></small>
-                                    <small class="fas fa-star"></small>
-                                    <small class="fas fa-star"></small>
-                                </div>
-                            </div>
-                            <!-- End Review Rating -->
-
-                            <p class="text-gray-90">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse eget facilisis odio. Duis sodales augue eu tincidunt faucibus. Etiam justo ligula, placerat ac augue id, volutpat porta dui.</p>
-
-                            <!-- Reviewer -->
-                            <div class="mb-2">
-                                <strong>Anna Kowalsky</strong>
-                                <span class="font-size-13 text-gray-23">- April 3, 2019</span>
-                            </div>
-                            <!-- End Reviewer -->
-                        </div>
-                        <!-- End Review -->
-                        <!-- Review -->
-                        <div class="pb-4">
-                            <!-- Review Rating -->
-                            <div class="d-flex justify-content-between align-items-center text-secondary font-size-1 mb-2">
-                                <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
-                                    <small class="fas fa-star"></small>
-                                    <small class="fas fa-star"></small>
-                                    <small class="fas fa-star"></small>
-                                    <small class="fas fa-star"></small>
-                                    <small class="far fa-star text-muted"></small>
-                                </div>
-                            </div>
-                            <!-- End Review Rating -->
-
-                            <p class="text-gray-90">Sed id tincidunt sapien. Pellentesque cursus accumsan tellus, nec ultricies nulla sollicitudin eget. Donec feugiat orci vestibulum porttitor sagittis.</p>
-
-                            <div class="mb-2">
-                                <strong>Peter Wargner</strong>
                                 <span class="font-size-13 text-gray-23">- April 3, 2019</span>
                             </div>
                         </div>
@@ -405,180 +248,6 @@
 
         </div>
 
-{{--        <div class="mb-6">
-            <div class="d-flex justify-content-between align-items-center border-bottom border-color-1 flex-lg-nowrap flex-wrap mb-4">
-                <h3 class="section-title mb-0 pb-2 font-size-22">Related products</h3>
-            </div>
-            <ul class="row list-unstyled products-group no-gutters">
-                <li class="col-6 col-md-3 col-xl-2gdot4-only col-wd-2 product-item">
-                    <div class="product-item__outer h-100">
-                        <div class="product-item__inner px-xl-4 p-3">
-                            <div class="product-item__body pb-xl-2">
-                                <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
-                                <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img1.jpg" alt="{{ $Detay->title }}"></a>
-                                </div>
-                                <div class="flex-center-between mb-1">
-                                    <div class="prodcut-price">
-                                        <div class="text-gray-100">$685,00</div>
-                                    </div>
-                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                        <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item__footer">
-                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-6 col-md-3 col-xl-2gdot4-only col-wd-2 product-item">
-                    <div class="product-item__outer h-100">
-                        <div class="product-item__inner px-xl-4 p-3">
-                            <div class="product-item__body pb-xl-2">
-                                <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
-                                <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img2.jpg" alt="{{ $Detay->title }}"></a>
-                                </div>
-                                <div class="flex-center-between mb-1">
-                                    <div class="prodcut-price d-flex align-items-center position-relative">
-                                        <ins class="font-size-20 text-red text-decoration-none">$1999,00</ins>
-                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">$2 299,00</del>
-                                    </div>
-                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                        <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item__footer">
-                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-6 col-md-3 col-xl-2gdot4-only col-wd-2 product-item">
-                    <div class="product-item__outer h-100">
-                        <div class="product-item__inner px-xl-4 p-3">
-                            <div class="product-item__body pb-xl-2">
-                                <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
-                                <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img3.jpg" alt="{{ $Detay->title }}"></a>
-                                </div>
-                                <div class="flex-center-between mb-1">
-                                    <div class="prodcut-price">
-                                        <div class="text-gray-100">$685,00</div>
-                                    </div>
-                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                        <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item__footer">
-                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-6 col-md-3 col-xl-2gdot4-only col-wd-2 product-item remove-divider-md-lg">
-                    <div class="product-item__outer h-100">
-                        <div class="product-item__inner px-xl-4 p-3">
-                            <div class="product-item__body pb-xl-2">
-                                <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
-                                <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img4.jpg" alt="{{ $Detay->title }}"></a>
-                                </div>
-                                <div class="flex-center-between mb-1">
-                                    <div class="prodcut-price">
-                                        <div class="text-gray-100">$685,00</div>
-                                    </div>
-                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                        <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item__footer">
-                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-6 col-md-3 col-xl-2gdot4-only col-wd-2 product-item remove-divider-xl">
-                    <div class="product-item__outer h-100">
-                        <div class="product-item__inner px-xl-4 p-3">
-                            <div class="product-item__body pb-xl-2">
-                                <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
-                                <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img5.jpg" alt="{{ $Detay->title }}"></a>
-                                </div>
-                                <div class="flex-center-between mb-1">
-                                    <div class="prodcut-price">
-                                        <div class="text-gray-100">$685,00</div>
-                                    </div>
-                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                        <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item__footer">
-                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-6 col-md-3 col-xl-2gdot4-only col-wd-2 product-item remove-divider-wd d-xl-none d-wd-block">
-                    <div class="product-item__outer h-100">
-                        <div class="product-item__inner px-xl-4 p-3">
-                            <div class="product-item__body pb-xl-2">
-                                <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
-                                <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img2.jpg" alt="{{ $Detay->title }}"></a>
-                                </div>
-                                <div class="flex-center-between mb-1">
-                                    <div class="prodcut-price d-flex align-items-center position-relative">
-                                        <ins class="font-size-20 text-red text-decoration-none">$1999,00</ins>
-                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">$2 299,00</del>
-                                    </div>
-                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                        <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item__footer">
-                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>--}}
-
     </div>
 
 @endsection
-
-
