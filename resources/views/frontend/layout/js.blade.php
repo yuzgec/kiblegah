@@ -34,6 +34,8 @@
 <script src="/frontend/assets/js/components/hs.show-animation.js"></script>
 <script src="/frontend/assets/js/components/hs.go-to.js"></script>
 <script src="/frontend/assets/js/components/hs.selectpicker.js"></script>
+<script src="/frontend/assets/js/components/hs.quantity-counter.js"></script>
+
 <livewire:scripts />
 
 <script>
@@ -55,6 +57,7 @@
 
         // initialization of popups
         $.HSCore.components.HSFancyBox.init('.js-fancybox');
+        $.HSCore.components.HSQantityCounter.init('.js-quantity');
 
         // initialization of countdowns
         var countdowns = $.HSCore.components.HSCountdown.init('.js-countdown', {

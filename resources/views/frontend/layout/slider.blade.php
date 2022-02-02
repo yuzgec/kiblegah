@@ -1,4 +1,4 @@
-<div class="mb-2 mt-2">
+<div class="mb-2 mt-3">
     <div class="container">
         <div class="overflow-hidden">
             <div class="bg-img-hero min-height-420" style="background-image: url(/frontend/assets/img/sliderback.jpg);">
@@ -34,13 +34,17 @@
                                  data-scs-animation-in="fadeInRight"
                                  data-scs-animation-delay="600">
                                 <div class="mr-xl-14">
-                                    <h5 class="mb-3 font-size-17 product-item__title text-lh-default"><a href="#" class="text-blue font-weight-bold">Widescreen 4K SUHD TV</a></h5>
+                                    <h5 class="mb-3 font-size-17 product-item__title text-lh-default">
+                                        <a href="#" class="text-blue font-weight-bold">
+                                            Kıblegah Kampanyası
+                                        </a>
+                                    </h5>
                                     <div class="prodcut-price d-flex align-items-end position-relative text-lh-1 mb-5">
-                                        <ins class="font-size-34 text-red text-decoration-none">$79.00</ins>
-                                        <del class="font-size-18 tex-gray-6 mb-1 ml-2">$99.00</del>
+                                        <ins class="font-size-34 text-red text-decoration-none">59.00</ins>
+                                        <del class="font-size-18 tex-gray-6 mb-1 ml-2">6.00</del>
                                     </div>
                                     <div class="js-countdown d-flex mx-n2 justify-content-center justify-content-md-start mb-5"
-                                         data-end-date="2020/11/30"
+                                         data-end-date="2022/02/03"
                                          data-hours-format="%H"
                                          data-minutes-format="%M"
                                          data-seconds-format="%S">
@@ -49,7 +53,7 @@
                                                 <div class="text-gray-2 font-size-34 mb-2">
                                                     <span class="js-cd-hours"></span>
                                                 </div>
-                                                <div class="text-gray-2 font-size-12 text-center">HOURS</div>
+                                                <div class="text-gray-2 font-size-12 text-center">SAAT</div>
                                             </div>
                                         </div>
                                         <div class="text-lh-1 px-2 text-center">
@@ -57,7 +61,7 @@
                                                 <div class="text-gray-2 font-size-34 mb-2">
                                                     <span class="js-cd-minutes"></span>
                                                 </div>
-                                                <div class="text-gray-2 font-size-12 text-center">MINS</div>
+                                                <div class="text-gray-2 font-size-12 text-center">DAKİKA</div>
                                             </div>
                                         </div>
                                         <div class="text-lh-1 px-2 text-center">
@@ -65,7 +69,7 @@
                                                 <div class="text-gray-2 font-size-34 mb-2">
                                                     <span class="js-cd-seconds"></span>
                                                 </div>
-                                                <div class="text-gray-2 font-size-12 text-center">SECS</div>
+                                                <div class="text-gray-2 font-size-12 text-center">SANİYE</div>
                                             </div>
                                         </div>
                                     </div>
@@ -96,7 +100,7 @@
                  data-nav-for="#thumbProgress">
                 <div class="js-slide">
                     <a class="js-slick-thumb-progress" href="javascript:;">
-                        SO MUCH TO WATCH IN 4K TVS
+                        KIBLEGAH KAMPANYA
                     </a>
                 </div>
 

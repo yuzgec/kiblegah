@@ -86,8 +86,8 @@
                             </ul>
                         </div>
                         <p><strong>SKU</strong>: {{ $Detay->sku }}</p>
-
-
+                        <p><i class="fa fa-eye"></i> Bu ürüne bugun <b>(109)</b> kişi baktı<br>
+                        <i class="ec ec-transport mr-1"></i> Aynı gün kargoda</p>
                     </div>
                 </div>
                 <div class="mx-md-auto mx-lg-0 col-md-6 col-lg-4 col-xl-3">
@@ -96,7 +96,7 @@
                             <div class="text-gray-9 font-size-14 pb-2 border-color-1 border-bottom mb-3">
                                 Stok Durmu: <span class="text-green font-weight-bold">Stokta Mevcut</span></div>
                             <div class="mb-3">
-                                <div class="font-size-36">{{ money($Detay->price) }} - <del class="font-size-20">{{ money($Detay->old_price) }}</del></div>
+                                <div class="font-size-36 font-weight-bold">{{ money($Detay->price) }}₺ - <del class="font-size-20">{{ money($Detay->old_price) }}₺</del></div>
                             </div>
                             <div class="mb-3">
                                 <h6 class="font-size-14">Adet</h6>

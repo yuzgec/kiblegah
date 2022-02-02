@@ -1,6 +1,5 @@
 <header id="header" class="u-header u-header-left-aligned-nav">
     <div class="u-header__section">
-
         <div class="u-header-topbar py-2 d-none d-xl-block">
             <div class="container">
                 <div class="d-flex align-items-center">
@@ -10,24 +9,27 @@
                     <div class="topbar-right ml-auto">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
+                                <a href="#" class="u-header-topbar__nav-link"><i class="ec ec-home mr-1"></i> Hakkımızda</a>
+                            </li>
+                            <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
                                 <a href="#" class="u-header-topbar__nav-link"><i class="ec ec-phone mr-1"></i>
                                     {{ config('settings.telefon1') }}</a>
                             </li>
                             <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
-                                <a href="#" class="u-header-topbar__nav-link"><i class="ec ec-map-pointer mr-1"></i> Hakkımızda</a>
+                                <a href="{{ route('kargosorgulama') }}" class="u-header-topbar__nav-link">
+                                    <i class="ec ec-map-pointer mr-1"></i> İletişim
+                                </a>
                             </li>
                             <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
                                 <a href="{{ route('kargosorgulama') }}" class="u-header-topbar__nav-link">
                                     <i class="ec ec-transport mr-1"></i> Kargo Sorgulama
                                 </a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="py-2 py-xl-3 bg-primary-down-lg">
             <div class="container my-0dot5 my-xl-0">
                 <div class="row align-items-center">
@@ -36,8 +38,9 @@
                             <a class="order-1 order-xl-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-center" href="{{ route('home') }}" aria-label="{{ config('app.name') }}">
                                 <img src="https://kiblegahaileoyunlari.com.tr/assets/images/logo1.png" alt="{{ config('app.name') }}" class="img-fluid" width="300px">
                             </a>
-
-                            <button id="sidebarHeaderInvokerMenu" type="button" class="navbar-toggler d-block btn u-hamburger mr-3 mr-xl-0 d-xl-none "
+                            <button id="sidebarHeaderInvokerMenu"
+                                    type="button"
+                                    class="navbar-toggler d-block btn u-hamburger mr-3 mr-xl-0 d-xl-none "
                                     aria-controls="sidebarHeader"
                                     aria-haspopup="true"
                                     aria-expanded="false"
@@ -115,7 +118,6 @@
                                        data-unfold-animation-out="fadeOut">
                                         <span class="ec ec-search"></span>
                                     </a>
-
                                     <div id="searchClassic" class="dropdown-menu dropdown-unfold dropdown-menu-right left-0 mx-2" aria-labelledby="searchClassicInvoker">
                                         <form class="js-focus-state input-group px-3">
                                             <input class="form-control" type="search" placeholder="Ürün adı ve Ürün Kodu Giriniz">
@@ -124,9 +126,7 @@
                                             </div>
                                         </form>
                                     </div>
-
                                 </li>
-
                                 <li class="col d-none d-xl-block"><a href="{{ route('sepet') }}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Favori"><i class="font-size-22 ec ec-favorites"></i></a></li>
                                 <li class="col px-2 px-sm-3"><a href="{{ route('login') }}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Hesabım"><i class="font-size-22 ec ec-user"></i></a></li>
                                 @livewire('front.header-count')
@@ -141,12 +141,9 @@
         <div class="d-none d-xl-block bg-primary">
             <div class="container">
                 <div class="min-height-45">
-
                     <nav class="js-mega-menu navbar navbar-expand-md u-header__navbar u-header__navbar--wide u-header__navbar--no-space">
-
                         <div id="navBar" class="collapse navbar-collapse u-header__navbar-collapse">
-                            <ul class="navbar-nav u-header__navbar-nav">
-
+                            <ul class="navbar-nav u-header__navbar-nav ">
                                 <li class="nav-item hs-has-mega-menu u-header__nav-item"
                                     data-event="hover"
                                     data-animation-in="slideInUp"
@@ -154,7 +151,8 @@
                                     data-position="left">
                                     <a class="nav-link u-header__nav-link u-header__nav-link-toggle"
                                        href="{{ route('home')}}"
-                                       aria-haspopup="true" aria-expanded="false">Anasayfa</a>
+                                       aria-haspopup="true" aria-expanded="false">Anasayfa
+                                    </a>
                                 </li>
                                 @foreach($Product_Categories as $item)
                                 <li class="nav-item hs-has-mega-menu u-header__nav-item"

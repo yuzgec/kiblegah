@@ -2,12 +2,9 @@
 
 namespace App\Providers;
 
-use App\Models\Blog;
 use App\Models\Page;
 use App\Models\PageCategory;
 use App\Models\ProductCategory;
-use App\Models\Service;
-use App\Models\ServiceCategory;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
