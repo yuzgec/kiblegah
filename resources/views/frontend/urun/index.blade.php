@@ -42,7 +42,7 @@
                          data-is-thumbs="true"
                          data-nav-for="#sliderSyncingNav">
                         <div class="js-slide" style="cursor: pointer;">
-                            <img src="{{ (!$Detay->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $Detay->getFirstMediaUrl('page')}}"  class="img-fluid" alt="{{ $Detay->title }}">
+                            <img src="{{ (!$Detay->getFirstMediaUrl('page', 'small')) ? '/backend/resimyok.jpg': $Detay->getFirstMediaUrl('page','small')}}"  class="img-fluid" alt="{{ $Detay->title }}">
                         </div>
                         @foreach($Detay->getMedia('gallery') as $item)
                             <div class="js-slide" style="cursor: pointer;">

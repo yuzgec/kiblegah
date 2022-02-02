@@ -27,6 +27,10 @@ class Product extends Model implements HasMedia
         return $this->belongsTo(ProductCategoryPivot::class, 'id', 'product_id');
     }
 
+    public function getComment(){
+        return $this->belongsTo(Comment::class, 'id', 'product_id');
+    }
+
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')
