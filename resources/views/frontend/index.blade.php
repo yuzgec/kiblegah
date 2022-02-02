@@ -4,7 +4,7 @@
     <div class="container">
         <div class="mb-5">
             <div class="row">
-                <div class="col-12 col-md-3">
+                <div class="col-md-auto mb-6 mb-md-0">
                     <div class="p-3 border border-width-2 border-primary borders-radius-20 bg-white min-width-370">
                         <div class="d-flex justify-content-between align-items-center m-1 ml-2">
                             <h3 class="font-size-22 mb-0 font-weight-normal text-lh-28 max-width-120">ÖZEL KAMPANYA</h3>
@@ -112,10 +112,13 @@
                     </div>
                 </div>
                     <div class="col">
-                        <ul class="row list-unstyled products-group no-gutters">
-
-                            <x-product-list paginate="8"></x-product-list>
-                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab">
+                                <ul class="row list-unstyled products-group no-gutters">
+                                    <x-product-list paginate="8"></x-product-list>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
