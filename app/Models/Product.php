@@ -10,12 +10,14 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
 
-class Product extends Model implements HasMedia
+class Product extends Model implements HasMedia,Viewable
 {
-    use HasFactory,SoftDeletes,InteractsWithMedia,LogsActivity;
+    use HasFactory,SoftDeletes,InteractsWithMedia,LogsActivity,InteractsWithViews;
 
-    protected  $guarded = [];
+    protected $guarded = [];
     protected $table = 'products';
 
     public function getActivitylogOptions(): LogOptions

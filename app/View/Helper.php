@@ -6,8 +6,12 @@
     define('SWEETALERT_MESSAGE_UPDATE', 'Güncellendi');
     define('SWEETALERT_MESSAGE_DELETE', 'Silindi');
 
-    //KULLANICI ADI BAŞ HARFLERİNİ GÖSTERME
+    //Sayfa Sayacı Cache Tutma Zamanı
+    function counttime(){
+        now()->addHours(3);
+    }
 
+    //KULLANICI ADI BAŞ HARFLERİNİ GÖSTERME
     function isim($isim){
         $parcala = explode(" ", $isim);
         $ilk = substr(current($parcala), 0,1);

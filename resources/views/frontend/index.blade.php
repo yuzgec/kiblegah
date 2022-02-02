@@ -1,5 +1,7 @@
 @extends('frontend.layout.app')
 @section('content')
+    @include('backend.layout.alert')
+
     @include('frontend.layout.slider')
     <div class="container">
         <div class="mb-5">
@@ -128,7 +130,7 @@
         <div class="mb-4">
             <div class=" d-flex justify-content-between border-bottom border-color-1 flex-lg-nowrap flex-wrap border-md-down-top-0 border-md-down-bottom-0">
                 <h3 class="section-title section-title__full mb-0 pb-2 font-size-22"><b>EN ÇOK</b> SATILAN ÜRÜNLER</h3>
-                <a class="d-block text-gray-16" href="../shop/product-categories-7-column-full-width.html">Hepsini Gör <i class="ec ec-arrow-right-categproes"></i></a>
+                <a class="d-block text-gray-16" href="{{ route('home') }}">Hepsini Gör <i class="ec ec-arrow-right-categproes"></i></a>
             </div>
             <div class="js-slick-carousel u-slick overflow-hidden u-slick-overflow-visble pt-3 pb-6 px-1"
                  data-pagi-classes="text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-4"
@@ -160,7 +162,7 @@
                                     "slidesToShow": 2
                                   }
                                 }]'>
-                @foreach($Products->shuffle(8) as $item)
+                @foreach($Products->take(8) as $item)
                 <div class="js-slide products-group">
                     <div class="product-item__outer h-100">
                         <div class="product-item__inner px-xl-4 p-3">
@@ -258,7 +260,7 @@
                                                     "slidesToShow": 2
                                                   }
                                                 }]'>
-                                @foreach($Products->shuffle(10, 20) as $item)
+                                @foreach($Products->take(10, 20) as $item)
                                     <div class="js-slide products-group">
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner px-xl-4 p-3">

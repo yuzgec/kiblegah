@@ -7,6 +7,8 @@ use App\Models\MailSubcribes;
 use App\Models\Page;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use Carbon\Carbon;
+use CyrildeWit\EloquentViewable\Support\Period;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
@@ -44,7 +46,12 @@ class HomeController extends Controller
 
     public function urun($url){
         $Detay = Product::where('slug', $url)->firstOrFail();
-        return view('frontend.urun.index', compact('Detay'));
+        views($Detay)
+            ->cooldown(60)
+            ->record();
+
+        $Count = views($Detay)->period(Period::upto('2022-02-02'))->remember(600)->unique()->count();
+        return view('frontend.urun.index', compact('Detay','Count'));
     }
 
     public function kargosorgulama(){

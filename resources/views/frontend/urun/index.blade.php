@@ -129,7 +129,7 @@
                             <div class="mb-3">
                                 <a href="#" class="btn btn-block btn-green"><i class="fab fa-whatsapp"></i> Whatsapp Sipariş</a>
                             </div>
-                            <p><i class="fa fa-eye"></i> Bu ürüne bugun <b>(109)</b> kişi baktı<br>
+                            <p><i class="fa fa-eye"></i> Bu ürüne bugun <b>({{$Count}})</b> kişi baktı<br>
                                 <i class="ec ec-transport mr-1"></i> Aynı gün kargoda
                             </p>
                         </div>

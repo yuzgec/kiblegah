@@ -27,9 +27,9 @@
                                 <h3 class="section-title mb-0 pb-2 font-size-22">Haftanın <b>İndirimli</b> Ürünleri</h3>
                             </div>
                             <div class="mb-3 mb-md-2 text-center text-md-left">
-                                <h6 class="text-gray-2 mb-2">Sepetiniz 50₺ geçtiği için aşağıdaki ürünleri %70 indirim ile alabilirsiniz</h6>
+                                <h6 class="text-gray-2 mb-2">Sepetiniz 50₺ geçtiği için aşağıdaki ürünleri %70'e varan indirim ile alabilirsiniz</h6>
                                 <div class="js-countdown d-flex mx-n2 justify-content-center justify-content-md-start"
-                                     data-end-date="2022/02/02"
+                                     data-end-date="2022/02/03"
                                      data-hours-format="%H"
                                      data-minutes-format="%M"
                                      data-seconds-format="%S">
@@ -148,20 +148,20 @@
                     </thead>
                     <tbody>
                     @foreach(Cart::content() as $cart)
-                    <tr class="mb-1" style="border:1px solid green;border-radius:5px">
+                    <tr class="mb-1" style="border:1px solid gray;border-radius:5px">
                         <td class="text-center">
                             <form action="{{ route('sepetcikar', $cart->rowId) }}" method="POST">
                                 @csrf()
-                                <button type="submit" class="badge badge-danger text-white-size-16">Sepetten Çıkar</button>
+                                <button type="submit" class="btn btn-danger text-white-size-16">Sepetten Çıkar</button>
                             </form>
                         </td>
                         <td class="d-none d-md-table-cell">
-                            <a href="#">
+                            <a href="{{ route('urun', seo($cart->name)) }}">
                                 <img class="img-fluid max-width-100 p-1 border border-color-1" src="{{ $cart->options->image }}" alt="{{ $cart->name }}">
                             </a>
                         </td>
                         <td data-title="Ürün Adı">
-                            <a href="#" class="text-gray-90">{{ $cart->name }}</a>
+                            <a href="{{ route('urun', seo($cart->name)) }}"" class="text-gray-90">{{ $cart->name }}</a>
                         </td>
                         <td data-title="Fiyat">
                             <span class="">{{ money($cart->price)}}₺</span>
@@ -226,27 +226,27 @@
             <div class="row">
                 <div class="col-xl-5 col-lg-6 offset-lg-6 offset-xl-7 col-md-8 offset-md-4">
                     <div class="border-bottom border-color-1 mb-3">
-                        <h3 class="d-inline-block section-title mb-0 pb-2 font-size-26">Cart totals</h3>
+                        <h3 class="d-inline-block section-title mb-0 pb-2 font-size-26">Sipariş Toplam</h3>
                     </div>
                     <table class="table mb-3 mb-md-0">
                         <tbody>
                         <tr class="cart-subtotal">
-                            <th>Subtotal</th>
-                            <td data-title="Subtotal"><span class="amount">$1,785.00</span></td>
+                            <th>Ara Toplam</th>
+                            <td data-title="Ara Toplam"><span class="amount">{{ money(Cart::subtotal()) }}</span></td>
                         </tr>
                         <tr class="shipping">
-                            <th>Shipping</th>
-                            <td data-title="Shipping">
-                                Flat Rate: <span class="amount">$300.00</span>
+                            <th>Kargo</th>
+                            <td data-title="Kargo">
+                                <span class="amount">$300.00</span>
                             </td>
                         </tr>
                         <tr class="order-total">
-                            <th>Total</th>
-                            <td data-title="Total"><strong><span class="amount">$2,085.00</span></strong></td>
+                            <th>Toplam</th>
+                            <td data-title="Toplam"><strong><span class="amount">{{money(Cart::total())}}</span></strong></td>
                         </tr>
                         </tbody>
                     </table>
-                    <button type="button" class="btn btn-primary-dark-w ml-md-2 px-5 px-md-4 px-lg-5 w-100 w-md-auto d-md-none">Proceed to checkout</button>
+                    <a href="{{ route('siparis') }}"  type="button" class="btn btn-primary-dark-w ml-md-2 px-5 px-md-4 px-lg-5 w-100 w-md-auto d-md-none">Siparişi Tamamla</a>
                 </div>
             </div>
         </div>
