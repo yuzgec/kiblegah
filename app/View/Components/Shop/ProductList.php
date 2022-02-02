@@ -7,12 +7,12 @@ use Illuminate\View\Component;
 
 class ProductList extends Component
 {
-    public $size = null;
-    public $paginate = null;
-    public $limit = null;
+    public $size;
+    public $paginate;
+    public $limit;
 
 
-    public function __construct($size,$paginate,$limit )
+    public function __construct($size = null,$paginate = null,$limit = null )
     {
         $this->size = $size;
         $this->paginate = $paginate;
