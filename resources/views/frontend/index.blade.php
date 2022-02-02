@@ -115,7 +115,7 @@
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab">
                                 <ul class="row list-unstyled products-group no-gutters">
-                                    <x-product-list paginate="8"></x-product-list>
+                                    <x-product-list limit="8"></x-product-list>
                                 </ul>
                             </div>
                         </div>
