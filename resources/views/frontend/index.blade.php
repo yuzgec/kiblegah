@@ -114,7 +114,7 @@
                     <div class="col">
                         <ul class="row list-unstyled products-group no-gutters">
 
-                            <x-product-list paginate="8"/>
+                            <x-product-list paginate="8"></x-product-list>
                         </ul>
                     </div>
                 </div>

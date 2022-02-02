@@ -21,7 +21,7 @@ class ProductList extends Component
 
     public function render()
     {
-        $Product = Product::with('getCategory')->paginate($this->paginate);
+        $Product = Product::with('getCategory')->limit($this->limit)->paginate($this->paginate);
         return view('components.shop.product-list', compact('Product'));
     }
 }
