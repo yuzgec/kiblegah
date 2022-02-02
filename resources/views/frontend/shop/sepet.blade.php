@@ -157,7 +157,7 @@
                         </td>
                         <td class="d-none d-md-table-cell">
                             <a href="#">
-                                <img class="img-fluid max-width-100 p-1 border border-color-1" src="/frontend/assets/img/300X300/img6.jpg" alt="Image Description">
+                                <img class="img-fluid max-width-100 p-1 border border-color-1" src="{{ $cart->options->image }}" alt="{{ $cart->name }}">
                             </a>
                         </td>
                         <td data-title="Ürün Adı">
@@ -196,7 +196,6 @@
                             <div class="pt-md-3">
                                 <div class="d-block d-md-flex flex-center-between">
                                     <div class="mb-3 mb-md-0 w-xl-40">
-                                        <!-- Apply coupon Form -->
                                         <form class="js-focus-state">
                                             <label class="sr-only" for="subscribeSrEmailExample1">Kupon Kodu</label>
                                             <div class="input-group">

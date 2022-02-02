@@ -16,20 +16,10 @@ class Slider extends Model implements HasMedia
     protected $guarded = [];
     protected $table = 'slider';
 
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => ['title', 'id']
-            ]
-        ];
-    }
-
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')
-            ->width(400)
-            ->height(250)
+            ->width(500)
             ->nonOptimized();
     }
 }

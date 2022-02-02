@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GalleryCategory;
+use App\Models\Basket;
+use App\Models\MailSubcribes;
 use App\Models\Page;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use App\Models\Service;
-use App\Models\ServiceCategory;
-use App\Models\VideoCategory;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
@@ -18,6 +16,7 @@ class HomeController extends Controller
     public function index()
     {
         $Show = Page::findOrFail(1);
+        //dd(Cart::content());
         return view('frontend.index', compact('Show'));
     }
 
@@ -45,7 +44,6 @@ class HomeController extends Controller
 
     public function urun($url){
         $Detay = Product::where('slug', $url)->firstOrFail();
-        //dd($Detay->getMedia('gallery'));
         return view('frontend.urun.index', compact('Detay'));
     }
 
@@ -56,14 +54,19 @@ class HomeController extends Controller
     public function addtocart(Request $request){
 
         $p = Product::find($request->id);
+        Basket::create(['product_id' => $p->id]);
         Cart::add(
         [
             'id' => $p->id,
             'name' => $p->title,
             'price' => $p->price,
             'weight' => 0,
-            'image' => (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $p->getFirstMediaUrl('page', 'small'),
             'qty' => $request->qty,
+            'options' => [
+                'image' => (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
+                'cargo' => 0,
+                'campagin' => false,
+            ]
         ]);
 
         toast(SWEETALERT_MESSAGE_CREATE,'success');
@@ -85,5 +88,9 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
 
-
+    public function mailsubcribes(Request $request){
+        MailSubcribes::create(['email_address' => $request->email, 'ip_address' => $request->ip()]);
+        toast(SWEETALERT_MESSAGE_DELETE,'success');
+        return redirect()->route('home');
+    }
 }

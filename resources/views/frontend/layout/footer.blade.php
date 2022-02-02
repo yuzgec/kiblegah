@@ -16,13 +16,13 @@
                 </div>
                 <div class="col-lg-5">
 
-                    <form class="js-validate js-form-message">
-                        <label class="sr-only" for="subscribeSrEmail">Email Adresiniz</label>
+                    <form class="js-form-message" action="{{ route('mailsubcribes') }}" method="POST">
+                        @csrf
+                        <label class="sr-only" >Email Adresiniz</label>
                         <div class="input-group input-group-pill">
-                            <input type="email" class="form-control border-0 height-40" name="email" id="subscribeSrEmail" placeholder="Email Adresinizi Yazınız..." aria-label="Email address" aria-describedby="subscribeButton" required
-                                   data-msg="Please enter a valid email address.">
+                            <input type="email" class="form-control border-0 height-40" name="email" >
                             <div class="input-group-append">
-                                <button type="submit" class="btn btn-dark btn-sm-wide height-40 py-2" id="subscribeButton">Kayıt Ol</button>
+                                <button type="submit" class="btn btn-dark btn-sm-wide height-40 py-2">Kayıt Ol</button>
                             </div>
                         </div>
                     </form>
@@ -138,21 +138,7 @@
             <div class="flex-center-between d-block d-md-flex">
                 <div class="mb-3 mb-md-0">© <a href="#" class="font-weight-bold text-gray-90">{{ config('settings.siteName') }}</a> -Tüm Hakları Saklıdır</div>
                 <div class="text-md-right">
-                    <span class="d-inline-block bg-white border rounded p-1">
-                        <img class="max-width-5" src="/frontend/assets/img/100X60/img1.jpg" alt="Image Description">
-                    </span>
-                    <span class="d-inline-block bg-white border rounded p-1">
-                        <img class="max-width-5" src="/frontend/assets/img/100X60/img2.jpg" alt="Image Description">
-                    </span>
-                    <span class="d-inline-block bg-white border rounded p-1">
-                        <img class="max-width-5" src="/frontend/assets/img/100X60/img3.jpg" alt="Image Description">
-                    </span>
-                    <span class="d-inline-block bg-white border rounded p-1">
-                        <img class="max-width-5" src="/frontend/assets/img/100X60/img4.jpg" alt="Image Description">
-                    </span>
-                    <span class="d-inline-block bg-white border rounded p-1">
-                        <img class="max-width-5" src="/frontend/assets/img/100X60/img5.jpg" alt="Image Description">
-                    </span>
+
                 </div>
             </div>
         </div>

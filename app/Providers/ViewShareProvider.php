@@ -7,6 +7,7 @@ use App\Models\PageCategory;
 use App\Models\ProductCategory;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
@@ -35,7 +36,9 @@ class ViewShareProvider extends ServiceProvider
             $Pages = Page::all();
             $Page_Categories = PageCategory::all();
             $Product_Categories = Cache::remember('product_categories',now()->addMinutes(60), function () { return ProductCategory::where('status', 1)->get();});
-
+            //$Cart_Id= Cache::remember('cart_id',now()->addMinutes(120), function () { return '1111'.time(); });
+            $Cart_Id= setcookie('cart_id', '1111'.time() , time()*60, '/');
+            //dd($Cart_Id);
             View::share([
                 'Pages' => $Pages,
                 'Page_Categories' => $Page_Categories,
