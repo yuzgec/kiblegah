@@ -4,7 +4,7 @@
         <div class="product-item__inner px-xl-4 p-3">
             <div class="product-item__body pb-xl-2">
                 <h5 class="mb-1 product-item__title">
-                    <a href="{ route('urun', $item->slug) }}" class="text-blue font-weight-bold" title="{{ $item->title }}"> {{ $item->title }}</a>
+                    <a href="{{ route('urun', $item->slug) }}" class="text-blue font-weight-bold" title="{{ $item->title }}"> {{ $item->title }}</a>
                 </h5>
                 <div class="mb-2">
                     <a href="{{ route('urun', $item->slug) }}" class="d-block text-center" title="{{ $item->title }}">
