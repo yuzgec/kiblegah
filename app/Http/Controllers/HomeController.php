@@ -15,9 +15,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $Show = Page::findOrFail(1);
+        $Products = Product::all();
         //dd(Cart::content());
-        return view('frontend.index', compact('Show'));
+        return view('frontend.index', compact('Products'));
     }
 
     public function kategori($url){

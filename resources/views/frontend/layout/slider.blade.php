@@ -10,18 +10,18 @@
                         <div class="row height-410-xl mx-0 align-items-center">
                             <div class="col-md-4 mt-6 mt-md-0 mb-4 mb-md-0">
                                 <div class="ml-xl-8">
-                                    <h3 class="font-size-sl-48 font-weight-light mb-1 text-lh-1"
+                                    <h3 class="font-size-sl-30 font-weight-light mb-1 text-lh-1"
                                         data-scs-animation-delay="50"
-                                        data-scs-animation-in="fadeInUp">LIMITED
+                                        data-scs-animation-in="fadeInUp">ÖZEL KAMPANYA
                                     </h3>
-                                    <h1 class="font-size-sl-72 text-lh-1 font-weight-light mb-2 mb-lg-3 mb-wd-4"
+                                    <h1 class="font-size-sl-72 text-lh-1 font-weight-light mb-2 mb-lg-3 mb-wd-4 font-weight-bold"
                                         data-scs-animation-delay="100"
                                         data-scs-animation-in="fadeInUp">
-                                        WEEK DEAL</span>
+                                        YÜZÜK HEDİYE</span>
                                     </h1>
                                     <h6 class="font-size-xl-15 font-weight-bold mb-0"
                                         data-scs-animation-in="fadeInUp"
-                                        data-scs-animation-delay="200">HURRY UP BEFORE OFFER WILL END
+                                        data-scs-animation-delay="200">KIBLEGAH KAMPANYASI
                                     </h6>
                                 </div>
                             </div>
@@ -40,8 +40,8 @@
                                         </a>
                                     </h5>
                                     <div class="prodcut-price d-flex align-items-end position-relative text-lh-1 mb-5">
-                                        <ins class="font-size-34 text-red text-decoration-none">59.00</ins>
-                                        <del class="font-size-18 tex-gray-6 mb-1 ml-2">6.00</del>
+                                        <ins class="font-size-34 text-red text-decoration-none">59.90</ins>
+                                        <del class="font-size-18 tex-gray-6 mb-1 ml-2">69.00</del>
                                     </div>
                                     <div class="js-countdown d-flex mx-n2 justify-content-center justify-content-md-start mb-5"
                                          data-end-date="2022/02/03"
@@ -75,11 +75,11 @@
                                     </div>
                                     <div class="mb-3">
                                         <div class="d-flex justify-content-between align-items-center mb-2">
-                                            <span class="">Availavle: <strong>6</strong></span>
-                                            <span class="">Already Sold: <strong>28</strong></span>
+                                            <span class="">SATILAN: <strong>53</strong></span>
+                                            <span class="">STOK ADEDİ<strong>200</strong></span>
                                         </div>
                                         <div class="rounded-pill bg-gray-3 height-wd-14 height-xl-20 position-relative">
-                                            <span class="position-absolute left-0 top-0 bottom-0 rounded-pill w-30 bg-primary"></span>
+                                            <span class="position-absolute left-0 top-0 bottom-0 rounded-pill w-40 bg-primary"></span>
                                         </div>
                                     </div>
                                 </div>
