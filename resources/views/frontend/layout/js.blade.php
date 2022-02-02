@@ -75,8 +75,6 @@
         // initialization of forms
         $.HSCore.components.HSFocusState.init();
 
-
-
         // initialization of show animations
         $.HSCore.components.HSShowAnimation.init('.js-animation-link');
 

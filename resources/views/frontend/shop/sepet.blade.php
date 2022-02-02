@@ -1,6 +1,8 @@
 @extends('frontend.layout.app')
 @section('title', 'Sepetim | Kıblegah Aile Oyunları Online Satış Sitesi')
 @section('content')
+    @include('backend.layout.alert')
+
     <div class="bg-gray-13 bg-md-transparent">
         <div class="container">
             <div class="my-md-3">
@@ -91,6 +93,7 @@
                                         "slidesToShow": 2
                                       }
                                     }]'>
+                                @foreach(Cart::content() as $cart)
                                 <div class="js-slide products-group">
                                     <div class="product-item mx-1 remove-divider">
                                         <div class="product-item__outer h-100">
@@ -112,43 +115,17 @@
                                                 </div>
                                                 <div class="product-item__footer">
                                                     <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                        <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
+                                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13">
+                                                            <i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
+                                                        <a href="../shop/wishlist.html" class="text-gray-6 font-size-13">
+                                                            <i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="js-slide products-group">
-                                    <div class="product-item mx-1 remove-divider">
-                                        <div class="product-item__outer h-100">
-                                            <div class="product-item__inner bg-white px-wd-4 p-2 p-md-3">
-                                                <div class="product-item__body pb-xl-2">
-                                                    <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
-                                                    <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img1.jpg" alt="Image Description"></a>
-                                                    </div>
-                                                    <div class="flex-center-between mb-1">
-                                                        <div class="prodcut-price">
-                                                            <div class="text-gray-100">$685,00</div>
-                                                        </div>
-                                                        <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="product-item__footer">
-                                                    <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                        <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
 
                             </div>
                         </div>
@@ -157,9 +134,8 @@
             </div>
         </div>
 
-        <div class="mb-10 cart-table">
-            <form class="mb-4" action="#" method="post">
-                <table class="table" cellspacing="0">
+            <div class="mb-10 cart-table">
+                 <table class="table" cellspacing="0">
                     <thead>
                     <tr>
                         <th class="product-remove">&nbsp;</th>
@@ -171,9 +147,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="" style="border:1px solid green;border-radius:5px">
+                    @foreach(Cart::content() as $cart)
+                    <tr class="mb-1" style="border:1px solid green;border-radius:5px">
                         <td class="text-center">
-                            <a href="#" class="badge badge-danger text-white-size-16">Sepetten Çıkar</a>
+                            <form action="{{ route('sepetcikar', $cart->rowId) }}" method="POST">
+                                @csrf()
+                                <button type="submit" class="badge badge-danger text-white-size-16">Sepetten Çıkar</button>
+                            </form>
                         </td>
                         <td class="d-none d-md-table-cell">
                             <a href="#">
@@ -181,10 +161,10 @@
                             </a>
                         </td>
                         <td data-title="Ürün Adı">
-                            <a href="#" class="text-gray-90">Ultra Wireless S50 Headphones S50 with Bluetooth</a>
+                            <a href="#" class="text-gray-90">{{ $cart->name }}</a>
                         </td>
                         <td data-title="Fiyat">
-                            <span class="">Toplam</span>
+                            <span class="">{{ money($cart->price)}}₺</span>
                         </td>
 
                         <td data-title="Adet">
@@ -192,7 +172,7 @@
                             <div class="border rounded-pill py-1 width-122 w-xl-80 px-3 border-color-1">
                                 <div class="js-quantity row align-items-center">
                                     <div class="col">
-                                        <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="text" value="1">
+                                        <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="text" value="{{ $cart->qty }}">
                                     </div>
                                     <div class="col-auto pr-1">
                                         <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
@@ -207,10 +187,10 @@
                         </td>
 
                         <td data-title="Total">
-                            <span class="">$1,100.00</span>
+                            <span class="">{{ money($cart->price * $cart->qty) }}₺</span>
                         </td>
                     </tr>
-
+                    @endforeach
                     <tr>
                         <td colspan="6" class="border-top space-top-2 justify-content-center">
                             <div class="pt-md-3">
@@ -228,7 +208,12 @@
                                         </form>
                                     </div>
                                     <div class="d-md-flex">
-                                        <button type="button" class="btn btn-soft-secondary mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto">Sepeti Boşalt</button>
+                                        <form action="{{ route('sepetbosalt') }}" method="POST">
+                                            @csrf()
+                                            <button type="submit" class="btn btn-soft-secondary mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto">
+                                                Sepeti Boşalt
+                                            </button>
+                                        </form>
                                         <a href="{{ route('siparis') }}" class="btn btn-primary-dark-w ml-md-2 px-5 px-md-4 px-lg-5 w-100 w-md-auto d-none d-md-inline-block">Siparişi Tamamla</a>
                                     </div>
                                 </div>
@@ -237,7 +222,6 @@
                     </tr>
                     </tbody>
                 </table>
-            </form>
         </div>
         <div class="mb-8 cart-total">
             <div class="row">

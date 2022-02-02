@@ -17,6 +17,9 @@ use Spatie\Sitemap\SitemapGenerator;
     Route::get('/siparis', 'HomeController@siparis')->name('siparis');
     Route::get('/urun/{url}', 'HomeController@urun')->name('urun');
     Route::get('/iletisim', 'HomeController@iletisim')->name('iletisim');
+    Route::post('/sepete-ekle', 'HomeController@addtocart')->name('sepeteekle');
+    Route::post('/sepet-cikar/{rowId}', 'HomeController@cartdelete')->name('sepetcikar');
+    Route::post('/sepet-bosalt}', 'HomeController@cartdestroy')->name('sepetbosalt');
 
     Route::group(["prefix"=>"go", 'middleware' => ['auth']],function() {
         Route::get('/', 'DashboardController@index')->name('go');

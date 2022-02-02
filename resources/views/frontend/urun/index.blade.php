@@ -1,6 +1,7 @@
 @extends('frontend.layout.app')
 @section('title2', $Detay->title. '| Kıblegah Aile Oyunları Online Satış Sitesi')
 @section('content')
+    @include('backend.layout.alert')
     <div class="bg-gray-13 bg-md-transparent">
         <div class="container">
 
@@ -70,10 +71,8 @@
                             </div>
                             <div class="d-md-flex align-items-center">
                                 <a href="#" class="max-width-150 ml-n2 mb-2 mb-md-0 d-block">
-                                    <img class="img-fluid" src="https://kiblegahaileoyunlari.com.tr/assets/images/logo1.png" alt="{{ $Detay->title }}"></a>
-                                <div class="ml-md-3 text-gray-9 font-size-14">Stok Durumu:
-                                    <span class="text-green font-weight-bold">Stokta Mevcut</span>
-                                </div>
+                                    <img class="img-fluid" src="https://kiblegahaileoyunlari.com.tr/assets/images/logo1.png" alt="{{ $Detay->title }}">
+                                </a>
                             </div>
                         </div>
                         <div class="flex-horizontal-center flex-wrap mb-4">
@@ -86,8 +85,7 @@
                             </ul>
                         </div>
                         <p><strong>SKU</strong>: {{ $Detay->sku }}</p>
-                        <p><i class="fa fa-eye"></i> Bu ürüne bugun <b>(109)</b> kişi baktı<br>
-                        <i class="ec ec-transport mr-1"></i> Aynı gün kargoda</p>
+
                     </div>
                 </div>
                 <div class="mx-md-auto mx-lg-0 col-md-6 col-lg-4 col-xl-3">
@@ -98,13 +96,14 @@
                             <div class="mb-3">
                                 <div class="font-size-36 font-weight-bold">{{ money($Detay->price) }}₺ - <del class="font-size-20">{{ money($Detay->old_price) }}₺</del></div>
                             </div>
+                            <form action="{{ route('sepeteekle') }}" method="POST">
                             <div class="mb-3">
                                 <h6 class="font-size-14">Adet</h6>
                                 <!-- Quantity -->
                                 <div class="border rounded-pill py-1 w-md-60 height-35 px-3 border-color-1">
                                     <div class="js-quantity row align-items-center">
                                         <div class="col">
-                                            <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="text" value="1">
+                                            <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" name="qty" type="text" value="1">
                                         </div>
                                         <div class="col-auto pr-1">
                                             <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
@@ -118,12 +117,21 @@
                                 </div>
                             </div>
                             <div class="mb-2 pb-0dot5">
-                                <a href="#" class="btn btn-block btn-primary-dark"><i class="ec ec-add-to-cart mr-2 font-size-20"></i> Sepete Ekle</a>
+
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $Detay->id }}">
+                                    <button type="submit" class="btn btn-block btn-primary-dark">
+                                        <i class="ec ec-add-to-cart mr-2 font-size-20"></i> Sepete Ekle
+                                    </button>
+
                             </div>
+                            </form>
                             <div class="mb-3">
                                 <a href="#" class="btn btn-block btn-green"><i class="fab fa-whatsapp"></i> Whatsapp Sipariş</a>
                             </div>
-
+                            <p><i class="fa fa-eye"></i> Bu ürüne bugun <b>(109)</b> kişi baktı<br>
+                                <i class="ec ec-transport mr-1"></i> Aynı gün kargoda
+                            </p>
                         </div>
                     </div>
                 </div>

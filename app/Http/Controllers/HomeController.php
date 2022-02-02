@@ -9,6 +9,7 @@ use App\Models\ProductCategory;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Models\VideoCategory;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,10 +28,14 @@ class HomeController extends Controller
     }
 
     public function iletisim(){
-        return view('frontend.iletisim');
+        return view('frontend.page.iletisim');
     }
 
     public function sepet(){
+
+        if (Cart::content()->count() <= 0){
+            return view('frontend.index');
+        }
         return view('frontend.shop.sepet');
     }
 
@@ -47,4 +52,38 @@ class HomeController extends Controller
     public function kargosorgulama(){
         return view('frontend.kargo.index');
     }
+
+    public function addtocart(Request $request){
+
+        $p = Product::find($request->id);
+        Cart::add(
+        [
+            'id' => $p->id,
+            'name' => $p->title,
+            'price' => $p->price,
+            'weight' => 0,
+            'image' => (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg': $p->getFirstMediaUrl('page', 'small'),
+            'qty' => $request->qty,
+        ]);
+
+        toast(SWEETALERT_MESSAGE_CREATE,'success');
+        return redirect()->route('sepet');
+    }
+
+    public function cartdelete($rowId){
+
+        Cart::remove($rowId);
+
+        toast(SWEETALERT_MESSAGE_DELETE,'success');
+        return redirect()->route('sepet');
+    }
+
+    public function cartdestroy(){
+        Cart::destroy();
+
+        toast(SWEETALERT_MESSAGE_DELETE,'success');
+        return redirect()->route('home');
+    }
+
+
 }

@@ -35,35 +35,31 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach(Cart::content() as $cart)
                                     <tr class="cart_item">
-                                        <td>Ultra Wireless S50 Headphones S50 with Bluetooth&nbsp;<strong class="product-quantity">× 1</strong></td>
-                                        <td>$1,100.00</td>
+                                        <td>{{ $cart->name }} <strong class="product-quantity">× {{ $cart->qty }}</strong></td>
+                                        <td>{{ money($cart->qty *  $cart->price)  }}₺</td>
                                     </tr>
-                                    <tr class="cart_item">
-                                        <td>Widescreen NX Mini F1 SMART NX&nbsp;<strong class="product-quantity">× 1</strong></td>
-                                        <td>$685.00</td>
-                                    </tr>
+                                    @endforeach
                                     </tbody>
                                     <tfoot>
                                     <tr>
                                         <th>Ara Toplam</th>
-                                        <td>$1,785.00</td>
+                                        <td>{{money(Cart::subtotal())}}₺</td>
                                     </tr>
                                     <tr>
                                         <th>Kargo</th>
-                                        <td>Flat rate $300.00</td>
+                                        <td>Ücretsiz Kargo</td>
                                     </tr>
                                     <tr>
                                         <th>Toplam</th>
-                                        <td><strong>$2,085.00</strong></td>
+                                        <td><strong>{{money(Cart::total())}}₺</strong></td>
                                     </tr>
                                     </tfoot>
                                 </table>
-                                <!-- End Product Content -->
+
                                 <div class="border-top border-width-3 border-color-1 pt-3 mb-3">
-                                    <!-- Basics Accordion -->
                                     <div id="basicsAccordion1">
-                                        <!-- Card -->
                                         <div class="border-bottom border-color-1 border-dotted-bottom">
                                             <div class="p-3" id="basicsHeadingOne">
                                                 <div class="custom-control custom-radio">
@@ -102,7 +98,6 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary-dark-w btn-block btn-pill font-size-20 mb-3 py-3">Siparişi Tamamla</button>
                             </div>
-                            <!-- End Order Summary -->
                         </div>
                     </div>
                 </div>
@@ -152,9 +147,22 @@
                             <div class="col-md-6">
                                 <div class="js-form-message mb-6">
                                     <label class="form-label">
-                                        Telefon Numaranız
+                                        Telefon Numaranız   <span class="text-danger">*</span>
                                     </label>
                                     <input type="text" class="form-control" placeholder="Telefon Numaranız">
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="js-form-message mb-6">
+                                    <label class="form-label">
+                                       Açık Adresiniz   <span class="text-danger">*</span>
+                                    </label>
+
+                                    <div class="input-group">
+                                        <textarea class="form-control p-5" rows="4" name="text" placeholder="Açık Adresinizi Yazınız"></textarea>
+                                    </div>
                                 </div>
                             </div>
 

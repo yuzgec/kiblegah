@@ -34,7 +34,7 @@ class ViewShareProvider extends ServiceProvider
 
             $Pages = Page::all();
             $Page_Categories = PageCategory::all();
-            $Product_Categories = Cache::remember('product_categories',now()->addMinutes(60), function () { return ProductCategory::all();});
+            $Product_Categories = Cache::remember('product_categories',now()->addMinutes(60), function () { return ProductCategory::where('status', 1)->get();});
 
             View::share([
                 'Pages' => $Pages,
