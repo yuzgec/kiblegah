@@ -45,7 +45,7 @@
                                         <del class="font-size-30tex-gray-6 mb-1 ml-2">69.00₺</del>
                                     </div>
                                     <div class="js-countdown d-flex mx-n2 justify-content-center align-items-center mb-5"
-                                         data-end-date="2022/02/04"
+                                         data-end-date="{{ date('Y/m/d', strtotime("+1 day")) }}"
                                          data-hours-format="%H"
                                          data-minutes-format="%M"
                                          data-seconds-format="%S">
