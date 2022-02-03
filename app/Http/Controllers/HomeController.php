@@ -56,7 +56,7 @@ class HomeController extends Controller
         $Detay = Product::with('getCategory')->where('slug', $url)->firstOrFail();
         views($Detay)->cooldown(60)->record();
         $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
-        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->inRandomOrder()->get();
+        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->inRandomOrder()->paginate(10);
         return view('frontend.urun.index', compact('Detay','Count','Comments'));
     }
 
