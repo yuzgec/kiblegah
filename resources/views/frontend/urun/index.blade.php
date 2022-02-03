@@ -66,9 +66,9 @@
                                         <small class="fas fa-star"></small>
                                         <small class="far fa-star text-muted"></small>
                                     </div>
-                                    <span class="text-secondary font-size-12">(3) Müşteri Yorumları</span>
+                                    <span class="text-secondary font-size-12">({{ $Detay->getComment()->count() }}) Müşteri Yorumları</span>
 
-                                    <span class="text-black ml-3"><strong>SKU</strong>: {{ $Detay->sku }}</span>
+                                    <span class="text-gray-9 ml-3 font-size-12"><strong>SKU</strong>: {{ $Detay->sku }}</span>
 
                                 </a>
                             </div>
@@ -80,17 +80,16 @@
                                 {!! $Detay->short !!}
                             </ul>
                         </div>
+
+                        @foreach($Comments->take(1) as $comment)
                         <div class="pb-1">
-
                             <div class="card p-2 border-width-2 border-color-1 borders-radius-17">
-
-                                <span class="text-gray-90 mb-2">Fusce vitae nibh mi.Integer posuere, libero et ullamcor llamcorpe...</span>
+                                <span class="text-gray-90 mb-2">{{ $comment->comment }}</span>
                                 <div class="d-flex justify-content-between">
-                                    <strong>John Doe</strong>
-                                    <span class="font-size-13 text-gray-23">- April 3, 2019</span>
-
-                                    <div class="d-flex justify-content-between align-items-center text-secondary font-size-1 mb-2">
-                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
+                                    <strong>{{ isim($comment->name) }}</strong>
+                                    <span class="font-size-14 text-gray-10"><i class="far fa-clock"></i> {{ $comment->created_at->diffForHumans() }}</span>
+                                    <div class="d-flex justify-content-between align-items-center text-secondary font-size-12">
+                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 100px;">
                                             <small class="fas fa-star"></small>
                                             <small class="fas fa-star"></small>
                                             <small class="fas fa-star"></small>
@@ -98,43 +97,29 @@
                                             <small class="fas fa-star"></small>
                                         </div>
                                     </div>
-                                    <span class="font-size-13 text-gray-23">Devamını Oku</span>
-
                                 </div>
                             </div>
                         </div>
-                        <div class="pb-1">
+                        @endforeach
+                            <a class="btn btn-purple btn-block nav-link"
+                               id="Jpills-four-example1-tab"
+                               data-toggle="pill"
+                               href="#Jpills-four-example1"
+                               role="tab"
+                               aria-controls="Jpills-four-example1"
+                               aria-selected="false">
+                               Hepsini Gör
+                            </a>
 
-                            <div class="card p-2 border-width-2 border-color-1 borders-radius-17">
-
-                                <span class="text-gray-90 mb-2">Fusce vitae nibh mi.Integer posuere, libero et ullamcor llamcorpe...</span>
-                                <div class="d-flex justify-content-between">
-                                    <strong>John Doe</strong>
-                                    <span class="font-size-13 text-gray-23">- April 3, 2019</span>
-
-                                    <div class="d-flex justify-content-between align-items-center text-secondary font-size-1 mb-2">
-                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                        </div>
-                                    </div>
-                                    <span class="font-size-13 text-gray-23">Devamını Oku</span>
-
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="mx-md-auto mx-lg-0 col-md-6 col-lg-4 col-xl-3">
                     <div class="mb-2">
-                        <div class="card p-5 border-width-2 border-color-1 borders-radius-17">
+                        <div class="card p-4 border-width-2 border-color-1 borders-radius-17">
                             <div class="text-gray-9 font-size-14 pb-2 border-color-1 border-bottom mb-3">
                                 Stok Durmu: <span class="text-green font-weight-bold">Stokta Mevcut</span></div>
                             <div class="mb-3">
-                                <div class="font-size-36 font-weight-bold">{{ money($Detay->price) }}₺ - <del class="font-size-20">{{ money($Detay->old_price) }}₺</del></div>
+                                <div class="font-size-28 font-weight-bold">{{ money($Detay->price) }}₺ - <del class="font-size-20">{{ money($Detay->old_price) }}₺</del></div>
                             </div>
                             <form action="{{ route('sepeteekle') }}" method="POST">
                             @csrf
@@ -166,8 +151,10 @@
                             <div class="mb-3">
                                 <a href="#" class="btn btn-block btn-green"><i class="fab fa-whatsapp"></i> Whatsapp Sipariş</a>
                             </div>
-                            <p><i class="fa fa-eye"></i> Bu ürüne bugun <b>({{$Count}})</b> kişi baktı<br>
-                                <i class="ec ec-transport mr-1"></i> Aynı gün kargoda
+                            <p>
+                                <i class="fa fa-eye"></i> Bugün <b>({{$Count}})</b> kişi baktı<br>
+                                <i class="ec ec-transport mr-1"></i> Aynı gün kargoda<br>
+                                <i class="ec ec-payment mr-1"></i> Kapıda Güvenli Ödeme
                             </p>
 
                             @foreach(Cart::content() as $c)
@@ -188,10 +175,12 @@
                         <a class="nav-link active" id="Jpills-one-example1-tab" data-toggle="pill"
                            href="#Jpills-one-example1" role="tab" aria-controls="Jpills-one-example1" aria-selected="true">Açıklama</a>
                     </li>
+                    @if($Detay->featrues !=  null)
                     <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
                         <a class="nav-link" id="Jpills-two-example1-tab" data-toggle="pill"
                            href="#Jpills-two-example1" role="tab" aria-controls="Jpills-two-example1" aria-selected="false">Özellikleri</a>
                     </li>
+                    @endif
                     <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
                         <a class="nav-link" id="Jpills-four-example1-tab" data-toggle="pill"
                            href="#Jpills-four-example1" role="tab" aria-controls="Jpills-four-example1" aria-selected="false">Yorumlar</a>
@@ -204,45 +193,39 @@
                     <div class="tab-pane fade active show" id="Jpills-one-example1" role="tabpanel" aria-labelledby="Jpills-one-example1-tab">
                         {!! $Detay->desc !!}
                     </div>
+
                     <div class="tab-pane fade" id="Jpills-two-example1" role="tabpanel" aria-labelledby="Jpills-two-example1-tab">
                         <h3 class="font-size-24 mb-3">Özellikleri</h3>
                         {{ $Detay->featrues }}
-
                     </div>
+
                     <div class="tab-pane fade" id="Jpills-four-example1" role="tabpanel" aria-labelledby="Jpills-four-example1-tab">
                         <div class="row mb-8">
                             <div class="col-md-6">
-                                <div class="mb-3">
-                                    <h3 class="font-size-18 mb-6">Ürün için toplam <b>(3)</b> yorum vardır </h3>
-                                    <h2 class="font-size-30 font-weight-bold text-lh-1 mb-0">4.3</h2>
-                                    <div class="text-lh-1">overall</div>
+                                <div class="pb-4 mb-4">
+                                    @foreach($Comments as $comment)
+                                        <div class="pb-1">
+                                            <div class="card p-2 border-width-2 border-color-1 borders-radius-17">
+                                                <span class="text-gray-90 mb-2">{{ $comment->comment }}</span>
+                                                <div class="d-flex justify-content-between">
+                                                    <strong>{{ isim($comment->name) }}</strong>
+                                                    <span class="font-size-14 text-gray-10">- {{ $comment->created_at->diffForHumans() }}</span>
+                                                    <div class="d-flex justify-content-between align-items-center text-secondary font-size-1 mb-2">
+                                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 100px;">
+                                                            <small class="fas fa-star"></small>
+                                                            <small class="fas fa-star"></small>
+                                                            <small class="fas fa-star"></small>
+                                                            <small class="fas fa-star"></small>
+                                                            <small class="fas fa-star"></small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
-                                <ul class="list-unstyled">
-                                    <li class="py-1">
-                                        <a class="row align-items-center mx-gutters-2 font-size-1" href="javascript:;">
-                                            <div class="col-auto mb-2 mb-md-0">
-                                                <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto mb-2 mb-md-0">
-                                                <div class="progress ml-xl-5" style="height: 10px; width: 200px;">
-                                                    <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-auto text-right">
-                                                <span class="text-gray-90">205</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
                             </div>
                             <div class="col-md-6">
-                                <h3 class="font-size-18 mb-5">Yorum Ekle</h3>
                                 <form class="js-validate">
                                     <div class="row align-items-center mb-4">
                                         <div class="col-md-4 col-lg-3">
@@ -270,28 +253,14 @@
                                     </div>
                                     <div class="row">
                                         <div class="offset-md-4 offset-lg-3 col-auto">
-                                            <button type="submit" class="btn btn-primary-dark btn-wide transition-3d-hover">Yorumu Ekleyin</button>
+                                            <button type="submit" class="btn btn-primary-dark btn-wide transition-3d-hover" disabled>Yorumu Ekleyin</button>
+                                            <p class="font-size-12">*Yorum yazmak için ürünü satın almanız gerekmektedir.</p>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="border-bottom border-color-1 pb-4 mb-4">
-                            <div class="d-flex justify-content-between align-items-center text-secondary font-size-1 mb-2">
-                                <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
-                                    <small class="fas fa-star"></small>
-                                    <small class="fas fa-star"></small>
-                                    <small class="fas fa-star"></small>
-                                    <small class="fas fa-star"></small>
-                                    <small class="fas fa-star"></small>
-                                </div>
-                            </div>
-                            <p class="text-gray-90">Fusce vitae nibh mi. Integer posuere, libero et ullamcorper facilisis, enim eros tincidunt orci, eget vestibulum sapien nisi ut leo. Cras finibus vel est ut mollis. Donec luctus condimentum ante et euismod.</p>
-                            <div class="mb-2">
-                                <strong>John Doe</strong>
-                                <span class="font-size-13 text-gray-23">- April 3, 2019</span>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

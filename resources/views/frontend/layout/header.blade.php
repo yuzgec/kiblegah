@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="d-flex align-items-center">
                     <div class="topbar-left">
-                        <a href="#" class="text-gray-110 font-size-13 u-header-topbar__nav-link">Kıblegah Aile Oyunları Online Satış Sitesi</a>
+                        <a class="text-gray-110 font-size-14 u-header-topbar__nav-link"><b>Kıblegah Aile Oyunları</b> Online Satış Sitesi</a>
                     </div>
                     <div class="topbar-right ml-auto">
                         <ul class="list-inline mb-0">
@@ -18,11 +18,6 @@
                             <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
                                 <a href="{{ route('iletisim') }}" class="u-header-topbar__nav-link">
                                     <i class="ec ec-map-pointer mr-1"></i> İletişim
-                                </a>
-                            </li>
-                            <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
-                                <a href="{{ route('kargosorgulama') }}" class="u-header-topbar__nav-link">
-                                    <i class="ec ec-transport mr-1"></i> Kargo Sorgulama
                                 </a>
                             </li>
                         </ul>
@@ -59,7 +54,12 @@
                         @include('frontend.layout.mobile-menu')
                     </div>
 
-                    <div class="col d-none d-xl-block pt-4">
+                    <div class="col d-none d-xl-block">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <span class="mr-2">
+                                <i class="text-black ec ec-transport font-size-30"></i> Kargo Sorgulama
+                            </span>
+                        </div>
                         <form class="js-focus-state">
                             <label class="sr-only" for="searchproduct">Arama</label>
                             <div class="input-group">
@@ -85,7 +85,7 @@
                             </div>
                         </form>
 
-                        <div class="d-flex justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center mt-1">
                             <span class="mr-2">
                                 <i class="text-black ec ec-transport font-size-20"></i> Aynı Gün Kargo
                             </span>

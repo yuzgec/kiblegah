@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Basket;
+use App\Models\Comment;
 use App\Models\MailSubcribes;
 use App\Models\Page;
 use App\Models\Product;
@@ -23,7 +24,6 @@ class HomeController extends Controller
     }
 
     public function kategori($url){
-
         $Detay = ProductCategory::where('slug', $url)->first();
         return view('frontend.kategori.index', compact('Detay'));
     }
@@ -33,13 +33,10 @@ class HomeController extends Controller
     }
 
     public function sepet(){
-
         if (Cart::content()->count() === 0){
             return redirect()->route('home');
         }
-
         $Products = Product::select('id', 'title', 'price', 'old_price', 'slug')->get();
-
         return view('frontend.shop.sepet',compact('Products'));
     }
 
@@ -48,10 +45,12 @@ class HomeController extends Controller
     }
 
     public function urun($url){
-        $Detay = Product::where('slug', $url)->firstOrFail();
-        views($Detay)->cooldown(60)->record();
-        $Count = views($Detay)->period(Period::upto('2022-02-02'))->remember(600)->count();
-        return view('frontend.urun.index', compact('Detay','Count'));
+        $Detay = Product::with('getCategory')->where('slug', $url)->firstOrFail();
+        views($Detay)->record();
+        $Count = views($Detay)->period(Period::upto('2022-02-02'))->count();
+        $Comments = Comment::where('product_id', $Detay->id)->get();
+
+        return view('frontend.urun.index', compact('Detay','Count','Comments'));
     }
 
     public function kargosorgulama(){

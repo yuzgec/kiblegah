@@ -20,7 +20,87 @@
         <form action="" method="POST">
             @csrf()
             <div class="row">
-                <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
+                <div class="col-lg-7">
+                    <div class="pb-2 mb-2">
+                        <div class="border-bottom border-color-1 mb-5">
+                            <h3 class="section-title mb-0 pb-2 font-size-25">İletişim <b>Bilgileri</b></h3>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="js-form-message mb-3">
+                                    <label class="form-label">
+                                        Adınız
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control"
+                                           name="firstName" placeholder="Adınız"
+                                            autocomplete="off">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="js-form-message mb-3">
+                                    <label class="form-label">
+                                        Soyadınız
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control"
+                                           name="firstName" placeholder="Soyadınız"
+                                           autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-md-6">
+                                <div class="js-form-message mb-3">
+                                    <label class="form-label">
+                                        Email Adresiniz
+                                    </label>
+                                    <input type="email" class="form-control" name="emailAddress" placeholder="Email. Zorunlu Değildir">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="js-form-message mb-3">
+                                    <label class="form-label">
+                                        Telefon Numaranız   <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="Telefon Numaranız">
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="js-form-message mb-3">
+                                    <label class="form-label">
+                                       Açık Adresiniz   <span class="text-danger">*</span>
+                                    </label>
+
+                                    <div class="input-group">
+                                        <textarea class="form-control p-5" rows="4" name="text" placeholder="Açık Adresinizi Yazınız"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="w-100"></div>
+                            <div class="col-md-12">
+                                <div class="js-form-message mb-3">
+                                    <label class="form-label">
+                                        Sipariş Notu
+                                    </label>
+
+                                    <div class="input-group">
+                                        <textarea class="form-control p-5" rows="4" name="text" placeholder=" Varsa Sipariş ile ilgili notunuz"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-5 mb-7 mb-lg-0">
                     <div class="pl-lg-3 ">
                         <div class="bg-gray-1 rounded-lg">
                             <div class="p-4 mb-4 checkout-table">
@@ -36,10 +116,10 @@
                                     </thead>
                                     <tbody>
                                     @foreach(Cart::content() as $cart)
-                                    <tr class="cart_item">
-                                        <td>{{ $cart->name }} <strong class="product-quantity">× {{ $cart->qty }}</strong></td>
-                                        <td>{{ money($cart->qty *  $cart->price)  }}₺</td>
-                                    </tr>
+                                        <tr class="cart_item">
+                                            <td>{{ $cart->name }} <strong class="product-quantity">× {{ $cart->qty }}</strong></td>
+                                            <td>{{ money($cart->qty *  $cart->price)  }}₺</td>
+                                        </tr>
                                     @endforeach
                                     </tbody>
                                     <tfoot>
@@ -102,88 +182,6 @@
                     </div>
                 </div>
 
-                <div class="col-lg-7 order-lg-1">
-                    <div class="pb-7 mb-7">
-                        <div class="border-bottom border-color-1 mb-5">
-                            <h3 class="section-title mb-0 pb-2 font-size-25">İletişim Bilgileri</h3>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="js-form-message mb-6">
-                                    <label class="form-label">
-                                        Adınız
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control"
-                                           name="firstName" placeholder="Adınız"
-                                            autocomplete="off">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="js-form-message mb-6">
-                                    <label class="form-label">
-                                        Soyadınız
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control"
-                                           name="firstName" placeholder="Soyadınız"
-                                           autocomplete="off">
-                                </div>
-                            </div>
-
-                            <div class="w-100"></div>
-
-                            <div class="col-md-6">
-                                <div class="js-form-message mb-6">
-                                    <label class="form-label">
-                                        Email Adresiniz
-                                    </label>
-                                    <input type="email" class="form-control" name="emailAddress" placeholder="Email. Zorunlu Değildir">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="js-form-message mb-6">
-                                    <label class="form-label">
-                                        Telefon Numaranız   <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control" placeholder="Telefon Numaranız">
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-12">
-                                <div class="js-form-message mb-6">
-                                    <label class="form-label">
-                                       Açık Adresiniz   <span class="text-danger">*</span>
-                                    </label>
-
-                                    <div class="input-group">
-                                        <textarea class="form-control p-5" rows="4" name="text" placeholder="Açık Adresinizi Yazınız"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="w-100"></div>
-                            <div class="col-md-12">
-                                <div class="js-form-message mb-6">
-                                    <label class="form-label">
-                                        Sipariş Notu
-                                    </label>
-
-                                    <div class="input-group">
-                                        <textarea class="form-control p-5" rows="4" name="text" placeholder=" Varsa Sipariş ile ilgili notunuz"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
             </div>
         </form>
     </div>
