@@ -36,7 +36,7 @@
                                  data-scs-animation-delay="600">
                                 <div class="mr-xl-14">
                                     <h5 class="mb-3 text-center font-size-30 product-item__title text-lh-default">
-                                        <a href="#" class="text-gray-8 font-weight-bold">
+                                        <a href="#" class="text-gray-13 font-weight-bold">
                                             Özel Kampanya
                                         </a>
                                     </h5>
@@ -45,7 +45,7 @@
                                         <del class="font-size-30tex-gray-6 mb-1 ml-2">69.00₺</del>
                                     </div>
                                     <div class="js-countdown d-flex mx-n2 justify-content-center align-items-center mb-5"
-                                         data-end-date="{{\Carbon\Carbon::tomorrow()}}"
+                                         data-end-date="2022/02/04"
                                          data-hours-format="%H"
                                          data-minutes-format="%M"
                                          data-seconds-format="%S">
@@ -77,7 +77,7 @@
                                     <div class="mb-3">
                                         <div class="d-flex justify-content-between align-items-center mb-2">
                                             <span class="">SATILAN: <strong>53</strong></span>
-                                            <span class="">STOK ADEDİ: <strong>200</strong></span>
+                                            <span class="">STOK ADEDİ : <strong>200</strong></span>
                                         </div>
                                         <div class="rounded-pill bg-gray-3 height-wd-14 height-xl-20 position-relative">
                                             <span class="position-absolute left-0 top-0 bottom-0 rounded-pill w-40 bg-secondary"></span>
