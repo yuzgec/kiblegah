@@ -1,4 +1,4 @@
-<div class="col-md-auto mb-6 mb-md-0">
+<div class="col-md-auto mb-6 mb-md-0 ">
     <div class="p-3 border border-width-2 border-primary borders-radius-20 bg-white min-width-370">
         <div class="d-flex justify-content-between align-items-center m-1 ml-2">
             <h3 class="font-size-22 mb-0 font-weight-normal text-lh-28 max-width-120">ÖZEL KAMPANYA</h3>

@@ -18,7 +18,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $Products = Product::select('id', 'title', 'price', 'old_price', 'slug','bestselling')->get();
+        $Products = Product::select('id', 'title', 'price', 'old_price', 'slug','bestselling')->orderBy('rank')->get();
         //dd(Cart::content());
         return view('frontend.index', compact('Products'));
     }
@@ -30,6 +30,7 @@ class HomeController extends Controller
             ->where('product_category_pivots.category_id', '=', $Detay->id)
             ->where(['category_id' => $Detay->id])
             ->select('products.id','products.title','products.slug','products.price','products.old_price','products.slug','product_category_pivots.category_id', 'product_categories.parent_id')
+            ->inRandomOrder()
             ->paginate(9);
         //dd($Pro);
         return view('frontend.kategori.index', compact('Detay', 'ProductList'));

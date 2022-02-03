@@ -22,7 +22,7 @@
                     <ul id="sidebarNav" class="list-unstyled mb-0 sidebar-navbar view-all">
                         <li><div class="dropdown-title">ÜRÜN <b>KATEGORİLERİ</b></div></li>
                         @foreach($Product_Categories as $item)
-                            <a class="ml-2 p-2" href=""><i class="fa fa-angle-right"></i> {{ $item->title }}
+                            <a class="ml-2 p-2" href="{{ route('kategori', $item->slug)}}"><i class="fa fa-angle-right"></i> {{ $item->title }}
                                 <span class="text-gray-25 font-size-12 font-weight-normal"> ({{ $item->cat()->count() }})</span>
                             </a>
                         @endforeach
@@ -63,7 +63,6 @@
             <div class="col-xl-9 col-wd-9gdot5">
                 <div class="bg-gray-1 flex-center-between borders-radius-9 py-1">
                     <div class="d-xl-none">
-
                         <a id="sidebarNavToggler1" class="btn btn-sm py-1 font-weight-normal" href="javascript:;" role="button"
                            aria-controls="sidebarContent1"
                            aria-haspopup="true"
@@ -77,7 +76,6 @@
                            data-unfold-duration="500">
                             <i class="fas fa-sliders-h"></i> <span class="ml-1">Filtrele</span>
                         </a>
-
                     </div>
 
                     <div class="px-3 d-none d-xl-block">
@@ -111,18 +109,16 @@
                     </nav>
                 </div>
 
-
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab" data-target-group="groups">
                         <ul class="row list-unstyled products-group no-gutters">
-
                             @foreach($ProductList as $item)
                                 <li class="col-6 col-md-4 product-item">
                                     <div class="product-item__outer h-100">
                                         <div class="product-item__inner px-xl-4 p-3 border border-width-1 border-purple borders-radius-5"">
                                             <div class="product-item__body pb-xl-2">
                                                 <h5 class="mb-1 product-item__title">
-                                                    <a href="{{ route('urun', $item->slug) }}" class="text-blue font-weight-bold" title="{{ $item->title }}"> {{ $item->title }}</a>
+                                                    <a href="{{ route('urun', $item->slug) }}" class="text-gray-60 font-weight-bold" title="{{ $item->title }}"> {{ $item->title }}</a>
                                                 </h5>
                                                 <div class="mb-2">
                                                     <a href="{{ route('urun', $item->slug) }}" class="d-block text-center" title="{{ $item->title }}">
@@ -150,18 +146,14 @@
                                     </div>
                                 </li>
                             @endforeach
-
-
                         </ul>
                         <div class="d-flex justify-content-center align-items-center text-center">
                             {{ $ProductList->appends(['sirala' => 'urun'])->links() }}
                         </div>
                     </div>
                  </div>
-
             </div>
         </div>
-
     </div>
 
 
@@ -192,7 +184,10 @@
                                 <ul id="sidebarNav" class="list-unstyled mb-0 sidebar-navbar view-all">
                                     <li><div class="dropdown-title">ÜRÜN <b>KATEGORİLERİ</b></div></li>
                                     @foreach($Product_Categories as $item)
-                                        <a class="ml-2 p-2" href=""> {{ $item->title }}<span class="text-gray-25 font-size-12 font-weight-normal"> (56)</span></a>
+                                        <a class="ml-2 p-2" href="{{ route('kategori', $item->slug)}}"><i class="fa fa-angle-right"></i> {{ $item->title }}
+                                            {{ $item->title }}
+                                            <span class="text-gray-25 font-size-12 font-weight-normal"> ({{ $item->cat()->count() }})</span>
+                                        </a>
                                     @endforeach
                                 </ul>
                             </div>
@@ -203,32 +198,24 @@
                                 </div>
                                 <ul class="list-unstyled">
                                     @foreach($Product->where('bestselling', 1) as $item)
-                                    <li class="mb-4">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <a href="../shop/single-product-fullwidth.html" class="d-block width-75">
-                                                    <img class="img-fluid" src="../../assets/img/300X300/img1.jpg" alt="Image Description">
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                                <h3 class="text-lh-1dot2 font-size-14 mb-0">
-                                                    <a href="../shop/single-product-fullwidth.html">{{ $item->title }}
+                                        <li class="mb-4">
+                                            <div class="row">
+                                                <div class="col-auto">
+                                                    <a href="{{ route('urun', $item->slug) }}" title="{{ $item->title }}" class="d-block width-75">
+                                                        <img class="img-fluid" src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/resimyok.jpg': $item->getFirstMediaUrl('page', 'small')}}" alt="{{ $item->title }}">
                                                     </a>
-                                                </h3>
-                                                <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="fas fa-star"></small>
-                                                    <small class="far fa-star text-muted"></small>
                                                 </div>
-                                                <div class="font-weight-bold">
-                                                    <del class="font-size-11 text-gray-9 d-block">$2299.00</del>
-                                                    <ins class="font-size-15 text-red text-decoration-none d-block">$1999.00</ins>
+                                                <div class="col">
+                                                    <h3 class="text-lh-1dot2 font-size-14 mb-0">
+                                                        <a href="{{ route('urun', $item->slug) }}" title="{{ $item->title }}">{{ $item->title }}</a>
+                                                    </h3>
+                                                    <div class="font-weight-bold">
+                                                        <del class="font-size-13 text-gray-9 d-block"> {{ money($item->old_price)}}₺</del>
+                                                        <ins class="font-size-18 text-red text-decoration-none d-block">{{ money($item->price)}}₺</ins>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>
