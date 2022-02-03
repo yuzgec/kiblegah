@@ -77,7 +77,7 @@
                                     <div class="mb-3">
                                         <div class="d-flex justify-content-between align-items-center mb-2">
                                             <span class="">SATILAN: <strong>53</strong></span>
-                                            <span class="">STOK ADEDİ<strong>200</strong></span>
+                                            <span class="">STOK ADEDİ: <strong>200</strong></span>
                                         </div>
                                         <div class="rounded-pill bg-gray-3 height-wd-14 height-xl-20 position-relative">
                                             <span class="position-absolute left-0 top-0 bottom-0 rounded-pill w-40 bg-secondary"></span>
