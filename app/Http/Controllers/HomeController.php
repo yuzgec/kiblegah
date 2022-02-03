@@ -31,7 +31,7 @@ class HomeController extends Controller
             ->where(['category_id' => $Detay->id])
             ->select('products.id','products.title','products.slug','products.price','products.old_price','products.slug','product_category_pivots.category_id', 'product_categories.parent_id')
             ->inRandomOrder()
-            ->paginate(9);
+            ->paginate(12);
         //dd($Pro);
         return view('frontend.kategori.index', compact('Detay', 'ProductList'));
     }
@@ -56,7 +56,7 @@ class HomeController extends Controller
         $Detay = Product::with('getCategory')->where('slug', $url)->firstOrFail();
         views($Detay)->cooldown(60)->record();
         $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
-        $Comments = Comment::where('product_id', $Detay->id)->get();
+        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->inRandomOrder()->get();
         return view('frontend.urun.index', compact('Detay','Count','Comments'));
     }
 

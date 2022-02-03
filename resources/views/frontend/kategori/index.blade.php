@@ -92,7 +92,6 @@
                             </select>
                         </form>
                         <form method="POST" class="ml-2 d-none d-xl-block">
-                            <!-- Select -->
                             <select class="js-select selectpicker dropdown-select max-width-200"
                                     data-style="btn-sm bg-white font-weight-normal py-2 border text-gray-20 bg-lg-down-transparent border-lg-down-0">
                                 <option value="one" selected>20 Ürün Göster</option>
@@ -105,7 +104,6 @@
                         <div class="pt-3">
                             {{ $ProductList->appends(['sirala' => 'urun'])->links() }}
                         </div>
-
                     </nav>
                 </div>
 
@@ -185,7 +183,6 @@
                                     <li><div class="dropdown-title">ÜRÜN <b>KATEGORİLERİ</b></div></li>
                                     @foreach($Product_Categories as $item)
                                         <a class="ml-2 p-2" href="{{ route('kategori', $item->slug)}}"><i class="fa fa-angle-right"></i> {{ $item->title }}
-                                            {{ $item->title }}
                                             <span class="text-gray-25 font-size-12 font-weight-normal"> ({{ $item->cat()->count() }})</span>
                                         </a>
                                     @endforeach

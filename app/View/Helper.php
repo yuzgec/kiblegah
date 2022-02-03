@@ -16,7 +16,7 @@
         $parcala = explode(" ", $isim);
         $ilk = mb_substr(current($parcala), 0,3);
         $son = mb_substr(end($parcala), 0,3);
-        return $ilk.'...'.' '.$son.'...';
+        return $ilk.'***'.' '.$son.'***';
     }
     function money($deger){
         return number_format((float)$deger, 2, '.', '');
