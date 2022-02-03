@@ -39,7 +39,7 @@
                     <div id="sliderSyncingThumb"
                          class="js-slick-carousel u-slick u-slick--slider-syncing u-slick--slider-syncing-size u-slick--gutters-1 u-slick--transform-off"
                          data-infinite="true"
-                         data-slides-show="5"
+                         data-slides-show="3"
                          data-is-thumbs="true"
                          data-nav-for="#sliderSyncingNav">
                         <div class="js-slide" style="cursor: pointer;">
