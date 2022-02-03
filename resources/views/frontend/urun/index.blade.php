@@ -208,6 +208,9 @@
                                         </div>
                                     </div>
                                 @endforeach
+
+                            </div>
+                            <div class="row">
                                 <div class="d-flex justify-content-center align-items-center text-center">
                                     {{ $Comments->appends(['sirala' => 'yorum'])->links() }}
                                 </div>
