@@ -46,8 +46,8 @@ class HomeController extends Controller
 
     public function urun($url){
         $Detay = Product::with('getCategory')->where('slug', $url)->firstOrFail();
-        views($Detay)->record();
-        $Count = views($Detay)->period(Period::upto('2022-02-02'))->count();
+        views($Detay)->cooldown(60)->record();
+        $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
         $Comments = Comment::where('product_id', $Detay->id)->get();
 
         return view('frontend.urun.index', compact('Detay','Count','Comments'));

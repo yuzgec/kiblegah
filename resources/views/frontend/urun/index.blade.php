@@ -4,7 +4,6 @@
     @include('backend.layout.alert')
     <div class="bg-gray-13 bg-md-transparent">
         <div class="container">
-
             <div class="my-md-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
@@ -13,11 +12,10 @@
                     </ol>
                 </nav>
             </div>
-
         </div>
     </div>
 
-    <div class="container">
+    <div class="container ">
         <div class="mb-xl-5 mb-2">
             <div class="row">
                 <div class="col-md-6 col-lg-3 col-xl-4 mb-4 mb-md-0">
@@ -67,12 +65,9 @@
                                         <small class="far fa-star text-muted"></small>
                                     </div>
                                     <span class="text-secondary font-size-12">({{ $Detay->getComment()->count() }}) Müşteri Yorumları</span>
-
                                     <span class="text-gray-9 ml-3 font-size-12"><strong>SKU</strong>: {{ $Detay->sku }}</span>
-
                                 </a>
                             </div>
-
                         </div>
 
                         <div class="mb-2">
@@ -80,7 +75,6 @@
                                 {!! $Detay->short !!}
                             </ul>
                         </div>
-
                         @foreach($Comments->take(1) as $comment)
                         <div class="pb-1">
                             <div class="card p-2 border-width-2 border-color-1 borders-radius-17">
@@ -100,24 +94,20 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                        @if($loop->last)
                             <a class="btn btn-purple btn-block nav-link"
-                               id="Jpills-four-example1-tab"
-                               data-toggle="pill"
-                               href="#Jpills-four-example1"
-                               role="tab"
-                               aria-controls="Jpills-four-example1"
-                               aria-selected="false">
-                               Hepsini Gör
+                               href="#Yorumlar">
+                                Hepsini Gör
                             </a>
-
+                        @endif
+                        @endforeach
                     </div>
                 </div>
                 <div class="mx-md-auto mx-lg-0 col-md-6 col-lg-4 col-xl-3">
                     <div class="mb-2">
                         <div class="card p-4 border-width-2 border-color-1 borders-radius-17">
                             <div class="text-gray-9 font-size-14 pb-2 border-color-1 border-bottom mb-3">
-                                Stok Durmu: <span class="text-green font-weight-bold">Stokta Mevcut</span></div>
+                                Stok Durumu: <span class="text-green font-weight-bold">Stokta Mevcut</span></div>
                             <div class="mb-3">
                                 <div class="font-size-28 font-weight-bold">{{ money($Detay->price) }}₺ - <del class="font-size-20">{{ money($Detay->old_price) }}₺</del></div>
                             </div>
@@ -168,104 +158,102 @@
             </div>
         </div>
 
-        <div class="mb-8">
-            <div class="position-relative position-md-static px-md-6">
-                <ul class="nav nav-classic nav-tab nav-tab-lg justify-content-xl-center flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble border-0 pb-1 pb-xl-0 mb-n1 mb-xl-0" id="pills-tab-8" role="tablist">
-                    <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
-                        <a class="nav-link active" id="Jpills-one-example1-tab" data-toggle="pill"
-                           href="#Jpills-one-example1" role="tab" aria-controls="Jpills-one-example1" aria-selected="true">Açıklama</a>
-                    </li>
-                    @if($Detay->featrues !=  null)
-                    <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
-                        <a class="nav-link" id="Jpills-two-example1-tab" data-toggle="pill"
-                           href="#Jpills-two-example1" role="tab" aria-controls="Jpills-two-example1" aria-selected="false">Özellikleri</a>
-                    </li>
-                    @endif
-                    <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
-                        <a class="nav-link" id="Jpills-four-example1-tab" data-toggle="pill"
-                           href="#Jpills-four-example1" role="tab" aria-controls="Jpills-four-example1" aria-selected="false">Yorumlar</a>
-                    </li>
-                </ul>
-            </div>
 
-            <div class="borders-radius-17 border p-4 mt-4 mt-md-0 px-lg-10 py-lg-9">
-                <div class="tab-content" id="Jpills-tabContent">
-                    <div class="tab-pane fade active show" id="Jpills-one-example1" role="tabpanel" aria-labelledby="Jpills-one-example1-tab">
-                        {!! $Detay->desc !!}
-                    </div>
+        <div class="pt-6 pb-3 mb-6 bg-gray-7">
+            <div class="container">
+                <div class="js-scroll-nav">
+                    <div class="bg-white pt-4 pb-6 px-xl-11 px-md-5 px-4 mb-6">
+                        <div id="Accessories" class="mx-md-2">
+                            <div class="position-relative mb-6">
+                                <ul class="nav nav-classic nav-tab nav-tab-lg justify-content-xl-center flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble border-lg-down-bottom-0 pb-1 pb-xl-0 mb-n1 mb-xl-0">
 
-                    <div class="tab-pane fade" id="Jpills-two-example1" role="tabpanel" aria-labelledby="Jpills-two-example1-tab">
-                        <h3 class="font-size-24 mb-3">Özellikleri</h3>
-                        {{ $Detay->featrues }}
-                    </div>
-
-                    <div class="tab-pane fade" id="Jpills-four-example1" role="tabpanel" aria-labelledby="Jpills-four-example1-tab">
-                        <div class="row mb-8">
-                            <div class="col-md-6">
-                                <div class="pb-4 mb-4">
-                                    @foreach($Comments as $comment)
-                                        <div class="pb-1">
-                                            <div class="card p-2 border-width-2 border-color-1 borders-radius-17">
-                                                <span class="text-gray-90 mb-2">{{ $comment->comment }}</span>
-                                                <div class="d-flex justify-content-between">
-                                                    <strong>{{ isim($comment->name) }}</strong>
-                                                    <span class="font-size-14 text-gray-10">- {{ $comment->created_at->diffForHumans() }}</span>
-                                                    <div class="d-flex justify-content-between align-items-center text-secondary font-size-1 mb-2">
-                                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 100px;">
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                    <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
+                                        <a class="nav-link active" href="#Aciklama">
+                                            <div class="d-md-flex justify-content-md-center align-items-md-center">
+                                                Ürün Açıklaması
                                             </div>
-                                        </div>
-                                    @endforeach
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
+                                        <a class="nav-link" href="#Yorumlar">
+                                            <div class="d-md-flex justify-content-md-center align-items-md-center">
+                                                Yorumlar
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mx-md-2 pt-1">
+                                <div class="row ">
+                                    <div class="col mb-6 mb-md-0">
+                                        {!! $Detay->desc !!}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <form class="js-validate">
-                                    <div class="row align-items-center mb-4">
-                                        <div class="col-md-4 col-lg-3">
-                                            <label for="rating" class="form-label mb-0">Puanınız</label>
-                                        </div>
-                                        <div class="col-md-8 col-lg-9">
-                                            <a href="#" class="d-block">
-                                                <div class="text-warning text-ls-n2 font-size-16">
-                                                    <small class="far fa-star text-muted"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                    <small class="far fa-star text-muted"></small>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="js-form-message form-group mb-3 row">
-                                        <div class="col-md-4 col-lg-3">
-                                            <label for="descriptionTextarea" class="form-label">Yorumunuz</label>
-                                        </div>
-                                        <div class="col-md-8 col-lg-9">
-                                            <textarea class="form-control" rows="3" data-success-class="u-has-success"></textarea>
+                        </div>
+                    </div>
+
+
+
+                    <div class="bg-white py-4 px-xl-11 px-md-5 px-4 mb-6">
+                        <div id="Yorumlar" class="mx-md-2">
+                            <div class="row g-3 mb-8">
+                                @foreach($Comments as $comment)
+                                    <div class="col-6 p-1">
+                                        <div class="card p-2 border-width-2 border-color-1 borders-radius-17">
+                                            <span class="text-gray-90 mb-2">{{ $comment->comment }}</span>
+                                            <div class="d-flex justify-content-between">
+                                                <strong>{{ isim($comment->name) }}</strong>
+                                                <span class="font-size-14 text-gray-10">- {{ $comment->created_at->diffForHumans() }}</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="offset-md-4 offset-lg-3 col-auto">
-                                            <button type="submit" class="btn btn-primary-dark btn-wide transition-3d-hover" disabled>Yorumu Ekleyin</button>
-                                            <p class="font-size-12">*Yorum yazmak için ürünü satın almanız gerekmektedir.</p>
+                                @endforeach
+                            </div>
+                            <div class="row mb-8">
+                                <div class="col-md-12">
+                                    <form class="js-validate">
+                                        <div class="row align-items-center mb-4">
+                                            <div class="col-md-4 col-lg-3">
+                                                <label for="rating" class="form-label mb-0">Puanınız</label>
+                                            </div>
+                                            <div class="col-md-8 col-lg-9">
+                                                <a href="#" class="d-block">
+                                                    <div class="text-warning text-ls-n2 font-size-16">
+                                                        <small class="far fa-star text-muted"></small>
+                                                        <small class="far fa-star text-muted"></small>
+                                                        <small class="far fa-star text-muted"></small>
+                                                        <small class="far fa-star text-muted"></small>
+                                                        <small class="far fa-star text-muted"></small>
+                                                    </div>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
+                                        <div class="js-form-message form-group mb-3 row">
+                                            <div class="col-md-4 col-lg-3">
+                                                <label for="descriptionTextarea" class="form-label">Yorumunuz</label>
+                                            </div>
+                                            <div class="col-md-8 col-lg-9">
+                                                <textarea class="form-control" rows="3" data-success-class="u-has-success"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="offset-md-4 offset-lg-3 col-auto">
+                                                <button type="submit" class="btn btn-primary-dark btn-wide transition-3d-hover" disabled>Yorumu Ekleyin</button>
+                                                <p class="font-size-12">*Yorum yazmak için ürünü satın almanız gerekmektedir.</p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
             </div>
-
         </div>
+
 
     </div>
 
