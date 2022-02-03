@@ -212,7 +212,7 @@
                             </div>
                             <div class="row">
                                 <div class="d-flex justify-content-center align-items-center text-center">
-                                    {{ $Comments->appends(['sirala' => 'yorum'])->links() }}
+                                    {{ $Comments->appends(['sirala' => '#Yorumlar'])->links() }}
                                 </div>
                             </div>
                             <div class="row mb-8">
