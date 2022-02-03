@@ -26,19 +26,10 @@ class ViewShareProvider extends ServiceProvider
         if (! app()->runningInConsole()) {
 
             config()->set('settings', Setting::pluck('value','item')->all());
-
-            /* $Pages = Cache::remember('pages',now()->addSeconds(10), function () {return Page::with('getCategory')->get();});
-             $Page_Categories = Cache::remember('page_categories',now()->addSeconds(10), function () {return PageCategory::all(); });
-             $Service = Cache::remember('services',now()->addSeconds(10), function () {return Service::with('getCategory')->get();});
-             $Service_Categories = Cache::remember('service_categories',now()->addSeconds(10), function () {return ServiceCategory::all();});
-             $Blog = Cache::remember('blog',now()->addSeconds(10), function () {return Blog::with('getCategory')->get();});*/
-
-            $Pages = Page::all();
-            $Page_Categories = PageCategory::all();
+            $Pages = Cache::remember('pages',now()->addSeconds(10), function () {return Page::with('getCategory')->get();});
+            $Page_Categories = Cache::remember('page_categories',now()->addSeconds(10), function () {return PageCategory::all(); });
             $Product_Categories = Cache::remember('product_categories',now()->addMinutes(60), function () { return ProductCategory::where('status', 1)->get();});
-            //$Cart_Id= Cache::remember('cart_id',now()->addMinutes(120), function () { return '1111'.time(); });
-            $Cart_Id= setcookie('cart_id', '1111'.time() , time()*60, '/');
-            //dd($Cart_Id);
+
             View::share([
                 'Pages' => $Pages,
                 'Page_Categories' => $Page_Categories,

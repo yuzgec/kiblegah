@@ -16,7 +16,7 @@
                                     {{ config('settings.telefon1') }}</a>
                             </li>
                             <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
-                                <a href="{{ route('kargosorgulama') }}" class="u-header-topbar__nav-link">
+                                <a href="{{ route('iletisim') }}" class="u-header-topbar__nav-link">
                                     <i class="ec ec-map-pointer mr-1"></i> İletişim
                                 </a>
                             </li>

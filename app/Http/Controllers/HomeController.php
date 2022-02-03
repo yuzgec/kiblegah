@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $Products = Product::all();
+        $Products = Product::select('id', 'title', 'price', 'old_price', 'slug','bestselling')->get();
         //dd(Cart::content());
         return view('frontend.index', compact('Products'));
     }
@@ -29,15 +29,18 @@ class HomeController extends Controller
     }
 
     public function iletisim(){
-        return view('frontend.page.iletisim');
+        return view('frontend.sayfa.iletisim');
     }
 
     public function sepet(){
 
-        if (Cart::content()->count() <= 0){
-            return view('frontend.index');
+        if (Cart::content()->count() === 0){
+            return redirect()->route('home');
         }
-        return view('frontend.shop.sepet');
+
+        $Products = Product::select('id', 'title', 'price', 'old_price', 'slug')->get();
+
+        return view('frontend.shop.sepet',compact('Products'));
     }
 
     public function siparis(){
@@ -46,11 +49,8 @@ class HomeController extends Controller
 
     public function urun($url){
         $Detay = Product::where('slug', $url)->firstOrFail();
-        views($Detay)
-            ->cooldown(60)
-            ->record();
-
-        $Count = views($Detay)->period(Period::upto('2022-02-02'))->remember(600)->unique()->count();
+        views($Detay)->cooldown(60)->record();
+        $Count = views($Detay)->period(Period::upto('2022-02-02'))->remember(600)->count();
         return view('frontend.urun.index', compact('Detay','Count'));
     }
 

@@ -18,9 +18,9 @@
     </div>
 
     <div class="container">
-        <div class="mb-xl-14 mb-6">
+        <div class="mb-xl-5 mb-2">
             <div class="row">
-                <div class="col-md-6 col-lg-4 col-xl-5 mb-4 mb-md-0">
+                <div class="col-md-6 col-lg-3 col-xl-4 mb-4 mb-md-0">
                     <div id="sliderSyncingNav" class="js-slick-carousel u-slick mb-2"
                          data-infinite="true"
                          data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-classic u-slick__arrow-centered--y rounded-circle"
@@ -36,8 +36,8 @@
                             </div>
                         @endforeach
                     </div>
-
-                    <div id="sliderSyncingThumb" class="js-slick-carousel u-slick u-slick--slider-syncing u-slick--slider-syncing-size u-slick--gutters-1 u-slick--transform-off"
+                    <div id="sliderSyncingThumb"
+                         class="js-slick-carousel u-slick u-slick--slider-syncing u-slick--slider-syncing-size u-slick--gutters-1 u-slick--transform-off"
                          data-infinite="true"
                          data-slides-show="5"
                          data-is-thumbs="true"
@@ -52,7 +52,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 col-xl-4 mb-md-6 mb-lg-0">
+                <div class="col-md-6 col-lg-5 col-xl-5 mb-md-6 mb-lg-0">
                     <div class="mb-2">
                         <div class="border-bottom mb-3 pb-md-1 pb-3">
                             <a href="#" class="font-size-12 text-gray-5 mb-2 d-inline-block">Kategori Adı</a>
@@ -66,26 +66,66 @@
                                         <small class="fas fa-star"></small>
                                         <small class="far fa-star text-muted"></small>
                                     </div>
-                                    <span class="text-secondary font-size-13">(3) Müşteri Yorumları</span>
+                                    <span class="text-secondary font-size-12">(3) Müşteri Yorumları</span>
+
+                                    <span class="text-black ml-3"><strong>SKU</strong>: {{ $Detay->sku }}</span>
+
                                 </a>
                             </div>
-                            <div class="d-md-flex align-items-center">
-                                <a href="#" class="max-width-150 ml-n2 mb-2 mb-md-0 d-block">
-                                    <img class="img-fluid" src="https://kiblegahaileoyunlari.com.tr/assets/images/logo1.png" alt="{{ $Detay->title }}">
-                                </a>
-                            </div>
+
                         </div>
-                        <div class="flex-horizontal-center flex-wrap mb-4">
-                            <a href="#" class="text-gray-6 font-size-13 mr-2"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                            <a href="#" class="text-gray-6 font-size-13 ml-2"><i class="ec ec-compare mr-1 font-size-15"></i> Tavsiye Et</a>
-                        </div>
+
                         <div class="mb-2">
                             <ul class="font-size-14 pl-3 ml-1 text-gray-110">
                                 {!! $Detay->short !!}
                             </ul>
                         </div>
-                        <p><strong>SKU</strong>: {{ $Detay->sku }}</p>
+                        <div class="pb-1">
 
+                            <div class="card p-2 border-width-2 border-color-1 borders-radius-17">
+
+                                <span class="text-gray-90 mb-2">Fusce vitae nibh mi.Integer posuere, libero et ullamcor llamcorpe...</span>
+                                <div class="d-flex justify-content-between">
+                                    <strong>John Doe</strong>
+                                    <span class="font-size-13 text-gray-23">- April 3, 2019</span>
+
+                                    <div class="d-flex justify-content-between align-items-center text-secondary font-size-1 mb-2">
+                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
+                                            <small class="fas fa-star"></small>
+                                            <small class="fas fa-star"></small>
+                                            <small class="fas fa-star"></small>
+                                            <small class="fas fa-star"></small>
+                                            <small class="fas fa-star"></small>
+                                        </div>
+                                    </div>
+                                    <span class="font-size-13 text-gray-23">Devamını Oku</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pb-1">
+
+                            <div class="card p-2 border-width-2 border-color-1 borders-radius-17">
+
+                                <span class="text-gray-90 mb-2">Fusce vitae nibh mi.Integer posuere, libero et ullamcor llamcorpe...</span>
+                                <div class="d-flex justify-content-between">
+                                    <strong>John Doe</strong>
+                                    <span class="font-size-13 text-gray-23">- April 3, 2019</span>
+
+                                    <div class="d-flex justify-content-between align-items-center text-secondary font-size-1 mb-2">
+                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
+                                            <small class="fas fa-star"></small>
+                                            <small class="fas fa-star"></small>
+                                            <small class="fas fa-star"></small>
+                                            <small class="fas fa-star"></small>
+                                            <small class="fas fa-star"></small>
+                                        </div>
+                                    </div>
+                                    <span class="font-size-13 text-gray-23">Devamını Oku</span>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="mx-md-auto mx-lg-0 col-md-6 col-lg-4 col-xl-3">
@@ -97,9 +137,9 @@
                                 <div class="font-size-36 font-weight-bold">{{ money($Detay->price) }}₺ - <del class="font-size-20">{{ money($Detay->old_price) }}₺</del></div>
                             </div>
                             <form action="{{ route('sepeteekle') }}" method="POST">
+                            @csrf
                             <div class="mb-3">
                                 <h6 class="font-size-14">Adet</h6>
-                                <!-- Quantity -->
                                 <div class="border rounded-pill py-1 w-md-60 height-35 px-3 border-color-1">
                                     <div class="js-quantity row align-items-center">
                                         <div class="col">
@@ -117,13 +157,10 @@
                                 </div>
                             </div>
                             <div class="mb-2 pb-0dot5">
-
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{ $Detay->id }}">
-                                    <button type="submit" class="btn btn-block btn-primary-dark">
-                                        <i class="ec ec-add-to-cart mr-2 font-size-20"></i> Sepete Ekle
-                                    </button>
-
+                                <input type="hidden" name="id" value="{{ $Detay->id }}">
+                                <button type="submit" class="btn btn-block btn-primary-dark">
+                                    <i class="ec ec-add-to-cart mr-2 font-size-20"></i> Sepete Ekle
+                                </button>
                             </div>
                             </form>
                             <div class="mb-3">
@@ -132,12 +169,17 @@
                             <p><i class="fa fa-eye"></i> Bu ürüne bugun <b>({{$Count}})</b> kişi baktı<br>
                                 <i class="ec ec-transport mr-1"></i> Aynı gün kargoda
                             </p>
+
+                            @foreach(Cart::content() as $c)
+                                @if($c->id == $Detay->id)
+                                    <div class="alert alert-primary mb-0 font-size-14"><b>{{ $Detay->title }}</b> adlı ürün <a href="{{ route('sepet') }}" class="text-black">sepetinizde</a> mevcut</div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
         <div class="mb-8">
             <div class="position-relative position-md-static px-md-6">

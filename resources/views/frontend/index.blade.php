@@ -117,7 +117,44 @@
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab">
                                 <ul class="row list-unstyled products-group no-gutters">
-                                    <x-product-list limit="6"></x-product-list>
+                                    @foreach($Products->take(6) as $item)
+                                        <li class="col-6 col-md-4 product-item">
+                                            <div class="js-slide products-group">
+                                                <div class="product-item__outer h-100">
+                                                    <div class="product-item__inner px-xl-4 p-3">
+                                                        <div class="product-item__body pb-xl-2">
+                                                            <h5 class="mb-1 product-item__title">
+                                                                <a href="{{ route('urun', $item->slug) }}" class="text-blue font-weight-bold" title="{{ $item->title }}"> {{ $item->title }}</a>
+                                                            </h5>
+                                                            <div class="mb-2">
+                                                                <a href="{{ route('urun', $item->slug) }}" class="d-block text-center" title="{{ $item->title }}">
+                                                                    <img class="img-fluid" src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/resimyok.jpg': $item->getFirstMediaUrl('page', 'thumb')}}" alt="{{ $item->title }}">
+                                                                </a>
+                                                            </div>
+                                                            <div class="d-flex align-items-center justify-content-center mb-1 text-center">
+                                                                <div class="prodcut-priceflex-wrap position-relative text-center">
+                                                                    <div class="text-center">
+                                                                        <ins class="font-size-20 text-black text-decoration-none mr-2 font-weight-bold text-center">
+                                                                            {{ money($item->price) }}₺ -
+                                                                            <del class="font-size-1">
+                                                                                {{ money($item->old_price) }}
+                                                                            </del>
+                                                                        </ins>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-item__footer">
+                                                            <div class="border-top pt-2 flex-center-between flex-wrap">
+                                                                <a  class="text-gray-6 font-size-13"><i class="ec ec-compare mr-1 font-size-15"></i> Süper Hızlı Gönderi</a>
+                                                                <a  class="text-gray-6 font-size-13"><i class="ec ec-favorites mr-1 font-size-15"></i> Ücretsiz Kargo</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -162,7 +199,7 @@
                                     "slidesToShow": 2
                                   }
                                 }]'>
-                @foreach($Products->take(8) as $item)
+                @foreach($Products->whereNotNull('bestselling') as $item)
                 <div class="js-slide products-group">
                     <div class="product-item__outer h-100">
                         <div class="product-item__inner px-xl-4 p-3">
