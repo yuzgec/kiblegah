@@ -24,8 +24,15 @@ class HomeController extends Controller
     }
 
     public function kategori($url){
-        $Detay = ProductCategory::where('slug', $url)->first();
-        return view('frontend.kategori.index', compact('Detay'));
+        $Detay = ProductCategory::where('slug', $url)->select('id','title','slug')->first();
+        $ProductList = Product::join('product_category_pivots', 'product_category_pivots.product_id', '=', 'products.id' )
+            ->join('product_categories', 'product_categories.id', '=', 'product_category_pivots.category_id')
+            ->where('product_category_pivots.category_id', '=', $Detay->id)
+            ->where(['category_id' => $Detay->id])
+            ->select('products.*', 'product_category_pivots.*', 'product_categories.parent_id')
+            ->paginate(9);
+        //dd($Pro);
+        return view('frontend.kategori.index', compact('Detay', 'ProductList'));
     }
 
     public function iletisim(){
@@ -49,7 +56,6 @@ class HomeController extends Controller
         views($Detay)->cooldown(60)->record();
         $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
         $Comments = Comment::where('product_id', $Detay->id)->get();
-
         return view('frontend.urun.index', compact('Detay','Count','Comments'));
     }
 

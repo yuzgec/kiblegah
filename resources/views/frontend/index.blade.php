@@ -118,10 +118,10 @@
                             <div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab">
                                 <ul class="row list-unstyled products-group no-gutters">
                                     @foreach($Products->take(6) as $item)
-                                        <li class="col-6 col-md-4 product-item">
+                                        <li class="col-6 col-md-4 product-item ">
                                             <div class="js-slide products-group">
                                                 <div class="product-item__outer h-100">
-                                                    <div class="product-item__inner px-xl-4 p-3">
+                                                    <div class="product-item__inner px-xl-4 p-3 border border-width-1 border-purple borders-radius-5">
                                                         <div class="product-item__body pb-xl-2">
                                                             <h5 class="mb-1 product-item__title">
                                                                 <a href="{{ route('urun', $item->slug) }}" class="text-blue font-weight-bold" title="{{ $item->title }}"> {{ $item->title }}</a>
@@ -202,7 +202,7 @@
                 @foreach($Products->whereNotNull('bestselling') as $item)
                 <div class="js-slide products-group">
                     <div class="product-item__outer h-100">
-                        <div class="product-item__inner px-xl-4 p-3">
+                        <div class="product-item__inner px-xl-4 p-3 border border-width-1 border-purple borders-radius-5"">
                             <div class="product-item__body pb-xl-2">
                                 <h5 class="mb-1 product-item__title">
                                     <a href="{{ route('urun', $item->slug) }}" class="text-blue font-weight-bold" title="{{ $item->title }}"> {{ $item->title }}</a>
@@ -300,7 +300,7 @@
                                 @foreach($Products->take(10, 20) as $item)
                                     <div class="js-slide products-group">
                                         <div class="product-item__outer h-100">
-                                            <div class="product-item__inner px-xl-4 p-3">
+                                            <div class="product-item__inner px-xl-4 p-3 border border-width-1 border-purple borders-radius-5"">
                                                 <div class="product-item__body pb-xl-2">
                                                     <h5 class="mb-1 product-item__title">
                                                         <a href="{{ route('urun', $item->slug) }}" class="text-blue font-weight-bold" title="{{ $item->title }}"> {{ $item->title }}</a>

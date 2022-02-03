@@ -62,14 +62,13 @@
                                         <small class="fas fa-star"></small>
                                         <small class="fas fa-star"></small>
                                         <small class="fas fa-star"></small>
-                                        <small class="far fa-star text-muted"></small>
+                                        <small class="far fa-star"></small>
                                     </div>
                                     <span class="text-secondary font-size-12">({{ $Detay->getComment()->count() }}) Müşteri Yorumları</span>
                                     <span class="text-gray-9 ml-3 font-size-12"><strong>SKU</strong>: {{ $Detay->sku }}</span>
                                 </a>
                             </div>
                         </div>
-
                         <div class="mb-2">
                             <ul class="font-size-14 pl-3 ml-1 text-gray-110">
                                 {!! $Detay->short !!}
@@ -141,11 +140,11 @@
                             <div class="mb-3">
                                 <a href="#" class="btn btn-block btn-green"><i class="fab fa-whatsapp"></i> Whatsapp Sipariş</a>
                             </div>
-                            <p>
+                            <span>
                                 <i class="fa fa-eye"></i> Bugün <b>({{$Count}})</b> kişi baktı<br>
                                 <i class="ec ec-transport mr-1"></i> Aynı gün kargoda<br>
                                 <i class="ec ec-payment mr-1"></i> Kapıda Güvenli Ödeme
-                            </p>
+                            </span>
 
                             @foreach(Cart::content() as $c)
                                 @if($c->id == $Detay->id)

@@ -1,14 +1,5 @@
 @charset "UTF-8";
-/*------------------------------------
-  Madrasthemes variables
-------------------------------------*/
-/* EOC */
-/*!
- * Bootstrap v4.3.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 The Bootstrap Authors
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+
 :root {
   --blue: #0077d0;
   --indigo: #2d1582;
@@ -227,6 +218,13 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
+  transition: transform .2s;
+}
+
+img:hover {
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(.1); /* Safari 3-8 */
+    transform: scale(1.1);
 }
 
 svg {
@@ -35230,8 +35228,9 @@ blockquote:not(.blockquote) p {
 }
 
 .product-item__title {
-  font-size: 0.74987rem;
-  line-height: 0.875rem;
+  font-size: 0.8rem;
+  line-height: 0.75rem;
+    text-align: center;
 }
 
 @media (min-width: 992px) {

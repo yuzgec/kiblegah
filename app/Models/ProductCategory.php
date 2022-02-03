@@ -24,9 +24,9 @@ class ProductCategory extends Model implements HasMedia
         return LogOptions::defaults()->logOnly(['title', 'slug']);
     }
 
-    function getCategoryCount()
+    public function cat()
     {
-        return $this->hasMany('App\Models\Product', 'category')->count();
+        return $this->hasMany('App\Models\ProductCategoryPivot', 'category_id');
     }
 
 }

@@ -1,4 +1,4 @@
-@foreach($Product as $item)
+@foreach($Pro as $item)
 <li class="col-6 {{ (!$size) ? 'col-md-4' :  $size }} product-item">
     <div class="product-item__outer h-100">
         <div class="product-item__inner px-xl-4 p-3">
@@ -16,7 +16,7 @@
                         <ins class="font-size-20 text-black text-decoration-none mr-2 font-weight-bold">{{ money($item->price) }}₺ - <del class="font-size-1">{{ money($item->old_price) }}</del></ins>
                     </div>
                     <div class="d-none d-xl-block prodcut-add-cart">
-                        <a href="{{ route('urun', $item->slug) }}" class="btn px-2 btn-sm transition-3d-hover">,
+                        <a href="{{ route('urun', $item->slug) }}" class="btn px-2 btn-sm transition-3d-hover">
                             <i class="ec ec-add-to-cart mr-2 font-size-16"></i> Sepete Ekle
                         </a>
                     </div>

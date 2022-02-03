@@ -22,7 +22,9 @@
                     <ul id="sidebarNav" class="list-unstyled mb-0 sidebar-navbar view-all">
                         <li><div class="dropdown-title">ÜRÜN <b>KATEGORİLERİ</b></div></li>
                         @foreach($Product_Categories as $item)
-                            <a class="ml-2 p-2" href=""><i class="fa fa-angle-right"></i> {{ $item->title }}<span class="text-gray-25 font-size-12 font-weight-normal"> (56)</span></a>
+                            <a class="ml-2 p-2" href=""><i class="fa fa-angle-right"></i> {{ $item->title }}
+                                <span class="text-gray-25 font-size-12 font-weight-normal"> ({{ $item->cat()->count() }})</span>
+                            </a>
                         @endforeach
                     </ul>
                 </div>
@@ -81,7 +83,7 @@
                     </div>
 
                     <div class="px-3 d-none d-xl-block">
-                        <p class="font-size-14 text-gray-90 mb-0"><b>55</b> adet ürün listelendi</p>
+                        <p class="font-size-14 text-gray-90 mb-0"><b>{{$ProductList->total()}}</b> adet ürün listelendi</p>
                     </div>
                     <div class="d-flex">
                         <form method="get">
@@ -103,11 +105,11 @@
                             </select>
                         </form>
                     </div>
-                    <nav class="px-3 flex-horizontal-center text-gray-20 d-none d-xl-flex">
-                        <form method="post" class="min-width-50 mr-1">
-                            <input size="2" min="1" max="3" step="1" type="number" class="form-control text-center px-2 height-35" value="1">
-                        </form> Toplam 3 sayfa
-                        <a class="text-gray-30 font-size-20 ml-2" href="#">→</a>
+                    <nav class="px-3 flex-horizontal-center text-gray-20 d-none d-xl-flex align-items-center align-items-center">
+                        <div class="pt-3">
+                            {{ $ProductList->appends(['sirala' => 'urun'])->links() }}
+                        </div>
+
                     </nav>
                 </div>
 
@@ -116,9 +118,46 @@
                     <div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab" data-target-group="groups">
                         <ul class="row list-unstyled products-group no-gutters">
 
-                            <x-product-list></x-product-list>
+                            @foreach($ProductList as $item)
+                                <li class="col-6 col-md-4 product-item">
+                                    <div class="product-item__outer h-100">
+                                        <div class="product-item__inner px-xl-4 p-3 border border-width-1 border-purple borders-radius-5"">
+                                            <div class="product-item__body pb-xl-2">
+                                                <h5 class="mb-1 product-item__title">
+                                                    <a href="{{ route('urun', $item->slug) }}" class="text-blue font-weight-bold" title="{{ $item->title }}"> {{ $item->title }}</a>
+                                                </h5>
+                                                <div class="mb-2">
+                                                    <a href="{{ route('urun', $item->slug) }}" class="d-block text-center" title="{{ $item->title }}">
+                                                        <img class="img-fluid" src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/resimyok.jpg': $item->getFirstMediaUrl('page','thumb')}}" alt="{{ $item->title }}">
+                                                    </a>
+                                                </div>
+                                                <div class="flex-center-between mb-1">
+                                                    <div class="prodcut-price d-flex align-items-center flex-wrap position-relative">
+                                                        <ins class="font-size-20 text-black text-decoration-none mr-2 font-weight-bold">{{ money($item->price) }}₺ - <del class="font-size-1">{{ money($item->old_price) }}</del></ins>
+                                                    </div>
+                                                    <div class="d-none d-xl-block prodcut-add-cart">
+                                                        <a href="{{ route('urun', $item->slug) }}" class="btn px-2 btn-sm transition-3d-hover">
+                                                            <i class="ec ec-add-to-cart mr-2 font-size-16"></i> Sepete Ekle
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-item__footer">
+                                                <div class="border-top pt-2 flex-center-between flex-wrap">
+                                                    <a  class="text-gray-6 font-size-13"><i class="ec ec-compare mr-1 font-size-15"></i> Süper Hızlı Gönderi</a>
+                                                    <a  class="text-gray-6 font-size-13"><i class="ec ec-favorites mr-1 font-size-15"></i> Ücretsiz Kargo</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+
 
                         </ul>
+                        <div class="d-flex justify-content-center align-items-center text-center">
+                            {{ $ProductList->appends(['sirala' => 'urun'])->links() }}
+                        </div>
                     </div>
                  </div>
 

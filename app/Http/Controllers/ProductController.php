@@ -90,8 +90,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $Edit = Product::with('getCategory')->find($id);
-        //dd($Edit);
-        return view('backend.product.edit', compact('Edit'));
+        $Pivot = ProductCategoryPivot::where(['product_id'=> $id])->get();
+        return view('backend.product.edit', compact('Edit','Pivot'));
     }
 
     public function update(ProductRequest $request, $id)
@@ -125,7 +125,6 @@ class ProductController extends Controller
         $Update->seo_desc = $request->seo_desc;
         $Update->seo_key = $request->seo_key;
         $Update->seo_title = $request->seo_title;
-
 
         if($request->removeImage == "1"){
             $Update->media()->where('collection_name', 'page')->delete();
