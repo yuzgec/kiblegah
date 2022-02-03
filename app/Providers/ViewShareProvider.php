@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Page;
 use App\Models\PageCategory;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Setting;
 use Illuminate\Pagination\Paginator;
@@ -27,13 +28,15 @@ class ViewShareProvider extends ServiceProvider
             config()->set('settings', Setting::pluck('value','item')->all());
             $Pages = Cache::remember('pages',now()->addSeconds(10), function () {return Page::with('getCategory')->get();});
             $Page_Categories = Cache::remember('page_categories',now()->addSeconds(10), function () {return PageCategory::all(); });
-            //$Product_Categories = Cache::remember('product_categories',now()->addSecond(5), function () { return ProductCategory::with('cat')->where('status', 1)->get();});
-            $Product_Categories = ProductCategory::with('cat')->where('status', 1)->get();
+            $Product_Categories = Cache::remember('product_categories',now()->addSecond(5), function () { return ProductCategory::with('cat')->where('status', 1)->get();});
+            $Product = Cache::remember('product',now()->addSecond(5), function () { return Product::where('status', 1)->get();});
+            //$Product_Categories = ProductCategory::with('cat')->where('status', 1)->get();
             //dd($Product_Categories);
             View::share([
                 'Pages' => $Pages,
                 'Page_Categories' => $Page_Categories,
                 'Product_Categories' => $Product_Categories,
+                'Product' => $Product
             ]);
         }
 

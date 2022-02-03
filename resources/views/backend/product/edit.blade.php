@@ -237,8 +237,8 @@
                 { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold']},
                 { name: 'paragraph',items: [ 'BulletedList']},
                 { name: 'colors', items: [ 'TextColor' ]},
+                { name: 'insert', items : [ 'Table']},
                 { name: 'styles', items: [ 'Format', 'FontSize']},
-
             ],
         });
         CKEDITOR.replace( 'aciklama', {

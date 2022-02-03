@@ -35,29 +35,27 @@
                     </div>
                     <ul class="list-unstyled">
 
-                        <li class="mb-4">
-                            <div class="row">
-                                <div class="col-auto">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block width-75">
-                                        <img class="img-fluid" src="/frontend/assets/img/300X300/img1.jpg" alt="Image Description">
-                                    </a>
-                                </div>
-                                <div class="col">
-                                    <h3 class="text-lh-1dot2 font-size-14 mb-0"><a href="../shop/single-product-fullwidth.html">Notebook Black Spire V Nitro VN7-591G</a></h3>
-                                    <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
-                                        <small class="fas fa-star"></small>
-                                        <small class="fas fa-star"></small>
-                                        <small class="fas fa-star"></small>
-                                        <small class="fas fa-star"></small>
-                                        <small class="far fa-star text-muted"></small>
+                        @foreach($Product->where('bestselling', 1) as $item)
+                            <li class="mb-4">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <a href="{{ route('urun', $item->slug) }}" title="{{ $item->title }}" class="d-block width-75">
+                                            <img class="img-fluid" src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/resimyok.jpg': $item->getFirstMediaUrl('page', 'small')}}" alt="{{ $item->title }}">
+                                        </a>
                                     </div>
-                                    <div class="font-weight-bold">
-                                        <del class="font-size-11 text-gray-9 d-block">$2299.00</del>
-                                        <ins class="font-size-15 text-red text-decoration-none d-block">$1999.00</ins>
+                                    <div class="col">
+                                        <h3 class="text-lh-1dot2 font-size-14 mb-0">
+                                            <a href="{{ route('urun', $item->slug) }}" title="{{ $item->title }}">{{ $item->title }}</a>
+                                        </h3>
+
+                                        <div class="font-weight-bold">
+                                            <del class="font-size-13 text-gray-9 d-block"> {{ money($item->old_price)}}₺</del>
+                                            <ins class="font-size-18 text-red text-decoration-none d-block">{{ money($item->price)}}₺</ins>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        @endforeach
 
                     </ul>
                 </div>
@@ -204,6 +202,7 @@
                                     <h3 class="section-title section-title__sm mb-0 pb-2 font-size-18">En Çok Satılanlar</h3>
                                 </div>
                                 <ul class="list-unstyled">
+                                    @foreach($Product->where('bestselling', 1) as $item)
                                     <li class="mb-4">
                                         <div class="row">
                                             <div class="col-auto">
@@ -212,7 +211,10 @@
                                                 </a>
                                             </div>
                                             <div class="col">
-                                                <h3 class="text-lh-1dot2 font-size-14 mb-0"><a href="../shop/single-product-fullwidth.html">Notebook Black Spire V Nitro VN7-591G</a></h3>
+                                                <h3 class="text-lh-1dot2 font-size-14 mb-0">
+                                                    <a href="../shop/single-product-fullwidth.html">{{ $item->title }}
+                                                    </a>
+                                                </h3>
                                                 <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
                                                     <small class="fas fa-star"></small>
                                                     <small class="fas fa-star"></small>
@@ -227,6 +229,7 @@
                                             </div>
                                         </div>
                                     </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

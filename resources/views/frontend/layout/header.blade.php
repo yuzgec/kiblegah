@@ -12,7 +12,7 @@
                                 <a href="#" class="u-header-topbar__nav-link"><i class="ec ec-home mr-1"></i> Hakkımızda</a>
                             </li>
                             <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
-                                <a href="#" class="u-header-topbar__nav-link"><i class="ec ec-phone mr-1"></i>
+                                <a href="tel:{{ config('settings.telefon1') }}" class="u-header-topbar__nav-link"><i class="ec ec-phone mr-1"></i>
                                     {{ config('settings.telefon1') }}</a>
                             </li>
                             <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
@@ -55,11 +55,6 @@
                     </div>
 
                     <div class="col d-none d-xl-block">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <span class="mr-2">
-                                <i class="text-black ec ec-transport font-size-30"></i> Kargo Sorgulama
-                            </span>
-                        </div>
                         <form class="js-focus-state">
                             <label class="sr-only" for="searchproduct">Arama</label>
                             <div class="input-group">
@@ -138,30 +133,29 @@
             </div>
         </div>
 
-        <div class="d-none d-xl-block bg-primary">
+        <div class="d-none d-xl-block bg-primary ">
             <div class="container">
-                <div class="min-height-45">
-                    <nav class="js-mega-menu navbar navbar-expand-md u-header__navbar u-header__navbar--wide u-header__navbar--no-space">
+                <div class="min-height-37 ">
+                    <nav class=" navbar navbar-expand-md u-header__navbar u-header__navbar--wide u-header__navbar--no-space ">
                         <div id="navBar" class="collapse navbar-collapse u-header__navbar-collapse">
-                            <ul class="navbar-nav u-header__navbar-nav ">
-                                <li class="nav-item hs-has-mega-menu u-header__nav-item"
-                                    data-event="hover"
-                                    data-animation-in="slideInUp"
-                                    data-animation-out="fadeOut"
-                                    data-position="left">
+                            <ul class="navbar-nav u-header__navbar-nav">
+                                <li class="nav-item  u-header__nav-item ml-4">
                                     <a class="nav-link u-header__nav-link u-header__nav-link-toggle"
                                        href="{{ route('home')}}"
                                        aria-haspopup="true" aria-expanded="false">Anasayfa
                                     </a>
                                 </li>
                                 @foreach($Product_Categories as $item)
-                                <li class="nav-item hs-has-mega-menu u-header__nav-item"
-                                    data-event="hover"
-                                    data-animation-in="slideInUp"
-                                    data-animation-out="fadeOut">
+                                <li class="nav-item hs-has-mega-menu u-header__nav-item">
                                     <a class="nav-link u-header__nav-link u-header__nav-link-toggle" href="{{ route('kategori', $item->slug) }}" >{{ $item->title }}</a>
                                 </li>
                                 @endforeach
+
+                                <li class="nav-item hs-has-mega-menu u-header__nav-item bg-secondary">
+                                    <a class="nav-link u-header__nav-link text-white" href="{{ route('kargosorgulama') }}" >
+                                        <i class="text-black ec ec-transport font-size-30 text-white" ></i> Kargo Sorgulama</a>
+                                </li>
+
                             </ul>
                         </div>
                     </nav>

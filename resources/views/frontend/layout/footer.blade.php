@@ -47,8 +47,8 @@
                                 <i class="ec ec-support text-primary font-size-56"></i>
                             </div>
                             <div class="col pl-3">
-                                <div class="font-size-13 font-weight-light">7/24 Çağrı Merkezi Destek Hattı </div>
-                                <a href="tel:+80080018588" class="font-size-20 text-gray-90">{{ config('settings.telefon1') }} </a>
+                                <div class="font-size-13 font-weight-medium">Çağrı Merkezi Destek Hattı </div>
+                                <a href="tel:{{ config('settings.telefon1') }}" class="font-size-20 text-gray-90">{{ config('settings.telefon1') }} </a>
                             </div>
                         </div>
                     </div>

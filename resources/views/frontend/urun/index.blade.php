@@ -53,7 +53,6 @@
                 <div class="col-md-6 col-lg-5 col-xl-5 mb-md-6 mb-lg-0">
                     <div class="mb-2">
                         <div class="border-bottom mb-3 pb-md-1 pb-3">
-                            <a href="#" class="font-size-12 text-gray-5 mb-2 d-inline-block">Kategori Adı</a>
                             <h2 class="font-size-25 text-lh-1dot2">{{ $Detay->title }}</h2>
                             <div class="mb-2">
                                 <a class="d-inline-flex align-items-center small font-size-15 text-lh-1" href="#">

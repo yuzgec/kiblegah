@@ -16,12 +16,12 @@
                             </div>
                         </div>
                         <div class="mb-4">
-                            <a href="../shop/single-product-fullwidth.html" class="d-block text-center">
+                            <a href="{{ route('home')}}" class="d-block text-center">
                                 <img class="img-fluid" src="https://www.kiblegahaileoyunlari.com.tr/goadmin/files/config/images/urun/kiblegah_aile_oyunlari_61dee6fdd27a5.jpg" alt="Kampanya" width="300px">
                             </a>
                         </div>
                         <h5 class="mb-2 font-size-14 text-center mx-auto max-width-180 text-lh-18">
-                            <a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Kıblegah Aile Oyunu Yüzük Hediyeli</a>
+                            <a href="{{ route('home')}}" class="text-blue font-weight-bold">Kıblegah Aile Oyunu Yüzük Hediyeli</a>
                         </h5>
                         <div class="d-flex align-items-center justify-content-center mb-3">
                             <del class="font-size-18 mr-2 text-gray-2">69.90₺</del>
@@ -39,7 +39,7 @@
                         <div class="mb-2">
                             <h6 class="font-size-15 text-gray-2 text-center mb-3">İndirimli ürünü almak için acele edin</h6>
                             <div class="js-countdown d-flex justify-content-center"
-                                 data-end-date="2022/02/02"
+                                 data-end-date="{{\Carbon\Carbon::tomorrow()}}"
                                  data-hours-format="%H"
                                  data-minutes-format="%M"
                                  data-seconds-format="%S">
@@ -117,7 +117,7 @@
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab">
                                 <ul class="row list-unstyled products-group no-gutters">
-                                    @foreach($Products as $item)
+                                    @foreach($Products->take(6) as $item)
                                         <li class="col-6 col-md-4 product-item ">
                                             <div class="js-slide products-group">
                                                 <div class="product-item__outer h-100">
@@ -234,7 +234,7 @@
         </div>
 
         <div class="mb-8">
-            <a href="../shop/shop.html" class="d-block text-gray-90">
+            <a href="{{ route('home')}}" class="d-block text-gray-90">
                 <div class="" style="background-image: url(frontend/assets/img/1400X206/img1.jpg);">
                     <div class="space-top-2-md p-4 pt-6 pt-md-8 pt-lg-6 pt-xl-8 pb-lg-4 px-xl-8 px-lg-6">
                         <div class="flex-horizontal-center mt-lg-3 mt-xl-0 overflow-auto overflow-md-visble">
@@ -262,14 +262,14 @@
             <!-- End Nav Pills -->
             <div class="row">
                 <div class="col-md-6 col-lg">
-                    <a href="../shop/shop.html" class="d-block"><img class="img-fluid" src="frontend/assets/img/Logolar.png" alt="Image Description"></a>
+                    <a href="{{ route('home')}}" class="d-block"><img class="img-fluid" src="frontend/assets/img/Logolar.png" alt="Image Description"></a>
                 </div>
                 <div class="col-md-6 pl-md-0 col-lg-8gdot46">
                     <div class="tab-content u-slick__tab overflow-hidden pr-0dot5" id="Dpills-tabContent">
                         <div class="tab-pane fade show active" id="Dpills-one-example1" role="tabpanel" aria-labelledby="Dpills-one-example1-tab">
                             <div class="js-slick-carousel u-slick position-static u-slick-overflow-visble pb-7 pt-1 px-1"
                                  data-pagi-classes="text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-3 mt-md-0"
-                                 data-slides-show="3"
+                                 data-slides-show="4"
                                  data-slides-scroll="1"
                                  data-responsive='[{
                                                   "breakpoint": 1400,
