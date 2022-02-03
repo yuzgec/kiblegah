@@ -117,7 +117,7 @@
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab">
                                 <ul class="row list-unstyled products-group no-gutters">
-                                    @foreach($Products->take(6) as $item)
+                                    @foreach($Products as $item)
                                         <li class="col-6 col-md-4 product-item ">
                                             <div class="js-slide products-group">
                                                 <div class="product-item__outer h-100">

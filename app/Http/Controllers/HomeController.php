@@ -29,7 +29,7 @@ class HomeController extends Controller
             ->join('product_categories', 'product_categories.id', '=', 'product_category_pivots.category_id')
             ->where('product_category_pivots.category_id', '=', $Detay->id)
             ->where(['category_id' => $Detay->id])
-            ->select('products.*', 'product_category_pivots.*', 'product_categories.parent_id')
+            ->select('products.id','products.title','products.slug','products.price','products.old_price','products.slug','product_category_pivots.category_id', 'product_categories.parent_id')
             ->paginate(9);
         //dd($Pro);
         return view('frontend.kategori.index', compact('Detay', 'ProductList'));
