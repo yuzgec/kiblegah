@@ -56,4 +56,5 @@ use Spatie\Sitemap\SitemapGenerator;
         Route::auto('/team-categories', TeamCategoryController::class);
         Route::auto('/product', ProductController::class);
         Route::auto('/product-categories', ProductCategoryController::class);
+        Route::auto('/campagin', CampaginController::class);
     });

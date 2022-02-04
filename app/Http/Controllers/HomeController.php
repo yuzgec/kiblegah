@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ShopCart;
+use App\Models\Slider;
 use Carbon\Carbon;
 use CyrildeWit\EloquentViewable\Support\Period;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -23,8 +24,8 @@ class HomeController extends Controller
     public function index()
     {
         $Products = Product::select('id', 'title', 'price', 'old_price', 'slug','bestselling')->orderBy('rank')->get();
-        //dd(Cart::content());
-        return view('frontend.index', compact('Products'));
+        $Slider = Slider::with('getProduct')->get();
+        return view('frontend.index', compact('Products','Slider'));
     }
 
     public function kategori($url){

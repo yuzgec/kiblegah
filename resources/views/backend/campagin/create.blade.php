@@ -1,79 +1,46 @@
 @extends('backend.layout.app')
-@section('title', 'Ürün Ekle')
+@section('title', 'Kampanya Ekle')
 @section('content')
 
     <div class="col-12 col-md-9">
         <div class="card">
-            {{Form::open(['route' => 'product.store', 'enctype' => 'multipart/form-data'])}}
+            {{Form::open(['route' => 'campagin.store', 'enctype' => 'multipart/form-data'])}}
 
                 <div class="card-header d-flex justify-content-between">
-                    <x-add title="Ürün"></x-add>
+                    <x-add title="Kampanya"></x-add>
                     <div>
                         <x-back></x-back>
                         <x-save></x-save>
                     </div>
                 </div>
                 <div class="card-body">
-
                 <x-form-inputtext label="Adı Giriniz" name="title"/>
-                <x-form-select label="Kategori" name="category[]" multiple :list="$Kategori"/>
                 <x-form-inputtext label="Ürün Kodu " name="sku"/>
-
                 <div class="form-group mb-3 row">
-                    <label class="form-label col-3 col-form-label">Listele </label>
-                    <div class="col-3">
-                        <label class="form-check form-check-single form-switch mt-2">&nbsp; Fırsat
-                            <input class="form-check-input switch" name="opportunity" type="checkbox" value="0">
-                        </label>
+                    <label class="form-label col-3 col-form-label">Başlangıç / Bitiş </label>
+                    <div class="col-4">
+                        <div class="input-group mb-2">
+                            <input type="date" class="form-control" name="start_date" placeholder="Başlangıç Tarihi" autocomplete="off" value="{{ old('start_date') }}">
+                        </div>
                     </div>
-                    <div class="col-3">
-                        <label class="form-check form-check-single form-switch mt-2">&nbsp; Kampanya
-                            <input class="form-check-input switch" name="offer" type="checkbox" value="0">
-                        </label>
-                    </div>
-                    <div class="col-3">
-                        <label class="form-check form-check-single form-switch mt-2">&nbsp; Çok Satan
-                            <input class="form-check-input switch" name="bestselling" type="checkbox" value="0">
-                        </label>
+                    <div class="col-4">
+                        <div class="input-group mb-2">
+                            <input type="date" class="form-control" name="end_date" placeholder="Bitiş Tarihi" autocomplete="off" value="{{ old('end_date') }}">
+                        </div>
                     </div>
                 </div>
-                <div class="form-group mb-3 row">
-                    <label class="form-label col-3 col-form-label"> </label>
-                    <div class="col-3">
-                        <label class="form-check form-check-single form-switch mt-2">&nbsp; Ücretsiz Kargo
-                            <input class="form-check-input switch" name="freecargo" type="checkbox" value="0">
-                        </label>
-                    </div>
-                    <div class="col-3">
-                        <label class="form-check form-check-single form-switch mt-2">&nbsp; Hızlı Gönderi
-                            <input class="form-check-input switch" name="fastkargo" type="checkbox" value="0">
-                        </label>
-                    </div>
-                    <div class="col-3">
-                        <label class="form-check form-check-single form-switch mt-2">&nbsp; Büyük Fırsat
-                            <input class="form-check-input switch" name="bigopportunity" type="checkbox" value="0">
-                        </label>
-                    </div>
-                </div>
-
                 <div class="form-group mb-3 row">
                     <label class="form-label col-3 col-form-label">Fiyat </label>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="input-group mb-2">
                             <span class="input-group-text">₺</span>
                             <input type="text" class="form-control" name="price" placeholder="Fiyat Giriniz" autocomplete="off" value="{{ old('price') }}" required>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="input-group mb-2">
                             <span class="input-group-text">₺</span>
                             <input type="text" class="form-control" name="old_price" placeholder="Eski Fiyat Giriniz" autocomplete="off" value="{{ old('old_price') }}">
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="input-group mb-2">
-                            <span class="input-group-text">₺</span>
-                            <input type="text" class="form-control" name="campagin_price" placeholder="Özel Fiyat Giriniz" autocomplete="off" value="{{ old('campagin_price') }}">
                         </div>
                     </div>
                 </div>
@@ -89,7 +56,6 @@
                 <x-form-inputtext label="Seo Açıklama" name="seo_desc"/>
                 <x-form-inputtext label="Seo Anahtar Kelime " name="seo_key"/>
             </div>
-
         </div>
     </div>
 
@@ -112,7 +78,7 @@
             <div class="card-header">
                 <h4 class="card-title">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2" /><line x1="9" y1="13" x2="15" y2="13" /></svg>
-                    Ürün Galeri
+                    Kampanya Galeri
                 </h4>
             </div>
             <div class="p-2">
@@ -144,7 +110,7 @@
             ],
         });
         CKEDITOR.replace( 'aciklama', {
-            filebrowserUploadUrl: "{{ route('product.postUpload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadUrl: "{{ route('campagin.postUpload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form',
             height : 300,
             toolbar: [

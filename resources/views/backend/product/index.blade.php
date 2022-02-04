@@ -29,7 +29,7 @@
                             <th>Resim</th>
                             <th>Başlık</th>
                             <th>Durum</th>
-                            <th class="d-none d-lg-table-cell">Kategori</th>
+                            <th class="d-none d-lg-table-cell">Fiyat</th>
                             <th class="d-none d-lg-table-cell">Oluşturma Tarihi</th>
                             <th class="w-1"></th>
                         </tr>
