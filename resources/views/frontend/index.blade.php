@@ -125,7 +125,7 @@
 
         <div class="mb-8">
             <a href="{{ route('home')}}" class="d-block text-gray-90">
-                <div class="" style="background-image: url(frontend/assets/img/1400X206/img1.jpg);">
+                <div class="" style="background-image: url(frontend/assets/img/arabanner.jpg);">
                     <div class="space-top-2-md p-4 pt-6 pt-md-8 pt-lg-6 pt-xl-8 pb-lg-4 px-xl-8 px-lg-6">
                         <div class="flex-horizontal-center mt-lg-3 mt-xl-0 overflow-auto overflow-md-visble">
                             <h1 class="text-lh-38 font-size-32 font-weight-light mb-0 flex-shrink-0 flex-md-shrink-1">SHOP AND <strong>SAVE BIG</strong> ON HOTTEST TABLETS</h1>
@@ -149,7 +149,6 @@
                     <h3 class="section-title mb-0 pb-2 font-size-22"><b>KIBLEGAH</b>.COM.TR</h3>
                 </div>
             </div>
-            <!-- End Nav Pills -->
             <div class="row">
                 <div class="col-md-6 col-lg">
                     <a href="{{ route('home')}}" class="d-block"><img class="img-fluid" src="frontend/assets/img/Logolar.png" alt="Image Description"></a>

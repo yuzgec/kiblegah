@@ -17,7 +17,7 @@
 
     <div class="container">
 
-        <form action="" method="POST">
+        <form action="{{ route('kaydet') }}" method="POST">
             @csrf()
             <div class="row">
                 <div class="col-lg-7">
@@ -33,9 +33,11 @@
                                         Adınız
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" class="form-control"
-                                           name="firstName" placeholder="Adınız"
-                                            autocomplete="off">
+                                    <input value="{{old('name')}}" type="text" class="form-control  @if($errors->has('name')) is-invalid @endif" name="name" placeholder="Adınız" autocomplete="off">
+                                    @if($errors->has('name'))
+                                        <div class="invalid-feedback">{{$errors->first('name')}}</div>
+                                    @endif
+
                                 </div>
                             </div>
 
@@ -45,9 +47,10 @@
                                         Soyadınız
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" class="form-control"
-                                           name="firstName" placeholder="Soyadınız"
-                                           autocomplete="off">
+                                    <input value="{{old('surname')}}" type="text" class="form-control @if($errors->has('surname')) is-invalid @endif" name="surname" placeholder="Soyadınız" autocomplete="off">
+                                    @if($errors->has('surname'))
+                                        <div class="invalid-feedback">{{$errors->first('surname')}}</div>
+                                    @endif
                                 </div>
                             </div>
                             <div class="w-100"></div>
@@ -56,7 +59,10 @@
                                     <label class="form-label">
                                         Email Adresiniz
                                     </label>
-                                    <input type="email" class="form-control" name="emailAddress" placeholder="Email. Zorunlu Değildir">
+                                    <input value="{{old('email')}}" type="text" class="form-control @if($errors->has('email')) is-invalid @endif"  name="email" placeholder="Email. Zorunlu Değildir">
+                                    @if($errors->has('email'))
+                                        <div class="invalid-feedback">{{$errors->first('email')}}</div>
+                                    @endif
                                 </div>
                             </div>
 
@@ -65,7 +71,10 @@
                                     <label class="form-label">
                                         Telefon Numaranız   <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" class="form-control" placeholder="Telefon Numaranız">
+                                    <input value="{{old('phone')}}" type="text" class="form-control @if($errors->has('phone')) is-invalid @endif" name="phone" placeholder="Telefon Numaranız">
+                                    @if($errors->has('phone'))
+                                        <div class="invalid-feedback">{{$errors->first('phone')}}</div>
+                                    @endif
                                 </div>
                             </div>
 
@@ -73,11 +82,14 @@
                             <div class="col-md-12">
                                 <div class="js-form-message mb-3">
                                     <label class="form-label">
-                                       Açık Adresiniz   <span class="text-danger">*</span>
+                                       Açık Adresiniz<span class="text-danger">*</span>
                                     </label>
 
                                     <div class="input-group">
-                                        <textarea class="form-control p-5" rows="4" name="text" placeholder="Açık Adresinizi Yazınız"></textarea>
+                                        <textarea class="form-control p-5 @if($errors->has('address')) is-invalid @endif" rows="4" name="address" placeholder="Açık Adresinizi Yazınız">{{old('address')}}</textarea>
+                                        @if($errors->has('address'))
+                                            <div class="invalid-feedback">{{$errors->first('address')}}</div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -89,9 +101,8 @@
                                     <label class="form-label">
                                         Sipariş Notu
                                     </label>
-
                                     <div class="input-group">
-                                        <textarea class="form-control p-5" rows="4" name="text" placeholder=" Varsa Sipariş ile ilgili notunuz"></textarea>
+                                        <textarea  class="form-control p-5" rows="4" name="note" placeholder=" Varsa Sipariş ile ilgili notunuz"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -166,10 +177,7 @@
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between px-3 mb-5">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck10" required
-                                               data-msg="Please agree terms and conditions."
-                                               data-error-class="u-has-error"
-                                               data-success-class="u-has-success">
+                                        <input class="form-check-input" type="checkbox" value="1"  checked required>
                                         <label class="form-check-label form-label" for="defaultCheck10">
                                             Kullanıcı Sözleşmesini okudum <a href="#" class="text-blue">onaylıyorum </a>
                                             <span class="text-danger">*</span>

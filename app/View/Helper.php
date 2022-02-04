@@ -48,3 +48,50 @@
         return $options['lowercase'] ? mb_strtolower($str, 'UTF-8') : $str;
     }
 
+    function smsgonder($message,$phone){
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://panel.nac.com.tr/api/json/syncreply/SendInstantSms',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 5,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS =>'{
+				"Credential": {
+				"Username":"kiblegah",
+				"Password":"KiBlEgAh.ReK2600",
+				"ResellerID":1298
+				},
+				"Sms": {
+				"ToMsisdns": [
+				{
+				"Msisdn": '.$phone.',
+				"Name": "",
+				"Surname": "",
+				"CustomField1": "[Mesaj1]:'.$message.'"
+				}
+				],
+				"ToGroups": [
+				0
+				],
+				"IsCreateFromTeplate": true,
+				"SmsTitle": "KIBLEGAH",
+				"SmsContent": "[Mesaj1]",
+				"SmsSendingType": "ByNumber",
+				"SmsCoding": "SmsCoding",
+				"SenderName": "KIBLEGAH",
+				"DataCoding": "Default"
+
+				}
+				}',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+        $response = curl_exec($curl);
+        curl_close($curl);
+    }
+

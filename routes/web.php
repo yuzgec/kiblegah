@@ -22,6 +22,12 @@ use Spatie\Sitemap\SitemapGenerator;
     Route::post('/sepet-cikar/{rowId}', 'HomeController@cartdelete')->name('sepetcikar');
     Route::post('/sepet-bosalt}', 'HomeController@cartdestroy')->name('sepetbosalt');
 
+    Route::post('/siparis/kaydet', 'HomeController@kaydet')->name('kaydet');
+    Route::get('/siparis/sonuc', 'HomeController@sonuc')->name('sonuc');
+    Route::get('/mail', function (){
+       return view('frontend.mail.siparis');
+    });
+
     Route::group(["prefix"=>"go", 'middleware' => ['auth']],function() {
         Route::get('/', 'DashboardController@index')->name('go');
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

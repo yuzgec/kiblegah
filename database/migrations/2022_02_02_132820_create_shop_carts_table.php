@@ -13,17 +13,27 @@ class CreateShopCartsTable extends Migration
             $table->id();
             $table->integer('cart_id');
             $table->integer('user_id')->nullable();
-            $table->decimal('basketTotal', 10,2);
+            $table->decimal('basket_total', 10,2);
+
+            $table->string('name');
+            $table->string('surname');
+            $table->string('email')->nullable();
+            $table->string('phone');
+            $table->string('address');
+            $table->string('province')->nullable();
+            $table->string('city')->nullable();
+            $table->string('note')->nullable();
 
             $table->string('order_device')->nullable();
-
             $table->string('order_campaign')->nullable();
             $table->string('order_influcer')->nullable();
             $table->string('order_medium')->nullable();
 
-            $table->string('basket_status')->default('Hazırlanıyor');
+            $table->double('order_cargo',10,2)->nullable();
 
+            $table->string('basket_status')->default('Hazırlanıyor');
             $table->timestamps();
+
         });
     }
 

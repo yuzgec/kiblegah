@@ -36,7 +36,7 @@
                                  data-scs-animation-delay="600">
                                 <div class="mr-xl-14">
                                     <h5 class="mb-3 text-center font-size-30 product-item__title text-lh-default">
-                                        <a href="#" class="text-gray-13 font-weight-bold">
+                                        <a href="#" class="text-gray-9 font-weight-bold">
                                             Özel Kampanya
                                         </a>
                                     </h5>
