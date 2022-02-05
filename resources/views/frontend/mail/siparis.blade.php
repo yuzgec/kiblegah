@@ -69,7 +69,7 @@
 
 <body yahoo="fix" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 
-<span class="preheader" style="color: transparent; display: none; font-size: 1px; height: 0; opacity: 0; visibility: hidden; width: 0;">{preheader}</span>
+<span class="preheader" style="color: transparent; display: none; font-size: 1px; height: 0; opacity: 0; visibility: hidden; width: 0;"></span>
 
 <!--Main Table Start-->
 
@@ -162,6 +162,8 @@
                                                                         <tr>
                                                                             <td align="left" valign="top" style="font-family:'Open Sans', Verdana, Arial; font-size:14px; color:#FFF; font-weight:normal; line-height:24px;" mc:edit="tm5-05">
                                                                                 <multi label="content"> {{ $ShopCart->name.' '.$ShopCart->surname }} <br />
+                                                                                    {{ $ShopCart->phone }}
+                                                                                    <br>
                                                                                     {{ $ShopCart->address }}
                                                                                 </multi>
                                                                             </td>
@@ -270,9 +272,11 @@
                                                 <tr>
                                                     <td height="35" align="center" valign="top" style="font-size:35px; line-height:35px; border-bottom:#CCC solid 1px;">&nbsp;</td>
                                                 </tr>
-                                            </table></td>
+                                            </table>
+                                        </td>
                                     </tr>
-                                </table></td>
+                                </table>
+                            </td>
                         </tr>
                     </table>
 
