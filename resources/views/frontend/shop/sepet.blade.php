@@ -235,7 +235,7 @@
                         <tr class="shipping">
                             <th>Kargo</th>
                             <td data-title="Kargo">
-                                <span class="amount">$300.00</span>
+                                <span class="amount">Ücretsiz Kargo</span>
                             </td>
                         </tr>
                         <tr class="order-total">
