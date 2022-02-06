@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CargoRequest;
 use App\Http\Requests\OrderRequest;
 use App\Models\Basket;
 use App\Models\Comment;
@@ -69,6 +70,7 @@ class HomeController extends Controller
     }
 
     public function kargosorgulama(){
+        //dd($request->all());
         return view('frontend.kargo.index');
     }
 

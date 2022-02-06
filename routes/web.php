@@ -13,6 +13,7 @@ use Spatie\Sitemap\SitemapGenerator;
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/kategori/{url}', 'HomeController@kategori')->name('kategori');
     Route::get('/kargosorgulama', 'HomeController@kargosorgulama')->name('kargosorgulama');
+    Route::get('/kargosorgulamaGet', 'HomeController@kargosorgulamaget')->name('kargosorgulamaget');
     Route::get('/sepet', 'HomeController@sepet')->name('sepet');
     Route::get('/siparis', 'HomeController@siparis')->name('siparis');
     Route::get('/urun/{url}', 'HomeController@urun')->name('urun');
