@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CargoRequest;
 use App\Http\Requests\OrderRequest;
+use App\Http\Requests\SearchRequest;
 use App\Models\Basket;
 use App\Models\Comment;
 use App\Models\MailSubcribes;
@@ -216,8 +217,8 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
 
-    public function search(){
-        $search = request('q');
+    public function search(SearchRequest $request){
+        $search = $request->q;
         $Result = Product::where('title','like','%'.$search.'%')
                     ->orWhere('slug','like','%'.$search.'%')
                     ->where('status', 1)

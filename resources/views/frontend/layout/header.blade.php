@@ -58,12 +58,15 @@
                         <form action="{{ route('search') }}" method="GET" class="js-focus-state">
                             <label class="sr-only" for="searchproduct">Arama</label>
                             <div class="input-group">
-                                <input type="text" class="form-control py-2 pl-5 font-size-15 border-right-0 height-40 border-width-2 rounded-left-pill border-primary"
+
+                                <input type="text" class="form-control py-2 pl-5 font-size-15 border-right-0
+                                height-40 border-width-2 rounded-left-pill border-primary  @if($errors->has('q')) is-invalid @endif"
                                        name="q"
                                        id="searchproduct-item"
                                        placeholder="Ürün adı ve Ürün Kodu Giriniz"
                                        aria-label="Ürün adı ve Ürün Kodu Giriniz"
-                                       required>
+                                       >
+
                                 <div class="input-group-append">
                                     <select class="js-select selectpicker dropdown-select custom-search-categories-select"
                                             data-style="btn height-40 text-gray-60 font-weight-normal border-top border-bottom border-left-0 rounded-0 border-primary border-width-2 pl-0 pr-5 py-2">
@@ -72,10 +75,13 @@
                                             <option value="{{ $item->id }}">{{ $item->title }}</option>
                                         @endforeach
                                     </select>
-                                    <button class="btn btn-primary height-40 py-2 px-3 rounded-right-pill" type="button" id="searchProduct1">
+                                    <button class="btn btn-primary height-40 py-2 px-3 rounded-right-pill" type="submit" id="searchProduct1">
                                         <span class="ec ec-search font-size-24"></span>
                                     </button>
                                 </div>
+                                @if($errors->has('q'))
+                                    <div class="invalid-feedback text-center align-items-center">{{$errors->first('q')}}</div>
+                                @endif
                             </div>
                         </form>
 

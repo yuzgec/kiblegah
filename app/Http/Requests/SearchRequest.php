@@ -6,25 +6,25 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class SearchRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
+
     public function authorize()
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
-            'phone'                => 'required|numeric|digits:10',
+            'q'                 => 'required|min:3|max:99',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'q.required'            => 'Arama kelimesi girilmesi zorunludur',
+            'q.max'                 => 'Arama kelimesi en fazla 99 karakter olabilir',
+            'q.min'                 => 'Arama kelimesi en az 3 karakter olabilir',
         ];
     }
 }

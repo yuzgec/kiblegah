@@ -19,6 +19,13 @@
     <div class="container">
         <div class="row mb-8">
             <div class="col-md-12 col-wd-12gdot5">
+                @if($Result->total() ==  0 )
+                    <div class="alert alert-danger">
+                        <h4 class="alert-heading">Üzgünüz!</h4>
+                        <p>Aramanızla eşleşen ürün bulunamadı.</p>
+                    </div>
+                @endif
+
                 <div class="bg-gray-1 flex-center-between borders-radius-9 py-1">
                     <div class="d-xl-none">
                         <a id="sidebarNavToggler1" class="btn btn-sm py-1 font-weight-normal" href="javascript:;" role="button"
@@ -64,7 +71,6 @@
                         </div>
                     </nav>
                 </div>
-
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab" data-target-group="groups">
                         <ul class="row list-unstyled products-group no-gutters">
@@ -108,6 +114,7 @@
                     </div>
                 </div>
             </div>
+
             </div>
         </div>
     </div>
