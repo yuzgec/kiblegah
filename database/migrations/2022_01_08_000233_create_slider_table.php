@@ -25,6 +25,8 @@ class CreateSliderTable extends Migration
             $table->boolean('status')->default(1);
             $table->integer('rank')->nullable();
 
+            $table->integer('product_id')->nullable();
+
         });
     }
 

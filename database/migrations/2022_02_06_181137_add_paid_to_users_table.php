@@ -11,7 +11,7 @@ class AddPaidToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('phone')->nullable();
-            $table->boolean('is_admin')->default('1');
+            $table->boolean('is_admin')->default('0');
         });
     }
 
