@@ -123,8 +123,6 @@
             </div>
         </div>
 
-
-
         <div class="mb-6">
             <div class="position-relative text-center z-index-2">
                 <div class="d-flex justify-content-between border-bottom border-color-1 flex-xl-nowrap flex-wrap border-md-down-top-0 border-lg-down-bottom-0 mb-3">

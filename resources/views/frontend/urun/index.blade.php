@@ -150,6 +150,10 @@
                                     <div class="alert alert-primary mb-0 font-size-14"><b>{{ $Detay->title }}</b> adlı ürün <a href="{{ route('sepet') }}" class="text-black">sepetinizde</a> mevcut</div>
                                 @endif
                             @endforeach
+
+                            @if(@auth()->user()->is_admin == 1)
+                                <a href="{{ route('product.edit', $Detay->id) }}" target="_blank" class="btn btn-secondary text-white">Ürün Düzenle</a>
+                            @endif
                         </div>
                     </div>
                 </div>

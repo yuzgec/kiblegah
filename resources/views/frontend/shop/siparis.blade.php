@@ -140,11 +140,11 @@
                                     </tr>
                                     <tr>
                                         <th>Kargo</th>
-                                        <td>Ücretsiz Kargo</td>
+                                        <td>{{ cargo(Cart::total()) }}</td>
                                     </tr>
                                     <tr>
                                         <th>Toplam</th>
-                                        <td><strong>{{money(Cart::total())}}₺</strong></td>
+                                        <td><strong>{{cargoToplam(Cart::total())}}₺</strong></td>
                                     </tr>
                                     </tfoot>
                                 </table>

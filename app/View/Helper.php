@@ -1,15 +1,10 @@
 <?php
-
-
     //SWEETALERT MESAJLARI -
     define('SWEETALERT_MESSAGE_CREATE', 'Eklendi');
     define('SWEETALERT_MESSAGE_UPDATE', 'Güncellendi');
     define('SWEETALERT_MESSAGE_DELETE', 'Silindi');
-
-    //Sayfa Sayacı Cache Tutma Zamanı
-    function counttime(){
-        now()->addHours(3);
-    }
+    define('CARGO_LIMIT', 50);
+    define('CARGO_PRICE', 19.90);
 
     //KULLANICI ADI BAŞ HARFLERİNİ GÖSTERME
     function isim($isim){
@@ -22,7 +17,29 @@
         return number_format((float)$deger, 2, '.', '');
     }
 
-    //SEO URL
+    function cargo($toplam)
+    {
+        if ($toplam > 0){
+            if ($toplam > CARGO_LIMIT) {
+                return 'Ücretsiz Kargo';
+            } else {
+                return money(CARGO_PRICE);
+            }
+        }
+        return;
+    }
+
+    function cargoToplam($toplam){
+
+        if($toplam < CARGO_LIMIT){
+            return money($toplam + CARGO_PRICE);
+        }else{
+            return $toplam;
+        }
+    }
+
+
+//SEO URL
     function seo($str, $options = []) {
         $str = mb_convert_encoding((string)$str, 'UTF-8', mb_list_encodings());
         $defaults = array(
@@ -48,50 +65,5 @@
         return $options['lowercase'] ? mb_strtolower($str, 'UTF-8') : $str;
     }
 
-    function smsgonder($message,$phone){
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://panel.nac.com.tr/api/json/syncreply/SendInstantSms',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 5,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS =>'{
-				"Credential": {
-				"Username":"kiblegah",
-				"Password":"KiBlEgAh.ReK2600",
-				"ResellerID":1298
-				},
-				"Sms": {
-				"ToMsisdns": [
-				{
-				"Msisdn": '.$phone.',
-				"Name": "",
-				"Surname": "",
-				"CustomField1": "[Mesaj1]:'.$message.'"
-				}
-				],
-				"ToGroups": [
-				0
-				],
-				"IsCreateFromTeplate": true,
-				"SmsTitle": "KIBLEGAH",
-				"SmsContent": "[Mesaj1]",
-				"SmsSendingType": "ByNumber",
-				"SmsCoding": "SmsCoding",
-				"SenderName": "KIBLEGAH",
-				"DataCoding": "Default"
 
-				}
-				}',
-            CURLOPT_HTTPHEADER => array(
-                'Content-Type: application/json'
-            ),
-        ));
-        $response = curl_exec($curl);
-        curl_close($curl);
-    }
 

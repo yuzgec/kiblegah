@@ -93,7 +93,7 @@
                                         "slidesToShow": 2
                                       }
                                     }]'>
-                                @foreach($Products->take(8) as $item)
+                                @foreach($Products->whereNotNull('campagin_price') as $item)
                                     <div class="js-slide products-group">
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner px-xl-4 p-3">
@@ -110,7 +110,7 @@
                                                         <div class="prodcut-priceflex-wrap position-relative text-center">
                                                             <div class="text-center">
                                                                 <ins class="font-size-20 text-black text-decoration-none mr-2 font-weight-bold text-center">
-                                                                    {{ money($item->price) }}₺ -
+                                                                    {{ money($item->campagin_price) }}₺ -
                                                                     <del class="font-size-1">
                                                                         {{ money($item->old_price) }}
                                                                     </del>
@@ -230,17 +230,17 @@
                         <tbody>
                         <tr class="cart-subtotal">
                             <th>Ara Toplam</th>
-                            <td data-title="Ara Toplam"><span class="amount">{{ money(Cart::subtotal()) }}</span></td>
+                            <td data-title="Ara Toplam"><span class="amount">{{ money(Cart::subtotal()) }}₺</span></td>
                         </tr>
                         <tr class="shipping">
                             <th>Kargo</th>
                             <td data-title="Kargo">
-                                <span class="amount">Ücretsiz Kargo</span>
+                                <span class="amount">{{ cargo(Cart::total()) }}</span>
                             </td>
                         </tr>
                         <tr class="order-total">
                             <th>Toplam</th>
-                            <td data-title="Toplam"><strong><span class="amount">{{money(Cart::total())}}</span></strong></td>
+                            <td data-title="Toplam"><strong><span class="amount">{{cargoToplam(Cart::total())}}₺</span></strong></td>
                         </tr>
                         </tbody>
                     </table>
