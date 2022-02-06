@@ -52,7 +52,7 @@ class HomeController extends Controller
         if (Cart::content()->count() === 0){
             return redirect()->route('home');
         }
-        $Products = Product::select('id', 'title', 'price', 'old_price', 'slug')->get();
+        $Products = Product::select('id', 'title', 'price', 'old_price', 'slug', 'campagin_price')->get();
         return view('frontend.shop.sepet',compact('Products'));
     }
 
