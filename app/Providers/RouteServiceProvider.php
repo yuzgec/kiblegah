@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 class RouteServiceProvider extends ServiceProvider
 {
 
-    public const HOME = '/go/dashboard';
+    public const HOME = '/';
 
     /**
      * The controller namespace for the application.

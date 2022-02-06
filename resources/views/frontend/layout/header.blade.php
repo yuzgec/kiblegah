@@ -122,8 +122,16 @@
                                         </form>
                                     </div>
                                 </li>
-                                <li class="col d-none d-xl-block"><a href="{{ route('sepet') }}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Favori"><i class="font-size-22 ec ec-favorites"></i></a></li>
-                                <li class="col px-2 px-sm-3"><a href="{{ route('login') }}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Hesabım"><i class="font-size-22 ec ec-user"></i></a></li>
+                                <li class="col d-none d-xl-block">
+                                    <a href="{{ route('sepet') }}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Favori">
+                                        <i class="font-size-22 ec ec-favorites"></i>
+                                    </a>
+                                </li>
+                                <li class="col px-2 px-sm-3">
+                                    <a href="{{ route('login') }}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="{{ (auth()->user()) ? auth()->user()->name :  'Giriş Yap' }}">
+                                        <i class="font-size-22 ec ec-user"></i>
+                                    </a>
+                                </li>
                                 @livewire('front.header-count')
                             </ul>
                         </div>
