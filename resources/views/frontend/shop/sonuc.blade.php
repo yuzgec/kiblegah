@@ -1,12 +1,11 @@
 @extends('frontend.layout.app')
+@section('title', 'Siparişiniz Başarıyla Oluşturulmutur. Kıblegah Aile Oyunları Online Satış Sitesi')
 @section('customCSS')
     <style>
-
         .animation-ctn{
             text-align:center;
             margin-top:25px;
         }
-
         @-webkit-keyframes checkmark {
             0% {
                 stroke-dashoffset: 100px
@@ -16,7 +15,6 @@
                 stroke-dashoffset: 200px
             }
         }
-
         @-ms-keyframes checkmark {
             0% {
                 stroke-dashoffset: 100px
@@ -26,7 +24,6 @@
                 stroke-dashoffset: 200px
             }
         }
-
         @keyframes checkmark {
             0% {
                 stroke-dashoffset: 100px
@@ -36,7 +33,6 @@
                 stroke-dashoffset: 0px
             }
         }
-
         @-webkit-keyframes checkmark-circle {
             0% {
                 stroke-dashoffset: 480px
@@ -48,7 +44,6 @@
 
             }
         }
-
         @-ms-keyframes checkmark-circle {
             0% {
                 stroke-dashoffset: 240px
@@ -58,7 +53,6 @@
                 stroke-dashoffset: 480px
             }
         }
-
         @keyframes checkmark-circle {
             0% {
                 stroke-dashoffset: 480px
@@ -68,7 +62,6 @@
                 stroke-dashoffset: 960px
             }
         }
-
         @keyframes colored-circle {
             0% {
                 opacity:0
@@ -78,17 +71,13 @@
                 opacity:100
             }
         }
-
         .inlinesvg .svg svg {
             display: inline
         }
-
-
         .icon--order-success svg polyline {
             -webkit-animation: checkmark 0.25s ease-in-out 0.7s backwards;
             animation: checkmark 0.25s ease-in-out 0.7s backwards
         }
-
         .icon--order-success svg circle {
             -webkit-animation: checkmark-circle 0.6s ease-in-out backwards;
             animation: checkmark-circle 0.6s ease-in-out backwards;
@@ -101,11 +90,9 @@
     @endsection
 @section('content')
     <div class="container">
-
         <div class="row justify-content-md-center">
             <div class="col-lg-8 mb-7 mb-lg-0 mt-1">
                 <div class="bg-gray-1 rounded-lg">
-
                         <div class="animation-ctn">
                             <div class="icon icon--order-success svg">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="154px" height="154px">
@@ -117,12 +104,10 @@
                                 </svg>
                             </div>
                         </div>
-
                         <div class="p-4 mb-4 checkout-table">
                             <div class="border-bottom border-color-1 mb-5">
                                 <h3 class="section-title mb-0 pb-2 font-size-25">Sipariş <b>Detayı</b></h3>
                             </div>
-
                             <table class="table">
                                 <thead>
                                 <tr>
@@ -134,7 +119,7 @@
                                 @foreach($Summary as $item)
                                 <tr class="cart_item">
                                     <td>{{ $item->name }}<strong class="product-quantity"> X {{ $item->qty }}</strong></td>
-                                    <td>{{ $item->qty *  $item->price }}</td>
+                                    <td>{{ money($item->qty *  $item->price) }}₺</td>
                                 </tr>
                                 @endforeach
                                 </tbody>
@@ -145,7 +130,7 @@
                                 </tr>
                                 <tr>
                                     <th>Kargo Ücreti</th>
-                                    <td>Ücretsiz</td>
+                                    <td>{{ ($Customer->order_cargo == null) ? 'Ücretsiz Kargo' : $Customer->order_cargo.'₺'}}</td>
                                 </tr>
                                 <tr>
                                     <th>Toplam</th>
@@ -177,7 +162,5 @@
                     </div>
             </div>
         </div>
-
     </div>
     @endsection
-

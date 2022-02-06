@@ -10,6 +10,7 @@ use App\Models\MailSubcribes;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Search;
 use App\Models\ShopCart;
 use App\Models\Slider;
 use Carbon\Carbon;
@@ -70,7 +71,6 @@ class HomeController extends Controller
     }
 
     public function kargosorgulama(){
-        //dd($request->all());
         return view('frontend.kargo.index');
     }
 
@@ -81,7 +81,7 @@ class HomeController extends Controller
             $ShopCart                   = new ShopCart;
             $ShopCart->cart_id          = $Cart_Id ;
             $ShopCart->user_id          = $Cart_Id ;
-            $ShopCart->basket_total     = Cart::total();
+            $ShopCart->basket_total     = cargoToplam(Cart::total());
 
             $ShopCart->name             = $request->name;
             $ShopCart->surname          = $request->surname;
@@ -91,6 +91,8 @@ class HomeController extends Controller
             $ShopCart->city             = $request->city;
             $ShopCart->province         = $request->province;
             $ShopCart->note             = $request->note;
+            $ShopCart->order_cargo      = (Cart::total() < CARGO_LIMIT) ? CARGO_PRICE : null;
+
             $ShopCart->save();
 
             foreach (Cart::content() as $c) {
@@ -105,14 +107,14 @@ class HomeController extends Controller
 
             $Cart = Cart::content();
 
-            if($request->has('email')){
+            if($request->filled('email')){
                 Mail::send("frontend.mail.siparis",compact('Cart', 'ShopCart'),function ($message) use($ShopCart) {
-                    $message->to($ShopCart->email)->subject($ShopCart->name.' '. $ShopCart->surname.' Siparişiniz başarıyla oluşturmuştur.');
+                    $message->to($ShopCart->email)->subject('Syn. '.$ShopCart->name.' '. $ShopCart->surname.' siparişiniz başarıyla oluşturmuştur.');
                 });
             }
 
             Mail::send("frontend.mail.siparis",compact('Cart', 'ShopCart'),function ($message) use($ShopCart) {
-                $message->to(config('settings.email2'))->subject($ShopCart->name.' '. $ShopCart->surname.' Siparişiniz başarıyla oluşturmuştur.');
+                $message->to('olcayy@gmail.com')->subject($ShopCart->name.' '. $ShopCart->surname.' siparişiniz başarıyla oluşturmuştur.');
             });
 
             $curl = curl_init();
@@ -173,7 +175,6 @@ class HomeController extends Controller
     }
 
     public function addtocart(Request $request){
-
         $p = Product::find($request->id);
         Basket::create(['product_id' => $p->id]);
         Cart::add(
@@ -213,5 +214,17 @@ class HomeController extends Controller
         MailSubcribes::create(['email_address' => $request->email, 'ip_address' => $request->ip()]);
         toast(SWEETALERT_MESSAGE_DELETE,'success');
         return redirect()->route('home');
+    }
+
+    public function search(){
+        $search = request('q');
+        $Result = Product::where('title','like','%'.$search.'%')
+                    ->orWhere('slug','like','%'.$search.'%')
+                    ->where('status', 1)
+                    ->paginate(12);
+
+        Search::create(['key' => $search]);
+
+        return view('frontend.shop.search', compact('Result'));
     }
 }

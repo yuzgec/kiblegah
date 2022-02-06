@@ -113,7 +113,7 @@
                             @foreach($ProductList as $item)
                                 <li class="col-6 col-md-4 product-item">
                                     <div class="product-item__outer h-100">
-                                        <div class="product-item__inner px-xl-4 p-3 border border-width-1 border-purple borders-radius-5"">
+                                        <div class="product-item__inner px-xl-4 p-3 border border-width-1 border-purple borders-radius-5">
                                             <div class="product-item__body pb-xl-2">
                                                 <h5 class="mb-1 product-item__title">
                                                     <a href="{{ route('urun', $item->slug) }}" class="text-gray-60 font-weight-bold" title="{{ $item->title }}"> {{ $item->title }}</a>

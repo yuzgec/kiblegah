@@ -18,6 +18,7 @@ use Spatie\Sitemap\SitemapGenerator;
     Route::get('/siparis', 'HomeController@siparis')->name('siparis');
     Route::get('/urun/{url}', 'HomeController@urun')->name('urun');
     Route::get('/iletisim', 'HomeController@iletisim')->name('iletisim');
+    Route::get('/arama', 'HomeController@search')->name('search');
     Route::post('/bulten', 'HomeController@mailsubcribes')->name('mailsubcribes');
     Route::post('/sepete-ekle', 'HomeController@addtocart')->name('sepeteekle');
     Route::post('/sepet-cikar/{rowId}', 'HomeController@cartdelete')->name('sepetcikar');

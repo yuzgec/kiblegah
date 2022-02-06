@@ -55,15 +55,14 @@
                     </div>
 
                     <div class="col d-none d-xl-block">
-                        <form class="js-focus-state">
+                        <form action="{{ route('search') }}" method="GET" class="js-focus-state">
                             <label class="sr-only" for="searchproduct">Arama</label>
                             <div class="input-group">
-                                <input type="email" class="form-control py-2 pl-5 font-size-15 border-right-0 height-40 border-width-2 rounded-left-pill border-primary"
-                                       name="email"
+                                <input type="text" class="form-control py-2 pl-5 font-size-15 border-right-0 height-40 border-width-2 rounded-left-pill border-primary"
+                                       name="q"
                                        id="searchproduct-item"
                                        placeholder="Ürün adı ve Ürün Kodu Giriniz"
                                        aria-label="Ürün adı ve Ürün Kodu Giriniz"
-                                       aria-describedby="searchProduct1"
                                        required>
                                 <div class="input-group-append">
                                     <select class="js-select selectpicker dropdown-select custom-search-categories-select"
@@ -88,7 +87,7 @@
                                 <i class="text-black ec ec-payment font-size-20"></i> Kapıda Ödeme Kolaylığı
                             </span>
                             <span>
-                                <i class="fa fa-life-ring font-size-14"  aria-hidden="true"></i> Güvenli Alışveriş
+                                <i class="fa fa-life-ring font-size-14" aria-hidden="true"></i> Güvenli Alışveriş
                             </span>
                         </div>
                     </div>
