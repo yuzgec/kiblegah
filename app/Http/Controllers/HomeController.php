@@ -177,11 +177,26 @@ class HomeController extends Controller
     public function addtocart(Request $request){
         $p = Product::find($request->id);
         Basket::create(['product_id' => $p->id]);
+
+        //dd($p);
+
+        if (Cart::total() > CARGO_LIMIT ){
+            if ($p->campaign_price != null) {
+                $price = $p->price;
+                //dd($price);
+            }else{
+                $price = $p->campagin_price;
+                //dd($price);
+            }
+        }else{
+            $price = $p->price;
+        }
+
         Cart::add(
         [
             'id' => $p->id,
             'name' => $p->title,
-            'price' => $p->price,
+            'price' => $price,
             'weight' => 0,
             'qty' => $request->qty,
             'options' => [
