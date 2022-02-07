@@ -75,9 +75,11 @@ class HomeController extends Controller
     }
 
     public function sepet(){
+
         if (Cart::content()->count() === 0){
             return redirect()->route('home');
         }
+        //dd(Cart::content());
         $Products = Product::select('id', 'title', 'price', 'old_price', 'slug', 'campagin_price')->get();
         return view('frontend.shop.sepet',compact('Products'));
     }
@@ -252,9 +254,9 @@ class HomeController extends Controller
 
         Cart::remove($rowId);
 
-        if(Cart::total() < CARGO_LIMIT ) {
+        if(kampanyatoplam(Cart::content()) < CARGO_LIMIT ) {
             foreach (Cart::content() as $c) {
-                if ($c->options->campagin == true) {
+                if ($c->options->campagin === true) {
                     Cart::remove($c->rowId);
                 }
             }

@@ -31,6 +31,16 @@
         return;
     }
 
+    function kampanyatoplam($cart){
+        $toplam = 0;
+        foreach($cart as $cartItem){
+           if ($cartItem->options->campagin == false){
+                $toplam += $cartItem->price;
+            }
+        }
+        return $toplam;
+    }
+
     function cargoToplam($toplam){
 
         if($toplam < CARGO_LIMIT){
