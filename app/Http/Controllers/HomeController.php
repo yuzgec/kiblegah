@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CargoRequest;
 use App\Http\Requests\OrderRequest;
 use App\Http\Requests\SearchRequest;
 use App\Models\Basket;
@@ -115,7 +114,7 @@ class HomeController extends Controller
             }
 
             Mail::send("frontend.mail.siparis",compact('Cart', 'ShopCart'),function ($message) use($ShopCart) {
-                $message->to('olcayy@gmail.com')->subject($ShopCart->name.' '. $ShopCart->surname.' siparişiniz başarıyla oluşturmuştur.');
+                $message->to(MAIL_SEND)->subject($ShopCart->name.' '. $ShopCart->surname.' siparişiniz başarıyla oluşturmuştur.');
             });
 
             $curl = curl_init();

@@ -34,11 +34,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-
         Carbon::setLocale(config('app.locale'));
         if(env('APP_ENV') != 'local')
             URL::forceScheme('https');
-
             Blade::component('form-inputtext', InputText::class);
             Blade::component('form-password', InputPassword::class);
             Blade::component('form-email', InputEMail::class);

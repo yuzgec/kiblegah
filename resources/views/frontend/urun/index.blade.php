@@ -152,7 +152,7 @@
                             @endforeach
 
                             @if(@auth()->user()->is_admin == 1)
-                                <a href="{{ route('product.edit', $Detay->id) }}" target="_blank" class="btn btn-secondary text-white">Ürün Düzenle</a>
+                                <a href="{{ route('product.edit', $Detay->id) }}" target="_blank" class="btn btn-secondary text-white mt-2">Ürün Düzenle</a>
                             @endif
                         </div>
                     </div>

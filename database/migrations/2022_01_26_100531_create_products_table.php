@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->double('price', 2);
             $table->double('old_price',2)->nullable();
             $table->double('campagin_price',2)->nullable();
+            $table->integer('tax')->nullable();
             $table->string('sku');
 
             $table->longText('short')->nullable();
