@@ -8,12 +8,12 @@
             </div>
         </div>
         <div class="mb-4">
-            <a href="{{ route('home')}}" class="d-block text-center">
-                <img class="img-fluid" src="https://www.kiblegahaileoyunlari.com.tr/goadmin/files/config/images/urun/kiblegah_aile_oyunlari_61dee6fdd27a5.jpg" alt="Kampanya" width="300px">
+            <a href="https://kiblegah.com.tr/urun/kibleg%C3%A2h-aile-oyunu-yuzuk-hediyeli" class="d-block text-center" title="Kıblegah Kampanya">
+                <img class="img-fluid" src="https://kiblegah.com.tr/storage/70/yuzuk.jpg" alt="Kampanya" width="300px">
             </a>
         </div>
         <h5 class="mb-2 font-size-14 text-center mx-auto max-width-180 text-lh-18">
-            <a href="{{ route('home')}}" class="text-gray-60  font-weight-bold">Kıblegah Aile Oyunu Yüzük Hediyeli</a>
+            <a href="https://kiblegah.com.tr/urun/kibleg%C3%A2h-aile-oyunu-yuzuk-hediyeli" class="text-gray-60  font-weight-bold">Kıblegah Aile Oyunu Yüzük Hediyeli</a>
         </h5>
         <div class="d-flex align-items-center justify-content-center mb-3">
             <del class="font-size-18 mr-2 text-gray-2">69.90₺</del>

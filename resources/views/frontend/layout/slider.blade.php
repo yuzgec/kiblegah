@@ -26,11 +26,14 @@
                                     </h6>
                                 </div>
                             </div>
-                            <div class="col-md-4 d-flex align-items-center ml-auto ml-md-0 mb-4 mb-md-0"
-                                 data-scs-animation-in="zoomIn"
-                                 data-scs-animation-delay="400">
-                                <img class="img-fluid" src="/frontend/assets/img/kutu.png" alt="Image Description">
-                            </div>
+                                <div class="col-md-4 d-flex align-items-center ml-auto ml-md-0 mb-4 mb-md-0"
+                                     data-scs-animation-in="zoomIn"
+                                     data-scs-animation-delay="400">
+                                    <a href="https://kiblegah.com.tr/urun/kibleg%C3%A2h-aile-oyunu-yuzuk-hediyeli">
+                                        <img class="img-fluid" src="https://kiblegah.com.tr/storage/70/yuzuk.jpg" alt="Kıblegah Kampanya" width="350px">
+                                    </a>
+                                </div>
+
                             <div class="col-md-4"
                                  data-scs-animation-in="fadeInRight"
                                  data-scs-animation-delay="600">
