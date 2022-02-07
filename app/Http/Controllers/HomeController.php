@@ -14,12 +14,16 @@ use App\Models\ProductCategory;
 use App\Models\Search;
 use App\Models\ShopCart;
 use App\Models\Slider;
+
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Carbon\Carbon;
 use CyrildeWit\EloquentViewable\Support\Period;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+
+use Artesaos\SEOTools\Facades\SEOTools;
 
 class HomeController extends Controller
 {
@@ -33,6 +37,15 @@ class HomeController extends Controller
 
     public function kategori($url){
         $Detay = ProductCategory::where('slug', $url)->select('id','title','slug')->first();
+
+        SEOTools::setTitle($Detay->title);
+        SEOTools::setDescription($Detay->seo_desc);
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(route('urun', $Detay->slug));
+        SEOTools::opengraph()->addProperty('type', 'category');
+        SEOTools::twitter()->setSite('@kiblegahaile');
+        SEOTools::jsonLd()->addImage($Detay->getFirstMediaUrl('page','thumb'));
+
         $ProductList = Product::join('product_category_pivots', 'product_category_pivots.product_id', '=', 'products.id' )
             ->join('product_categories', 'product_categories.id', '=', 'product_category_pivots.category_id')
             ->where('product_category_pivots.category_id', '=', $Detay->id)
@@ -46,6 +59,15 @@ class HomeController extends Controller
 
     public function kurumsal($url){
         $Detay = Page::where('slug', $url)->firstOrFail();
+
+        SEOTools::setTitle($Detay->title);
+        SEOTools::setDescription($Detay->seo_desc);
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(route('urun', $Detay->slug));
+        SEOTools::opengraph()->addProperty('type', 'page');
+        SEOTools::twitter()->setSite('@kiblegahaile');
+        SEOTools::jsonLd()->addImage($Detay->getFirstMediaUrl('page','thumb'));
+
         return view('frontend.kurumsal.index', compact('Detay'));
     }
     public function iletisim(){
@@ -68,10 +90,21 @@ class HomeController extends Controller
     }
 
     public function urun($url){
+
         $Detay = Product::with('getCategory')->where('slug', $url)->firstOrFail();
+
+        SEOTools::setTitle($Detay->title);
+        SEOTools::setDescription($Detay->seo_desc);
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(route('urun', $Detay->slug));
+        SEOTools::opengraph()->addProperty('type', 'product');
+        SEOTools::twitter()->setSite('@kiblegahaile');
+        SEOTools::jsonLd()->addImage($Detay->getFirstMediaUrl('page','thumb'));
+
         views($Detay)->cooldown(60)->record();
         $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
         $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->inRandomOrder()->paginate(12);
+
         return view('frontend.urun.index', compact('Detay','Count','Comments'));
     }
 

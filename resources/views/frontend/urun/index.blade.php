@@ -79,7 +79,7 @@
                                 <span class="text-gray-90 mb-2">{{ $comment->comment }}</span>
                                 <div class="d-flex justify-content-between">
                                     <strong>{{ isim($comment->name) }}</strong>
-                                    <span class="font-size-14 text-gray-10"><i class="far fa-clock"></i> {{ $comment->created_at->diffForHumans() }}</span>
+                                    <span class="font-size-14 text-gray-10"><i class="far fa-clock"></i> {{ @$comment->created_at->diffForHumans() }}</span>
                                     <div class="d-flex justify-content-between align-items-center text-secondary font-size-12">
                                         <div class="text-warning text-ls-n2 font-size-16" style="width: 100px;">
                                             <small class="fas fa-star"></small>

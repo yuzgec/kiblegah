@@ -166,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -232,6 +233,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'SEOMeta'       => Artesaos\SEOTools\Facades\SEOMeta::class,
+        'OpenGraph'     => Artesaos\SEOTools\Facades\OpenGraph::class,
+        'Twitter'       => Artesaos\SEOTools\Facades\TwitterCard::class,
+        'JsonLd'        => Artesaos\SEOTools\Facades\JsonLd::class,
+        'JsonLdMulti'   => Artesaos\SEOTools\Facades\JsonLdMulti::class,
+        'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
 
     ],
 

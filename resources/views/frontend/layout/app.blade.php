@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="tr">
     <head>
-        <title>@yield('title', 'Kıblegah Aile Oyunları Online Satış Sitesi')</title>
-
+        {!! SEOMeta::generate() !!}
+        {!! OpenGraph::generate() !!}
+        {!! Twitter::generate() !!}
         @include('frontend.layout.css')
         @yield('customCSS')
+
     </head>
     <body>
         @include('frontend.layout.header')
