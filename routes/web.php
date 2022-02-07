@@ -23,6 +23,7 @@ use Spatie\Sitemap\SitemapGenerator;
     Route::post('/sepete-ekle', 'HomeController@addtocart')->name('sepeteekle');
     Route::post('/sepet-cikar/{rowId}', 'HomeController@cartdelete')->name('sepetcikar');
     Route::post('/sepet-bosalt}', 'HomeController@cartdestroy')->name('sepetbosalt');
+    Route::get('/kurumsal/{url}', 'HomeController@kurumsal')->name('kurumsal');
 
     Route::post('/siparis/kaydet', 'HomeController@kaydet')->name('kaydet');
     Route::get('/siparis/sonuc', 'HomeController@sonuc')->name('sonuc');

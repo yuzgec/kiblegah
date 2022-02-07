@@ -101,7 +101,7 @@
                             <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent">
                                 @foreach($Pages->where('category', 2) as $item)
                                     <li>
-                                        <a class="list-group-item list-group-item-action" href="{{ route('page', $item->slug) }}">
+                                        <a class="list-group-item list-group-item-action" href="{{ route('kurumsal', $item->slug) }}">
                                             {{ $item->title }}
                                         </a>
                                     </li>

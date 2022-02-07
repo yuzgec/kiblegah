@@ -8,6 +8,7 @@ use App\Models\Basket;
 use App\Models\Comment;
 use App\Models\MailSubcribes;
 use App\Models\Order;
+use App\Models\Page;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Search;
@@ -43,6 +44,10 @@ class HomeController extends Controller
         return view('frontend.kategori.index', compact('Detay', 'ProductList'));
     }
 
+    public function kurumsal($url){
+        $Detay = Page::where('slug', $url)->firstOrFail();
+        return view('frontend.kurumsal.index', compact('Detay'));
+    }
     public function iletisim(){
         return view('frontend.sayfa.iletisim');
     }
