@@ -182,11 +182,9 @@ class HomeController extends Controller
 
         if (Cart::total() > CARGO_LIMIT ){
             if ($p->campagin_price != null) {
-                $price = $p->price;
-                //dd($price);
-            }else{
                 $price = $p->campagin_price;
-                //dd($price);
+            }else{
+                $price = $p->price;
             }
         }else{
             $price = $p->price;
