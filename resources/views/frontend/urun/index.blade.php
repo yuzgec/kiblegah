@@ -107,7 +107,24 @@
                             <div class="text-gray-9 font-size-14 pb-2 border-color-1 border-bottom mb-3">
                                 Stok Durumu: <span class="text-green font-weight-bold">Stokta Mevcut</span></div>
                             <div class="mb-3">
-                                <div class="font-size-28 font-weight-bold">{{ money($Detay->price) }}₺ - <del class="font-size-20">{{ money($Detay->old_price) }}₺</del></div>
+                                <div class="font-size-28 font-weight-bold">{{ money($Detay->price) }}₺ -
+                                    <del class="font-size-20">{{ money($Detay->old_price) }}₺</del>
+                                </div>
+                                @if ($Detay->campagin_price > 0)
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <div class="font-size-20 badge badge-success p-2">
+                                        @if (Cart::total() > CARGO_LIMIT )
+                                            @if ($Detay->campagin_price != null)
+                                                {{ money($Detay->campagin_price) }}₺
+                                            @endif
+                                        @endif
+                                    </div>
+
+                                    <div class="ml-2">
+                                        <span >Sepetiniz {{ CARGO_LIMIT }}₺'dan fazla olduğu için extra indirimli olarak satın alabilirsiniz.</span>
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                             <form action="{{ route('sepeteekle') }}" method="POST">
                             @csrf
