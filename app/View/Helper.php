@@ -55,6 +55,7 @@
         $char_map = array(
             'Ş' => 'S', 'İ' => 'I', 'Ç' => 'C', 'Ü' => 'U', 'Ö' => 'O', 'Ğ' => 'G',
             'ş' => 's', 'ı' => 'i', 'ç' => 'c', 'ü' => 'u', 'ö' => 'o', 'ğ' => 'g',
+            'â'=> 'a' , 'Â' => 'a',
         );
         $str = preg_replace(array_keys($options['replacements']), $options['replacements'], $str);
         if ($options['transliterate']) {

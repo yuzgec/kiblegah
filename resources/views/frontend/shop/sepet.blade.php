@@ -17,7 +17,7 @@
     </div>
 
     <div class="container">
-
+        @if(Cart::total() > CARGO_LIMIT)
         <div class="bg-gray-7 mb-6 py-7">
             <div class="container">
                 <div class="row">
@@ -131,7 +131,7 @@
                 </div>
             </div>
         </div>
-
+        @endif
             <div class="mb-10 cart-table">
                  <table class="table" cellspacing="0">
                     <thead>

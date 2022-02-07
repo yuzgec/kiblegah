@@ -175,19 +175,21 @@ class HomeController extends Controller
     }
 
     public function addtocart(Request $request){
+
         $p = Product::find($request->id);
         Basket::create(['product_id' => $p->id]);
-
-        //dd($p);
 
         if (Cart::total() > CARGO_LIMIT ){
             if ($p->campagin_price != null) {
                 $price = $p->campagin_price;
+                $campagin = true;
             }else{
                 $price = $p->price;
+                $campagin = false;
             }
         }else{
             $price = $p->price;
+            $campagin = false;
         }
 
         Cart::add(
@@ -200,7 +202,7 @@ class HomeController extends Controller
             'options' => [
                 'image' => (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
                 'cargo' => 0,
-                'campagin' => false,
+                'campagin' => $campagin,
             ]
         ]);
 
@@ -211,6 +213,14 @@ class HomeController extends Controller
     public function cartdelete($rowId){
 
         Cart::remove($rowId);
+
+        if(Cart::total() < CARGO_LIMIT ) {
+            foreach (Cart::content() as $c) {
+                if ($c->options->campagin == true) {
+                    Cart::remove($c->rowId);
+                }
+            }
+        }
 
         toast(SWEETALERT_MESSAGE_DELETE,'success');
         return redirect()->route('sepet');

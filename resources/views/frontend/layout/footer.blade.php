@@ -99,13 +99,13 @@
                             <h6 class="mb-3 font-weight-bold">Müşteri Hizmetleri</h6>
 
                             <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent">
-                                <li><a class="list-group-item list-group-item-action" href="">Güvenlik ve Gizlilik</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="">Üyelik ve Hesap İşlemleri</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="">Kişisel Verilern Korunması Kanunu</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="">Müşteri Hizmetleri</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="">Ödeme Seçenekleri</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="">İptal, İade, Değişim</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="">Sipariş ve Kargolama</a></li>
+                                @foreach($Pages->where('category', 2) as $item)
+                                    <li>
+                                        <a class="list-group-item list-group-item-action" href="{{ route('page', $item->slug) }}">
+                                            {{ $item->title }}
+                                        </a>
+                                    </li>
+                                @endforeach
 
                             </ul>
                         </div>
@@ -113,15 +113,15 @@
                         <div class="col-12 col-md mb-4 mb-md-0">
                             <h6 class="mb-3 font-weight-bold">Müşteri Hizmetleri</h6>
                             <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent">
-                                <li><a class="list-group-item list-group-item-action" href="">Hesabım</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="">Sepetim</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="">Kargo Sorgulama</a></li>
+                                <li><a class="list-group-item list-group-item-action" href="{{ route('login') }}">Hesabım</a></li>
+                                <li><a class="list-group-item list-group-item-action" href="{{ route('sepet') }}">Sepetim</a></li>
+                                <li><a class="list-group-item list-group-item-action" href="{{ route('kargosorgulama') }}">Kargo Sorgulama</a></li>
                                 <li><a class="list-group-item list-group-item-action" href="">Favorilerim</a></li>
                                 <li><a class="list-group-item list-group-item-action" href="">S.S.S.</a></li>
                                 <li><a class="list-group-item list-group-item-action" href="">Blog</a></li>
                                 <li><a class="list-group-item list-group-item-action" href="">İnsan Kaynakları</a></li>
                                 <li><a class="list-group-item list-group-item-action" href="">Hakkımızda</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="">İletişim</a></li>
+                                <li><a class="list-group-item list-group-item-action" href="{{ route('iletisim') }}">İletişim</a></li>
                             </ul>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
             <div class="flex-center-between d-block d-md-flex">
                 <div class="mb-3 mb-md-0">© <a href="#" class="font-weight-bold text-gray-90">{{ config('settings.siteName') }}</a> -Tüm Hakları Saklıdır</div>
                 <div class="text-md-right">
-
+                    <img src="/frontend/assets/img/iyzico.png" alt="İyzico Ödeme" class="img-fluid">
                 </div>
             </div>
         </div>
