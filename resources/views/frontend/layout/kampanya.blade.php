@@ -31,7 +31,7 @@
         <div class="mb-2">
             <h6 class="font-size-15 text-gray-2 text-center mb-3">İndirimli ürünü almak için acele edin</h6>
             <div class="js-countdown d-flex justify-content-center"
-                 data-end-date="{{ date('Y/m/d', strtotime("+1 day")) }}"
+                 data-end-date="{{ \Carbon\Carbon::tomorrow()->toDateString() }}"
                  data-hours-format="%H"
                  data-minutes-format="%M"
                  data-seconds-format="%S">

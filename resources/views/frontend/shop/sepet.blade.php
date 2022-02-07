@@ -29,7 +29,7 @@
                             <div class="mb-3 mb-md-2 text-center text-md-left">
                                 <h6 class="text-gray-2 mb-2">Sepetiniz 50₺ geçtiği için aşağıdaki ürünleri %70'e varan indirim ile alabilirsiniz</h6>
                                 <div class="js-countdown d-flex mx-n2 justify-content-center justify-content-md-start"
-                                     data-end-date="{{ date('Y/m/d', strtotime("+1 day")) }}"
+                                     data-end-date="{{ \Carbon\Carbon::tomorrow()->toDateString() }}"
                                      data-hours-format="%H"
                                      data-minutes-format="%M"
                                      data-seconds-format="%S">
