@@ -110,20 +110,17 @@
                                 <div class="font-size-28 font-weight-bold">{{ money($Detay->price) }}₺ -
                                     <del class="font-size-20">{{ money($Detay->old_price) }}₺</del>
                                 </div>
-                                @if ($Detay->campagin_price > 0)
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <div class="font-size-20 badge badge-success p-2">
-                                        @if (Cart::total() > CARGO_LIMIT )
-                                            @if ($Detay->campagin_price != null)
+                                @if (Cart::total() > CARGO_LIMIT )
+                                    @if ($Detay->campagin_price != null)
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <div class="font-size-20 badge badge-success p-2">
                                                 {{ money($Detay->campagin_price) }}₺
-                                            @endif
-                                        @endif
-                                    </div>
-
-                                    <div class="ml-2">
-                                        <span >Sepetiniz {{ CARGO_LIMIT }}₺'dan fazla olduğu için extra indirimli olarak satın alabilirsiniz.</span>
-                                    </div>
-                                </div>
+                                            </div>
+                                            <div class="ml-2">
+                                                <span >Sepetiniz {{ CARGO_LIMIT }}₺'dan fazla olduğu için extra indirimli olarak satın alabilirsiniz.</span>
+                                            </div>
+                                        </div>
+                                    @endif
                                 @endif
                             </div>
                             <form action="{{ route('sepeteekle') }}" method="POST">
