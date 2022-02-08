@@ -156,6 +156,8 @@ class HomeController extends Controller
             Mail::send("frontend.mail.siparis",compact('Cart', 'ShopCart'),function ($message) use($ShopCart) {
                 $message->to(MAIL_SEND)->subject($ShopCart->name.' '. $ShopCart->surname.' siparişiniz başarıyla oluşturmuştur.');
             });
+            
+            $Sms = 'Siparişiniz başarıyla oluşturulmuştur. Sipariş onayı için '.config('settings.telefon2').' nolu telefondan aranacaksınız. Hayırlı günler dileriz.';
 
             $curl = curl_init();
                 curl_setopt_array($curl, array(
@@ -179,7 +181,7 @@ class HomeController extends Controller
 				"Msisdn": '.$ShopCart->phone.',
 				"Name": "",
 				"Surname": "",
-				"CustomField1": "[Mesaj1]:'.'test'.'"
+				"CustomField1": "[Mesaj1]:'.$Sms.'"
 				}
 				],
 				"ToGroups": [
