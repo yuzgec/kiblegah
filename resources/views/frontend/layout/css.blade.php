@@ -10,4 +10,5 @@
 <link rel="stylesheet" href="/frontend/assets/vendor/slick-carousel/slick/slick.css">
 <link rel="stylesheet" href="/frontend/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
 <link rel="stylesheet" href="/frontend/assets/css/theme.css">
+<meta name="facebook-domain-verification" content="15l74aqrqynbg0t0etwzqhtjj7g5o3" />
 <livewire:styles />
