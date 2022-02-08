@@ -5,7 +5,7 @@
     define('SWEETALERT_MESSAGE_DELETE', 'Silindi');
     define('CARGO_LIMIT', 50);
     define('CARGO_PRICE', 19.90);
-    define('MAIL_SEND', 'olcayy@gmail.com');
+    define('MAIL_SEND', 'siparis@kiblegahaileoyunlari.com.tr');
 
 
     //KULLANICI ADI BAŞ HARFLERİNİ GÖSTERME
