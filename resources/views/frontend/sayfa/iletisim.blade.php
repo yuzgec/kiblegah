@@ -93,8 +93,8 @@
                         <li class="flex-center-between"><span class="">Pazar</span><span class="">08:00 - 19:00</span></li>
                     </ul>
                     <h5 class="font-size-14 font-weight-bold mb-3">Toptan Satış</h5>
-                    <p class="text-gray-90">If you’re interested in employment opportunities at Electro, please email us:
-                        <a class="text-blue text-decoration-on" href="mailto:contact@yourstore.com">contact@yourstore.com</a>
+                    <p class="text-gray-90">Kıblegah oyunlarını toptan almak için lütfen bizimle iletişime geçiniz:
+                        <a class="text-blue text-decoration-on" href="mailto:contact@yourstore.com">info@kiblegah.com.tr</a>
                     </p>
                 </div>
             </div>

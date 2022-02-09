@@ -88,7 +88,8 @@ class HomeController extends Controller
         if (Cart::content()->count() === 0){
             return redirect()->route('home');
         }
-        return view('frontend.shop.siparis');
+        $Province = DB::table('sehir')->get();
+        return view('frontend.shop.siparis', compact('Province'));
     }
 
     public function urun($url){
