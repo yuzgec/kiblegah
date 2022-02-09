@@ -206,9 +206,7 @@
                     </table>
 
                 </module>
-
                 <module label="em-04">
-
                     <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="menu-icon" bgcolor="#f0f3f8" data-bgcolor="BodyBg" data-module="Notification 5 module 4" data-thumb="http://www.freetemplates.bz/design/thumbnails/tellmail/05-4.png">
                         <tr>
                             <td align="center" valign="top"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
@@ -225,21 +223,22 @@
                                                                 <td width="115" align="left" valign="top" class="two-left" style="font-family:'Open Sans', sans-serif, Verdana; font-size:15px; color:#333; line-height:22px; font-weight:bold;" mc:edit="tm5-12"><multi label="content">Adet</multi></td>
                                                                 <td width="115" align="left" valign="top" class="two-left" style="font-family:'Open Sans', sans-serif, Verdana; font-size:15px; color:#333; line-height:22px; font-weight:bold;" mc:edit="tm5-13"><multi label="content">Tutar</multi></td>
                                                             </tr>
-                                                        </table></td>
+                                                        </table>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td height="25" align="center" valign="top" style="font-size:25px; line-height:25px; border-bottom:#CCC solid 1px;">&nbsp;</td>
                                                 </tr>
-                                            </table></td>
+                                            </table>
+                                        </td>
                                     </tr>
-                                </table></td>
+                                </table>
+                            </td>
                         </tr>
                     </table>
-
                 </module>
                 @foreach($Cart as $c)
                 <module label="em-05">
-
                     <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f0f3f8" data-bgcolor="BodyBg" data-module="Notification 5 module 5" data-thumb="http://www.freetemplates.bz/design/thumbnails/tellmail/05-5.png">
                         <tr>
                             <td align="center" valign="top"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
@@ -248,7 +247,6 @@
                                             <table width="500" border="0" cellspacing="0" cellpadding="0" class="two-left-inner">
                                                 <tr>
                                                     <td height="35" align="center" valign="top" style="font-size:35px; line-height:35px;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-
                                                             <tr>
                                                                 <td colspan="4" align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:13px; color:#333; line-height:30px; font-weight:normal;">&nbsp;</td>
                                                             </tr>
@@ -279,18 +277,15 @@
                             </td>
                         </tr>
                     </table>
-
                 </module>
                 @endforeach
                 <module label="em-08">
-
                     <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f0f3f8" data-bgcolor="BodyBg" data-module="Notification 5 module 8" data-thumb="http://www.freetemplates.bz/design/thumbnails/tellmail/05-8.png">
                         <tr>
                             <td align="center" valign="top"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" class="main">
                                     <tr>
                                         <td align="center" valign="top" style="background:#FFF;">
                                             <table width="500" border="0" cellspacing="0" cellpadding="0" class="two-left-inner">
-
                                                 <tr>
                                                     <td height="35" align="center" valign="top" style="border-top:#CCC solid 1px;"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                                                             <tr>
