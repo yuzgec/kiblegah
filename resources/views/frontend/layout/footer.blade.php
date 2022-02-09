@@ -37,8 +37,8 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="mb-6">
-                        <a href="#" class="d-inline-block">
-                            <img src="https://kiblegahaileoyunlari.com.tr/assets/images/logo1.png" alt="{{ config('app.name') }}" class="img-fluid" width="300px">
+                        <a href="{{ route('home') }}" class="d-inline-block">
+                            <img src="/frontend/assets/img/logo1.png" alt="{{ config('app.name') }}" class="img-fluid" width="300px">
                         </a>
                     </div>
                     <div class="mb-4">
@@ -106,7 +106,6 @@
                                         </a>
                                     </li>
                                 @endforeach
-
                             </ul>
                         </div>
 
@@ -133,7 +132,9 @@
     <div class="bg-gray-14 py-2">
         <div class="container">
             <div class="flex-center-between d-block d-md-flex">
-                <div class="mb-3 mb-md-0">© <a href="#" class="font-weight-bold text-gray-90">{{ config('settings.siteName') }}</a> -Tüm Hakları Saklıdır</div>
+                <div class="mb-3 mb-md-0">© <a href="{{ route('home') }}" class="font-weight-bold text-gray-90">
+                        {{ config('settings.siteName') }}</a> -Tüm Hakları Saklıdır
+                </div>
                 <div class="text-md-right">
                     <img src="/frontend/assets/img/iyzico.png" alt="İyzico Ödeme" class="img-fluid">
                 </div>

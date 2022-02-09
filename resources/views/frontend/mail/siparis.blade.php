@@ -305,7 +305,7 @@
                                                                                             <multi label="content">Kargo</multi>
                                                                                         </td>
                                                                                         <td width="115" align="left" valign="top" style="font-family:'Open Sans', sans-serif, Verdana; font-size:14px; color:#71746f; line-height:22px; font-weight:bold;" class="two-left" mc:edit="tm5-27">
-                                                                                            <multi label="content">Ücretsiz Kargo</multi>
+                                                                                            <multi label="content">{{ ($ShopCart->order_cargo == null) ? 'Ücretsiz Kargo' : money($ShopCart->order_cargo)}}</multi>
                                                                                         </td>
                                                                                     </tr>
                                                                                 </table>

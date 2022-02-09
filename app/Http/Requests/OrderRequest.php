@@ -15,6 +15,8 @@ class OrderRequest extends FormRequest
             'phone'                => 'required|numeric|digits:10',
             'address'              => 'required|min:25',
             'email'                => 'nullable|email',
+            'province'             => 'required',
+            'city'                 => 'required|regex:/^[a-zA-ZşŞıİçÇöÖüÜĞğ]+$/',
         ];
     }
 
@@ -32,13 +34,18 @@ class OrderRequest extends FormRequest
             'surname.regex'            =>  'Geçerli bir soyisim giriniz',
 
             'phone.required'           => 'Telefon alanı boş bırakılamaz',
-            'phone.max'                => 'Telefon en fazla 11 karakter olabilir',
+            'phone.numeric'            => 'Telefon sadece rakamlardan oluşabilir',
             'phone.digits'             => 'Telefon numaranız en az 10 karakter olabilir',
 
             'address.required'         => 'Adres alanı boş bırakılamaz',
             'address.min'              => 'Adres en az 25 karakterden oluşmalıdır',
 
             'email.email'              => 'Geçerli bir email giriniz',
+
+            'province.required'        => 'İl alanı boş bırakılamaz',
+            'city.required'            => 'İlçe alanı boş bırakılamaz',
+            'city.regex'               => 'Geçerli bir ilçe adı giriniz',
+
 
         ];
     }

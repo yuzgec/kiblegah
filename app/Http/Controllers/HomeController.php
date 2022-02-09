@@ -156,7 +156,7 @@ class HomeController extends Controller
             Mail::send("frontend.mail.siparis",compact('Cart', 'ShopCart'),function ($message) use($ShopCart) {
                 $message->to(MAIL_SEND)->subject($ShopCart->name.' '. $ShopCart->surname.' siparişiniz başarıyla oluşturmuştur.');
             });
-            
+
             $Sms = 'Siparişiniz başarıyla oluşturulmuştur. Sipariş onayı için '.config('settings.telefon2').' nolu telefondan aranacaksınız. Hayırlı günler dileriz.';
 
             $curl = curl_init();
@@ -249,7 +249,7 @@ class HomeController extends Controller
         ]);
 
         toast(SWEETALERT_MESSAGE_CREATE,'success');
-        return redirect()->route('sepet');
+        return redirect()->route('urun', $p->slug);
     }
 
     public function cartdelete($rowId){
