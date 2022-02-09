@@ -250,6 +250,10 @@ class HomeController extends Controller
         ]);
 
         toast(SWEETALERT_MESSAGE_CREATE,'success');
+
+        if ($request->update == 1){
+            return redirect()->route('sepet');
+        }
         return redirect()->route('urun', $p->slug);
     }
 

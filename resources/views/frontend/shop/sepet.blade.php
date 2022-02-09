@@ -149,7 +149,7 @@
                     <tr class="mb-1" style="border:1px solid gray;border-radius:5px">
                         <td class="text-center">
                             <form action="{{ route('sepetcikar', $cart->rowId) }}" method="POST">
-                                @csrf()
+                                @csrf
                                 <button type="submit" class="btn btn-danger text-white-size-16">Sepetten Çıkar</button>
                             </form>
                         </td>
@@ -159,7 +159,7 @@
                             </a>
                         </td>
                         <td data-title="Ürün Adı">
-                            <a href="{{ route('urun', seo($cart->name)) }}"" class="text-gray-90">{{ $cart->name }}</a>
+                            <a href="{{ route('urun', seo($cart->name)) }}" class="text-gray-90">{{ $cart->name }}</a>
                         </td>
                         <td data-title="Fiyat">
                             <span class="">{{ money($cart->price)}}₺</span>
@@ -168,17 +168,20 @@
                         <td data-title="Adet">
                             <span class="sr-only">Adet</span>
                             <div class="border rounded-pill py-1 width-122 w-xl-80 px-3 border-color-1">
-                                <div class="js-quantity row align-items-center">
+                                <div class="row align-items-center">
                                     <div class="col">
                                         <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="text" value="{{ $cart->qty }}">
                                     </div>
                                     <div class="col-auto pr-1">
-                                        <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
-                                            <small class="fas fa-minus btn-icon__inner"></small>
-                                        </a>
-                                        <a class="js-plus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
-                                            <small class="fas fa-plus btn-icon__inner"></small>
-                                        </a>
+                                        <form action="{{ route('sepeteekle') }}" method="POST">
+                                            <input  type="hidden" name="id" value="{{ $cart->id }}">
+                                            <input  type="hidden" name="update" value="1">
+                                            <input  type="hidden" name="qty" value="1">
+                                            @csrf
+                                            <button class="js-plus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" type="submit">
+                                                <small class="fas fa-plus btn-icon__inner"></small>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +209,7 @@
                                     </div>
                                     <div class="d-md-flex">
                                         <form action="{{ route('sepetbosalt') }}" method="POST">
-                                            @csrf()
+                                            @csrf
                                             <button type="submit" class="btn btn-soft-secondary mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto">
                                                 Sepeti Boşalt
                                             </button>
