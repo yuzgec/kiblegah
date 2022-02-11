@@ -34,7 +34,6 @@ class HomeController extends Controller
         $Slider = Slider::with('getProduct')->get();
         return view('frontend.index', compact('Products','Slider'));
     }
-
     public function kategori($url){
         $Detay = ProductCategory::where('slug', $url)->select('id','title','slug')->first();
 
@@ -56,7 +55,6 @@ class HomeController extends Controller
         //dd($Pro);
         return view('frontend.kategori.index', compact('Detay', 'ProductList'));
     }
-
     public function kurumsal($url){
         $Detay = Page::where('slug', $url)->firstOrFail();
 
@@ -73,7 +71,6 @@ class HomeController extends Controller
     public function iletisim(){
         return view('frontend.sayfa.iletisim');
     }
-
     public function sepet(){
 
         if (Cart::content()->count() === 0){
@@ -83,7 +80,6 @@ class HomeController extends Controller
         $Products = Product::select('id', 'title', 'price', 'old_price', 'slug', 'campagin_price')->get();
         return view('frontend.shop.sepet',compact('Products'));
     }
-
     public function siparis(){
         if (Cart::content()->count() === 0){
             return redirect()->route('home');
@@ -91,7 +87,6 @@ class HomeController extends Controller
         $Province = DB::table('sehir')->get();
         return view('frontend.shop.siparis', compact('Province'));
     }
-
     public function urun($url){
 
         $Detay = Product::with('getCategory')->where('slug', $url)->firstOrFail();
@@ -110,11 +105,9 @@ class HomeController extends Controller
 
         return view('frontend.urun.index', compact('Detay','Count','Comments'));
     }
-
     public function kargosorgulama(){
         return view('frontend.kargo.index');
     }
-
     public function kaydet(OrderRequest $request){
 
         $Cart_Id = time();
@@ -129,8 +122,8 @@ class HomeController extends Controller
             $ShopCart->email            = $request->email;
             $ShopCart->phone            = $request->phone;
             $ShopCart->address          = $request->address;
-            $ShopCart->city             = $request->city;
-            $ShopCart->province         = $request->province;
+            $ShopCart->city             = $request->province;
+            $ShopCart->province         = $request->city;
             $ShopCart->note             = $request->note;
             $ShopCart->order_cargo      = (Cart::total() < CARGO_LIMIT) ? CARGO_PRICE : null;
 
@@ -210,13 +203,11 @@ class HomeController extends Controller
 
         return redirect()->route('sonuc',['no'=>$Cart_Id]);
     }
-
     public function sonuc(){
         $Summary  = Order::where('cart_id',request('no') )->get();
         $Customer = ShopCart::where('cart_id',request('no')  )->firstOrFail();
         return view('frontend.shop.sonuc', compact('Summary', 'Customer'));
     }
-
     public function addtocart(Request $request){
 
         $p = Product::find($request->id);
@@ -256,7 +247,6 @@ class HomeController extends Controller
         }
         return redirect()->route('urun', $p->slug);
     }
-
     public function cartdelete($rowId){
 
         Cart::remove($rowId);
@@ -272,20 +262,17 @@ class HomeController extends Controller
         toast(SWEETALERT_MESSAGE_DELETE,'success');
         return redirect()->route('sepet');
     }
-
     public function cartdestroy(){
         Cart::destroy();
 
         toast(SWEETALERT_MESSAGE_DELETE,'success');
         return redirect()->route('home');
     }
-
     public function mailsubcribes(Request $request){
         MailSubcribes::create(['email_address' => $request->email, 'ip_address' => $request->ip()]);
         toast(SWEETALERT_MESSAGE_DELETE,'success');
         return redirect()->route('home');
     }
-
     public function search(SearchRequest $request){
         $search = $request->q;
         $Result = Product::where('title','like','%'.$search.'%')
