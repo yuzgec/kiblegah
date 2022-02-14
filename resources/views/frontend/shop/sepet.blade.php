@@ -17,122 +17,8 @@
     </div>
 
     <div class="container">
-        @if(Cart::total() > CARGO_LIMIT)
-        <div class="bg-gray-7 mb-6 py-7">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-lg-3 col-wd-2">
-                        <div class="max-width-244">
-                            <div class="d-flex border-bottom border-color-1 mb-3">
-                                <h3 class="section-title mb-0 pb-2 font-size-22">Haftanın <b>İndirimli</b> Ürünleri</h3>
-                            </div>
-                            <div class="mb-3 mb-md-2 text-center text-md-left">
-                                <h6 class="text-gray-2 mb-2">Sepetiniz 50₺ geçtiği için aşağıdaki ürünleri %70'e varan indirim ile alabilirsiniz</h6>
-                                <div class="js-countdown d-flex mx-n2 justify-content-center justify-content-md-start"
-                                     data-end-date="{{ \Carbon\Carbon::tomorrow()->toDateString() }}"
-                                     data-hours-format="%H"
-                                     data-minutes-format="%M"
-                                     data-seconds-format="%S">
-                                    <div class="text-lh-1 px-2 text-center">
-                                        <div class="bg-white rounded-sm border border-width-2 border-primary py-2 px-2 min-width-46">
-                                            <div class="text-gray-2 font-size-20 mb-2">
-                                                <span class="js-cd-hours"></span>
-                                            </div>
-                                            <div class="text-gray-2 font-size-8 text-center">SAAT</div>
-                                        </div>
-                                    </div>
-                                    <div class="text-lh-1 px-2 text-center">
-                                        <div class="bg-white rounded-sm border border-width-2 border-primary py-2 px-2 min-width-46">
-                                            <div class="text-gray-2 font-size-20 mb-2">
-                                                <span class="js-cd-minutes"></span>
-                                            </div>
-                                            <div class="text-gray-2 font-size-8 text-center">DAKİKA</div>
-                                        </div>
-                                    </div>
-                                    <div class="text-lh-1 px-2 text-center">
-                                        <div class="bg-white rounded-sm border border-width-2 border-primary py-2 px-2 min-width-46">
-                                            <div class="text-gray-2 font-size-20 mb-2">
-                                                <span class="js-cd-seconds"></span>
-                                            </div>
-                                            <div class="text-gray-2 font-size-8 text-center">SANİYE</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-lg-9 col-wd-10">
-                        <div class="">
-                            <div class="js-slick-carousel u-slick position-static overflow-hidden u-slick-overflow-visble pb-5 pt-2 px-1"
-                                 data-pagi-classes="text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-3 pt-1"
-                                 data-slides-show="5"
-                                 data-slides-scroll="1"
-                                 data-responsive='[{
-                                      "breakpoint": 1400,
-                                      "settings": {
-                                        "slidesToShow": 4
-                                      }
-                                    }, {
-                                        "breakpoint": 1200,
-                                        "settings": {
-                                          "slidesToShow": 3
-                                        }
-                                    }, {
-                                      "breakpoint": 992,
-                                      "settings": {
-                                        "slidesToShow": 2
-                                      }
-                                    }, {
-                                      "breakpoint": 768,
-                                      "settings": {
-                                        "slidesToShow": 2
-                                      }
-                                    }, {
-                                      "breakpoint": 554,
-                                      "settings": {
-                                        "slidesToShow": 2
-                                      }
-                                    }]'>
-                                @foreach($Products->whereNotNull('campagin_price') as $item)
-                                    <div class="js-slide products-group">
-                                        <div class="product-item__outer h-100">
-                                            <div class="product-item__inner px-xl-4 p-3">
-                                                <div class="product-item__body pb-xl-2">
-                                                    <h5 class="mb-1 product-item__title">
-                                                        <a href="{{ route('urun', $item->slug) }}" class="text-blue font-weight-bold" title="{{ $item->title }}"> {{ $item->title }}</a>
-                                                    </h5>
-                                                    <div class="mb-2">
-                                                        <a href="{{ route('urun', $item->slug) }}" class="d-block text-center" title="{{ $item->title }}">
-                                                            <img class="img-fluid" src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/resimyok.jpg': $item->getFirstMediaUrl('page', 'thumb')}}" alt="{{ $item->title }}">
-                                                        </a>
-                                                    </div>
-                                                    <div class="d-flex align-items-center justify-content-center mb-1 text-center">
-                                                        <div class="prodcut-priceflex-wrap position-relative text-center">
-                                                            <div class="text-center">
-                                                                <ins class="font-size-20 text-black text-decoration-none mr-2 font-weight-bold text-center">
-                                                                    {{ money($item->campagin_price) }}₺ -
-                                                                    <del class="font-size-1">
-                                                                        {{ money($item->price) }}
-                                                                    </del>
-                                                                </ins>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endif
-            <div class="mb-10 cart-table">
+        <div class="mb-10 cart-table">
                  <table class="table" cellspacing="0">
                     <thead>
                     <tr>
@@ -214,7 +100,7 @@
                                                 Sepeti Boşalt
                                             </button>
                                         </form>
-                                        <a href="{{ route('siparis') }}" class="btn btn-primary-dark-w ml-md-2 px-5 px-md-4 px-lg-5 w-100 w-md-auto d-none d-md-inline-block">Siparişi Tamamla</a>
+                                        <a href="{{ route('siparis') }}" class="btn btn-secondary text-uppercase ml-md-2 px-5 px-md-4 px-lg-5 w-100 w-md-auto d-none d-md-inline-block">Siparişi Tamamla</a>
                                     </div>
                                 </div>
                             </div>
@@ -247,9 +133,125 @@
                         </tr>
                         </tbody>
                     </table>
-                    <a href="{{ route('siparis') }}"  type="button" class="btn btn-primary-dark-w ml-md-2 px-5 px-md-4 px-lg-5 w-100 w-md-auto d-md-none">Siparişi Tamamla</a>
+                    <a href="{{ route('siparis') }}"  type="button" class="btn btn-secondary ml-md-2 px-5 px-md-4 px-lg-5 w-100 w-md-auto d-md-none text-uppercase">Siparişi Tamamla</a>
                 </div>
             </div>
         </div>
+
+        @if(Cart::total() > CARGO_LIMIT)
+            <div class="bg-gray-7 mb-6 py-7">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-3 col-wd-2">
+                            <div class="max-width-244">
+                                <div class="d-flex border-bottom border-color-1 mb-3">
+                                    <h3 class="section-title mb-0 pb-2 font-size-22">Haftanın <b>İndirimli</b> Ürünleri</h3>
+                                </div>
+                                <div class="mb-3 mb-md-2 text-center text-md-left">
+                                    <h6 class="text-gray-2 mb-2">Sepetiniz 50₺ geçtiği için aşağıdaki ürünleri %70'e varan indirim ile alabilirsiniz</h6>
+                                    <div class="js-countdown d-flex mx-n2 justify-content-center justify-content-md-start"
+                                         data-end-date="{{ \Carbon\Carbon::tomorrow()->toDateString() }}"
+                                         data-hours-format="%H"
+                                         data-minutes-format="%M"
+                                         data-seconds-format="%S">
+                                        <div class="text-lh-1 px-2 text-center">
+                                            <div class="bg-white rounded-sm border border-width-2 border-primary py-2 px-2 min-width-46">
+                                                <div class="text-gray-2 font-size-20 mb-2">
+                                                    <span class="js-cd-hours"></span>
+                                                </div>
+                                                <div class="text-gray-2 font-size-8 text-center">SAAT</div>
+                                            </div>
+                                        </div>
+                                        <div class="text-lh-1 px-2 text-center">
+                                            <div class="bg-white rounded-sm border border-width-2 border-primary py-2 px-2 min-width-46">
+                                                <div class="text-gray-2 font-size-20 mb-2">
+                                                    <span class="js-cd-minutes"></span>
+                                                </div>
+                                                <div class="text-gray-2 font-size-8 text-center">DAKİKA</div>
+                                            </div>
+                                        </div>
+                                        <div class="text-lh-1 px-2 text-center">
+                                            <div class="bg-white rounded-sm border border-width-2 border-primary py-2 px-2 min-width-46">
+                                                <div class="text-gray-2 font-size-20 mb-2">
+                                                    <span class="js-cd-seconds"></span>
+                                                </div>
+                                                <div class="text-gray-2 font-size-8 text-center">SANİYE</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-lg-9 col-wd-10">
+                            <div class="">
+                                <div class="js-slick-carousel u-slick position-static overflow-hidden u-slick-overflow-visble pb-5 pt-2 px-1"
+                                     data-pagi-classes="text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-3 pt-1"
+                                     data-slides-show="5"
+                                     data-slides-scroll="1"
+                                     data-responsive='[{
+                                      "breakpoint": 1400,
+                                      "settings": {
+                                        "slidesToShow": 4
+                                      }
+                                    }, {
+                                        "breakpoint": 1200,
+                                        "settings": {
+                                          "slidesToShow": 3
+                                        }
+                                    }, {
+                                      "breakpoint": 992,
+                                      "settings": {
+                                        "slidesToShow": 2
+                                      }
+                                    }, {
+                                      "breakpoint": 768,
+                                      "settings": {
+                                        "slidesToShow": 4
+                                      }
+                                    }, {
+                                      "breakpoint": 554,
+                                      "settings": {
+                                        "slidesToShow": 4
+                                      }
+                                    }]'>
+                                    @foreach($Products->whereNotNull('campagin_price') as $item)
+                                        <div class="js-slide products-group">
+                                            <div class="product-item__outer h-100">
+                                                <div class="product-item__inner px-xl-4 p-3">
+                                                    <div class="product-item__body pb-xl-2">
+                                                        <h5 class="mb-1 product-item__title">
+                                                            <a href="{{ route('urun', $item->slug) }}" class="text-blue font-weight-bold" title="{{ $item->title }}"> </a>
+                                                        </h5>
+                                                        <div class="mb-2">
+                                                            <a href="{{ route('urun', $item->slug) }}" class="d-block text-center" title="{{ $item->title }}">
+                                                                <img class="img-fluid" src="{{ (!$item->getFirstMediaUrl('page')) ? '/frontend/resimyok.jpg': $item->getFirstMediaUrl('page', 'thumb')}}" alt="{{ $item->title }}">
+                                                            </a>
+                                                        </div>
+                                                        <div class="d-flex align-items-center justify-content-center mb-1 text-center">
+                                                            <div class="prodcut-priceflex-wrap position-relative text-center">
+                                                                <div class="text-center">
+                                                                    <ins class="font-size-20 text-black text-decoration-none mr-2 font-weight-bold text-center">
+                                                                        {{ money($item->campagin_price) }}₺ -
+                                                                        <del class="font-size-1">
+                                                                            {{ money($item->price) }}
+                                                                        </del>
+                                                                    </ins>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
 @endsection

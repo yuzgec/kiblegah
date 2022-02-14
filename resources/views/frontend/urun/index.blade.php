@@ -151,7 +151,8 @@
                             </div>
                             </form>
                             <div class="mb-3">
-                                <a href="#" class="btn btn-block btn-green"><i class="fab fa-whatsapp"></i> Whatsapp Sipariş</a>
+                                <a href="https://api.whatsapp.com/send?phone=905523020000&text=Merhaba sipariş vermek istiyorum. {{ $Detay->title }} {{ route('urun', $Detay->slug) }}" class="btn btn-block btn-green" target="_blank">
+                                    <i class="fab fa-whatsapp"></i> Whatsapp Sipariş</a>
                             </div>
                             <span>
                                 <i class="fa fa-eye"></i> Bugün <b>({{$Count}})</b> kişi baktı<br>
