@@ -77,7 +77,7 @@ class HomeController extends Controller
             return redirect()->route('home');
         }
         //dd(Cart::content());
-        $Products = Product::select('id', 'title', 'price', 'old_price', 'slug', 'campagin_price')->get();
+        $Products = Product::select('id', 'title', 'price', 'old_price', 'slug', 'campagin_price')->orderBy('rank')->get();
         return view('frontend.shop.sepet',compact('Products'));
     }
     public function siparis(){
