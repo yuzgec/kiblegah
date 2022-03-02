@@ -203,15 +203,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group d-flex align-items-center justify-content-between px-3 mb-5">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="1" checked required>
-                                        <label class="form-check-label form-label" for="defaultCheck10">
-                                            Kullanıcı Sözleşmesini okudum <a href="#" class="text-blue">onaylıyorum </a>
-                                            <span class="text-danger">*</span>
-                                        </label>
-                                    </div>
-                                </div>
+
                                 <button type="submit" class="btn btn-primary-dark-w btn-block btn-pill font-size-20 mb-3 py-3">Siparişi Tamamla</button>
                             </div>
                         </div>
