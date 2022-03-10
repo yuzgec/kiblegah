@@ -30,7 +30,7 @@
                                      data-scs-animation-in="zoomIn"
                                      data-scs-animation-delay="400">
                                     <a href="https://kiblegah.com.tr/urun/kibleg%C3%A2h-aile-oyunu-yuzuk-hediyeli">
-                                        <img class="img-fluid" src="https://kiblegah.com.tr/storage/70/yuzuk.jpg" alt="Kıblegah Kampanya" width="350px">
+                                        <img class="img-fluid" src="https://www.kiblegah.com.tr/storage/74/Untitled-1.jpg" alt="Kıblegah Kampanya" width="350px">
                                     </a>
                                 </div>
 
@@ -44,8 +44,7 @@
                                         </a>
                                     </h5>
                                     <div class="prodcut-price d-flex justify-content-center align-items-center position-relative text-lh-1 mb-5">
-                                        <ins class="font-size-40 font-weight-bold text-red text-decoration-none">59.90₺</ins>
-                                        <del class="font-size-30tex-gray-6 mb-1 ml-2">69.00₺</del>
+                                        <ins class="font-size-40 font-weight-bold text-red text-decoration-none">69.90₺</ins>
                                     </div>
                                     <div class="js-countdown d-flex mx-n2 justify-content-center align-items-center mb-5"
                                          data-end-date="{{ \Carbon\Carbon::tomorrow()->toDateString() }}"
@@ -79,8 +78,8 @@
                                     </div>
                                     <div class="mb-3">
                                         <div class="d-flex justify-content-between align-items-center mb-2">
-                                            <span class="">SATILAN: <strong>53</strong></span>
-                                            <span class="">STOK ADEDİ : <strong>200</strong></span>
+                                            <span class="">SATILAN: <strong>135</strong></span>
+                                            <span class="">STOK ADEDİ : <strong>500</strong></span>
                                         </div>
                                         <div class="rounded-pill bg-gray-3 height-wd-14 height-xl-20 position-relative">
                                             <span class="position-absolute left-0 top-0 bottom-0 rounded-pill w-40 bg-secondary"></span>
