@@ -16,7 +16,7 @@
             <a href="https://kiblegah.com.tr/urun/kibleg%C3%A2h-aile-oyunu-yuzuk-hediyeli" class="text-gray-60  font-weight-bold">Kıblegah Aile Oyunu Yüzük Hediyeli</a>
         </h5>
         <div class="d-flex align-items-center justify-content-center mb-3">
-            <del class="font-size-18 mr-2 text-gray-2">69.90₺</del>
+            <ins class="font-size-30 text-red text-decoration-none">69.90₺</ins>
         </div>
         <div class="mb-3 mx-2">
             <div class="d-flex justify-content-between align-items-center mb-2">
