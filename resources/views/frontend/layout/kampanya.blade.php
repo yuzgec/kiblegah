@@ -8,8 +8,8 @@
             </div>
         </div>
         <div class="mb-4">
-            <a href="https://kiblegah.com.tr/urun/kibleg%C3%A2h-aile-oyunu-yuzuk-hediyeli" class="d-block text-center" title="Kıblegah Kampanya">
-                <img class="img-fluid" src="https://www.kiblegah.com.tr/storage/74/Untitled-1.jpg" alt="Kampanya" width="300px">
+            <a href="https://kiblegah.com.tr/urun/kiblegah-aile-oyunu-yuzuk-hediyeli" class="d-block text-center" title="Kıblegah Kampanya">
+                <img class="img-fluid" src="https://www.kiblegah.com.tr/storage/75/yuzukhediye.png" alt="Kampanya" width="300px">
             </a>
         </div>
         <h5 class="mb-2 font-size-14 text-center mx-auto max-width-180 text-lh-18">
