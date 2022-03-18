@@ -14,17 +14,13 @@ use App\Models\ProductCategory;
 use App\Models\Search;
 use App\Models\ShopCart;
 use App\Models\Slider;
-
-use Artesaos\SEOTools\Facades\SEOMeta;
 use Carbon\Carbon;
 use CyrildeWit\EloquentViewable\Support\Period;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-
 use Artesaos\SEOTools\Facades\SEOTools;
-
 class HomeController extends Controller
 {
 
@@ -211,7 +207,7 @@ class HomeController extends Controller
     public function addtocart(Request $request){
 
         $p = Product::find($request->id);
-        Basket::create(['product_id' => $p->id]);
+        Basket::create(['product_id' => $p->id, 'basket_name' => 'Sepet']);
 
         if (Cart::total() > CARGO_LIMIT ){
             if ($p->campagin_price != null) {
@@ -279,5 +275,42 @@ class HomeController extends Controller
         Search::create(['key' => $search]);
 
         return view('frontend.shop.search', compact('Result'));
+    }
+
+    public function hizlisatinal(Request $request){
+
+        $p = Product::find($request->id);
+        Basket::create(['product_id' => $p->id, 'basket_name' => 'Hizli Satın Al']);
+
+        if (Cart::total() > CARGO_LIMIT ){
+            if ($p->campagin_price != null) {
+                $price = $p->campagin_price;
+                $campagin = true;
+            }else{
+                $price = $p->price;
+                $campagin = false;
+            }
+        }else{
+            $price = $p->price;
+            $campagin = false;
+        }
+
+        Cart::add(
+            [
+                'id' => $p->id,
+                'name' => $p->title,
+                'price' => $price,
+                'weight' => 0,
+                'qty' => $request->qty,
+                'options' => [
+                    'image' => (!$p->getFirstMediaUrl('page')) ? '/backend/resimyok.jpg' : $p->getFirstMediaUrl('page', 'small'),
+                    'cargo' => 0,
+                    'campagin' => $campagin,
+                ]
+            ]);
+
+        toast(SWEETALERT_MESSAGE_CREATE,'success');
+        return redirect()->route('siparis');
+
     }
 }

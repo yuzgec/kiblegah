@@ -26,11 +26,10 @@ class ViewShareProvider extends ServiceProvider
         if (! app()->runningInConsole()) {
             Paginator::useBootstrap();
             config()->set('settings', Setting::pluck('value','item')->all());
-            $Pages = Cache::remember('pages',now()->addSeconds(10), function () {return Page::with('getCategory')->get();});
-            $Page_Categories = Cache::remember('page_categories',now()->addSeconds(10), function () {return PageCategory::all(); });
-            $Product_Categories = Cache::remember('product_categories',now()->addSecond(5), function () { return ProductCategory::with('cat')->where('status', 1)->get();});
-            $Product = Cache::remember('product',now()->addSecond(5), function () { return Product::where('status', 1)->get();});
-
+            $Pages = Cache::remember('pages',now()->addHour(1), function () {return Page::with('getCategory')->get();});
+            $Page_Categories = Cache::remember('page_categories',now()->addHour(1), function () {return PageCategory::all(); });
+            $Product_Categories = Cache::remember('product_categories',now()->addHour(1), function () { return ProductCategory::with('cat')->where('status', 1)->get();});
+            $Product = Cache::remember('product',now()->addHour(1), function () { return Product::where('status', 1)->orderBy('rank','ASC')->get();});
             View::share([
                 'Pages' => $Pages,
                 'Page_Categories' => $Page_Categories,

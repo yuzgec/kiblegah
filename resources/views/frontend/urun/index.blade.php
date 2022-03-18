@@ -18,6 +18,14 @@
     <div class="container ">
         <div class="mb-xl-5 mb-2">
             <div class="row">
+                <div class="col-12">
+                    @foreach(Cart::content() as $c)
+                        @if($c->id == $Detay->id)
+                            <div class="alert alert-primary mb-0 font-size-14 mb-3"><b>{{ $Detay->title }}</b> adlı ürün <a href="{{ route('sepet') }}" class="text-black">sepetinizde</a> mevcut</div>
+                        @endif
+                    @endforeach
+
+                </div>
                 <div class="col-md-6 col-lg-3 col-xl-4 mb-4 mb-md-0">
                     <div id="sliderSyncingNav" class="js-slick-carousel u-slick mb-2"
                          data-infinite="true"
@@ -150,6 +158,16 @@
                                 </button>
                             </div>
                             </form>
+                            <form action="{{ route('hizlisatinal') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $Detay->id }}">
+                                <input type="hidden" name="qty" value="1">
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-block btn-secondary">
+                                        <i class="fas fa-shopping-basket"></i> Hızlı Satın Al
+                                    </button>
+                                </div>
+                            </form>
                             <div class="mb-3">
                                 <a href="https://api.whatsapp.com/send?phone=905523020000&text=Merhaba sipariş vermek istiyorum. {{ $Detay->title }} {{ route('urun', $Detay->slug) }}" class="btn btn-block btn-green" target="_blank">
                                     <i class="fab fa-whatsapp"></i> Whatsapp Sipariş</a>
@@ -160,14 +178,9 @@
                                 <i class="ec ec-payment mr-1"></i> Kapıda Güvenli Ödeme
                             </span>
 
-                            @foreach(Cart::content() as $c)
-                                @if($c->id == $Detay->id)
-                                    <div class="alert alert-primary mb-0 font-size-14"><b>{{ $Detay->title }}</b> adlı ürün <a href="{{ route('sepet') }}" class="text-black">sepetinizde</a> mevcut</div>
-                                @endif
-                            @endforeach
 
                             @if(@auth()->user()->is_admin == 1)
-                                <a href="{{ route('product.edit', $Detay->id) }}" target="_blank" class="btn btn-secondary text-white mt-2">Ürün Düzenle</a>
+                                <a href="{{ route('product.edit', $Detay->id) }}" target="_blank" class="btn btn-secondary text-white mt-2"><i class="fas fa-edit"></i> Ürün Düzenle</a>
                             @endif
                         </div>
                     </div>

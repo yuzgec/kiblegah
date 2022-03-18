@@ -37367,9 +37367,6 @@ blockquote:not(.blockquote) p {
   }
 }
 
-.product-item {
-  border-bottom: 1px solid #eaeaea;
-}
 
 @media (min-width: 768px) {
   .product-item {
@@ -37383,7 +37380,6 @@ blockquote:not(.blockquote) p {
 
 .product-item::after {
   content: '';
-  border-right: 1px solid #eaeaea;
   display: block;
   position: absolute;
   top: 50%;
