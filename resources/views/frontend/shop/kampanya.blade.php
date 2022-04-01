@@ -81,7 +81,7 @@
                         </div>
                         <div class="mb-2">
                             <ul class="font-size-14 pl-3 ml-1 text-gray-110">
-                                {!! $Detay->short !!}
+                                {!! $Detay->note !!}
                             </ul>
 
                             <form action="{{ route('hizlisatinal') }}" method="POST">
