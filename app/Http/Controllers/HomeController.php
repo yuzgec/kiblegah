@@ -194,6 +194,9 @@ class HomeController extends Controller
             $response = curl_exec($curl);
             curl_close($curl);
 
+            $Stock = DB::table('campagin_stock')->decrement('stock');
+            $StockUpdate = DB::table('campagin_stock')->where('stock', '<=', 30)->update(['stock' => 299]);
+
             Cart::destroy();
         });
 
@@ -316,8 +319,9 @@ class HomeController extends Controller
 
     public function kampanya(){
 
-        $Detay = Product::with('getCategory')->where('opportunity', 1)->firstOrFail();
 
+        $Detay = Product::with('getCategory')->where('opportunity', 1)->firstOrFail();
+        $Stock = DB::table('campagin_stock')->where('product_id', $Detay->id)->first();
         SEOTools::setTitle($Detay->title);
         SEOTools::setDescription($Detay->seo_desc);
         SEOTools::opengraph()->setUrl(url()->current());
@@ -330,6 +334,6 @@ class HomeController extends Controller
         $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
         $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->inRandomOrder()->paginate(12);
 
-        return view('frontend.shop.kampanya', compact('Detay', 'Count', 'Comments'));
+        return view('frontend.shop.kampanya', compact('Detay', 'Count', 'Comments', 'Stock'));
     }
 }

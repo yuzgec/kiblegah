@@ -129,7 +129,7 @@
                     <div class="mb-2">
                         <div class="card p-4 border-width-2 border-color-1 borders-radius-17">
                             <div class="text-gray-9 font-size-14 pb-2 border-color-1 border-bottom mb-3">
-                                Stok Durumu: <span class="text-green font-weight-bold">1000 Adet - 10</span></div>
+                                Stok Durumu: <span class="text-green font-weight-bold">{{$Stock->stock}} Adet </span></div>
                             <div class="mb-3">
                                 <div class="font-size-28 font-weight-bold">{{ money($Detay->price) }}₺ -
                                     <del class="font-size-20">{{ money($Detay->old_price) }}₺</del>
