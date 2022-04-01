@@ -12,4 +12,9 @@ class ShopCart extends Model
     protected $guarded = [];
     protected $table = 'shop_carts';
 
+    public function getOrder(){
+        return $this->hasMany(Order::class, 'cart_id', 'cart_id');
+    }
+
+
 }

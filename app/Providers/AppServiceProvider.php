@@ -18,6 +18,7 @@ use App\View\Components\Index\Save;
 use App\View\Components\Shop\Product;
 use App\View\Components\Shop\ProductList;
 use Carbon\Carbon;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\URL;
@@ -33,6 +34,11 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot()
     {
+
+        Builder::macro('search', function($field, $string){
+            return $string ? $this->where($field, 'like', '%'.$string.'%') : $this;
+        });
+
         Paginator::useBootstrap();
         Carbon::setLocale(config('app.locale'));
         if(env('APP_ENV') != 'local')

@@ -30,7 +30,7 @@
                         </div>
                         <div class="text-h3 m-0 font-weight-bold">[{{ $Product->count() }}] Ürün</div>
                         <div class="text-muted mb-3">
-                            <a href="{{route('service.index')}}" title="Ürün Yönetimi" class="btn btn-outline-tabler btn-sm ">
+                            <a href="{{route('product.index')}}" title="Ürün Yönetimi" class="btn btn-outline-tabler btn-sm ">
                                 Ürün Yönetimi
                             </a>
                         </div>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="text-h3 m-0 font-weight-bold">[{{ $Product_Categories->count() }}] Kategori</div>
                         <div class="text-muted mb-3">
-                            <a href="{{route('blog.index')}}" title="Blog Yönetimi" class="btn btn-outline-tabler btn-sm ">
+                            <a href="{{route('product-categories.index')}}" title="Blog Yönetimi" class="btn btn-outline-tabler btn-sm ">
                                 Ürün Kategori Yönetimi
                             </a>
                         </div>

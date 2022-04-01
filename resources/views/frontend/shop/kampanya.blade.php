@@ -1,5 +1,5 @@
 @extends('frontend.layout.app')
-@section('title', $Detay->title. '| Kıblegah Aile Oyunları Online Satış Sitesi')
+@section('title', $Detay->title. '| Kampanya')
 @section('content')
     @include('backend.layout.alert')
     <div class="bg-gray-13 bg-md-transparent">
@@ -82,30 +82,30 @@
                             </ul>
                         </div>
                         @foreach($Comments->take(1) as $comment)
-                        <div class="pb-1">
-                            <div class="card p-2 border-width-2 border-color-1 borders-radius-17">
-                                <span class="text-gray-90 mb-2">{{ $comment->comment }}</span>
-                                <div class="d-flex justify-content-between">
-                                    <strong>{{ isim($comment->name) }}</strong>
-                                    <span class="font-size-14 text-gray-10"><i class="far fa-clock"></i> {{ @$comment->created_at->diffForHumans() }}</span>
-                                    <div class="d-flex justify-content-between align-items-center text-secondary font-size-12">
-                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 100px;">
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
+                            <div class="pb-1">
+                                <div class="card p-2 border-width-2 border-color-1 borders-radius-17">
+                                    <span class="text-gray-90 mb-2">{{ $comment->comment }}</span>
+                                    <div class="d-flex justify-content-between">
+                                        <strong>{{ isim($comment->name) }}</strong>
+                                        <span class="font-size-14 text-gray-10"><i class="far fa-clock"></i> {{ @$comment->created_at->diffForHumans() }}</span>
+                                        <div class="d-flex justify-content-between align-items-center text-secondary font-size-12">
+                                            <div class="text-warning text-ls-n2 font-size-16" style="width: 100px;">
+                                                <small class="fas fa-star"></small>
+                                                <small class="fas fa-star"></small>
+                                                <small class="fas fa-star"></small>
+                                                <small class="fas fa-star"></small>
+                                                <small class="fas fa-star"></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        @if($loop->last)
-                            <a class="btn btn-purple btn-block nav-link"
-                               href="#Yorumlar">
-                                Hepsini Gör
-                            </a>
-                        @endif
+                            @if($loop->last)
+                                <a class="btn btn-purple btn-block nav-link"
+                                   href="#Yorumlar">
+                                    Hepsini Gör
+                                </a>
+                            @endif
                         @endforeach
                     </div>
                 </div>
@@ -142,31 +142,31 @@
                                 </div>
                             </form>
                             <form action="{{ route('sepeteekle') }}" method="POST">
-                            @csrf
-                            <div class="mb-3">
-                                <h6 class="font-size-14">Adet</h6>
-                                <div class="border rounded-pill py-1 w-md-60 height-35 px-3 border-color-1">
-                                    <div class="js-quantity row align-items-center">
-                                        <div class="col">
-                                            <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" name="qty" type="text" value="1">
-                                        </div>
-                                        <div class="col-auto pr-1">
-                                            <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
-                                                <small class="fas fa-minus btn-icon__inner"></small>
-                                            </a>
-                                            <a class="js-plus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
-                                                <small class="fas fa-plus btn-icon__inner"></small>
-                                            </a>
+                                @csrf
+                                <div class="mb-3">
+                                    <h6 class="font-size-14">Adet</h6>
+                                    <div class="border rounded-pill py-1 w-md-60 height-35 px-3 border-color-1">
+                                        <div class="js-quantity row align-items-center">
+                                            <div class="col">
+                                                <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" name="qty" type="text" value="1">
+                                            </div>
+                                            <div class="col-auto pr-1">
+                                                <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
+                                                    <small class="fas fa-minus btn-icon__inner"></small>
+                                                </a>
+                                                <a class="js-plus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
+                                                    <small class="fas fa-plus btn-icon__inner"></small>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="mb-2 pb-0dot5">
-                                <input type="hidden" name="id" value="{{ $Detay->id }}">
-                                <button type="submit" class="btn btn-block btn-primary-dark">
-                                    <i class="ec ec-add-to-cart mr-2 font-size-20"></i> Sepete Ekle
-                                </button>
-                            </div>
+                                <div class="mb-2 pb-0dot5">
+                                    <input type="hidden" name="id" value="{{ $Detay->id }}">
+                                    <button type="submit" class="btn btn-block btn-primary-dark">
+                                        <i class="ec ec-add-to-cart mr-2 font-size-20"></i> Sepete Ekle
+                                    </button>
+                                </div>
                             </form>
 
                             <div class="mb-3">

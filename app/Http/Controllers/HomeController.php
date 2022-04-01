@@ -313,4 +313,23 @@ class HomeController extends Controller
         return redirect()->route('siparis');
 
     }
+
+    public function kampanya(){
+
+        $Detay = Product::with('getCategory')->where('opportunity', 1)->firstOrFail();
+
+        SEOTools::setTitle($Detay->title);
+        SEOTools::setDescription($Detay->seo_desc);
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(route('urun', $Detay->slug));
+        SEOTools::opengraph()->addProperty('type', 'product');
+        SEOTools::twitter()->setSite('@kiblegahaile');
+        SEOTools::jsonLd()->addImage($Detay->getFirstMediaUrl('page','thumb'));
+
+        views($Detay)->cooldown(60)->record();
+        $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
+        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->inRandomOrder()->paginate(12);
+
+        return view('frontend.shop.kampanya', compact('Detay', 'Count', 'Comments'));
+    }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faq;
+use App\Models\Service;
+use App\Models\ShopCart;
 use App\Models\Team;
 use App\Models\Video;
 use App\Models\Project;
@@ -18,7 +20,9 @@ class DashboardController extends Controller
         $Faq = Faq::count();
         $Activity = Activity::all()->last();
 
-        //dd($Activity);
+        $ShopCart = ShopCart::withCount('getOrder')->with('getOrder')->latest()->get();
+
+        //dd($ShopCart );
         return view('backend.index', compact('Project', 'Video', 'Team', 'Faq', 'Activity'));
     }
 }

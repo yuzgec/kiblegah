@@ -12,4 +12,9 @@ class Comment extends Model
     protected $guarded = [];
     protected $table = 'comments';
 
+    public function getProduct()
+    {
+        return $this->hasOne('App\Models\Product', 'id', 'product_id');
+    }
+
 }
