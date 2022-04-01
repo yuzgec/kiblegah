@@ -201,8 +201,9 @@ class HomeController extends Controller
     }
     public function sonuc(){
         $Summary  = Order::where('cart_id',request('no') )->get();
-        $Customer = ShopCart::where('cart_id',request('no')  )->firstOrFail();
+        $Customer = ShopCart::where('cart_id',request('no'))->firstOrFail();
         return view('frontend.shop.sonuc', compact('Summary', 'Customer'));
+
     }
     public function addtocart(Request $request){
 

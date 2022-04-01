@@ -14,8 +14,8 @@ class Order extends Model
 
 
     public function shopcart(){
-
         return $this->hasOne(ShopCart::class, 'cart_id');
     }
+
 
 }
