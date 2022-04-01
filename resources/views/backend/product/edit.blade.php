@@ -119,7 +119,7 @@
                     </div>
                     <x-form-textarea label="Kısa Açıklama" name="short" ck="short"/>
                     <x-form-textarea label="Açıklama" name="desc" :ck/>
-                    <x-form-textarea label="Ürün Sayfa Notu" name="note" :ck=null/>
+                    <x-form-textarea label="Ürün Sayfa Notu" name="note" ck="note"/>
                     <x-form-textarea label="Ürün Kargo Mesaj" name="cargo" :ck=null/>
 
 
@@ -232,6 +232,16 @@
             this.value ^= 1;
         });
         CKEDITOR.replace('short', {
+            height : 100,
+            toolbar: [
+                { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold']},
+                { name: 'paragraph',items: [ 'BulletedList']},
+                { name: 'colors', items: [ 'TextColor' ]},
+                { name: 'insert', items : [ 'Table']},
+                { name: 'styles', items: [ 'Format', 'FontSize']},
+            ],
+        });
+        CKEDITOR.replace('note', {
             height : 100,
             toolbar: [
                 { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold']},
