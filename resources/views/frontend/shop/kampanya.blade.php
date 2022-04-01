@@ -21,7 +21,10 @@
                 <div class="col-12">
                     @foreach(Cart::content() as $c)
                         @if($c->id == $Detay->id)
-                            <div class="alert alert-primary mb-0 font-size-14 mb-3"><b>{{ $Detay->title }}</b> adlı ürün <a href="{{ route('sepet') }}" class="text-black">sepetinizde</a> mevcut</div>
+                            <div class="alert alert-primary mb-0 font-size-14 mb-3"><b>{{ $Detay->title }}</b> adlı ürün
+                                <a href="{{ route('sepet') }}" class="text-black">sepetinizde</a> mevcut /
+                                <a href="{{ route('siparis') }}" class="text-black">Sonuç sayfasına gitmek için tıklayınız</a>
+                            </div>
                         @endif
                     @endforeach
 
@@ -69,7 +72,7 @@
                                         <small class="fas fa-star"></small>
                                         <small class="fas fa-star"></small>
                                         <small class="fas fa-star"></small>
-                                        <small class="far fa-star"></small>
+                                        <small class="fas fa-star"></small>
                                     </div>
                                     <span class="text-secondary font-size-12">({{ $Detay->getComment()->count() }}) Müşteri Yorumları</span>
                                     <span class="text-gray-9 ml-3 font-size-12"><strong>SKU</strong>: {{ $Detay->sku }}</span>
@@ -80,6 +83,19 @@
                             <ul class="font-size-14 pl-3 ml-1 text-gray-110">
                                 {!! $Detay->short !!}
                             </ul>
+
+                            <form action="{{ route('hizlisatinal') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="qty" value="1">
+                                <div class="mb-2 pb-0dot5">
+                                    <input type="hidden" name="id" value="{{ $Detay->id }}">
+                                    <button type="submit" class="btn btn-block btn-primary"
+                                            {{cartControl($Detay->id, 'disabled')}}>
+                                        <i class="ec ec-add-to-cart mr-2 font-size-20"></i> HEDİYE KAMPANYASINA KATIL
+                                    </button>
+                                </div>
+                            </form>
+
                         </div>
                         @foreach($Comments->take(1) as $comment)
                             <div class="pb-1">
@@ -113,7 +129,7 @@
                     <div class="mb-2">
                         <div class="card p-4 border-width-2 border-color-1 borders-radius-17">
                             <div class="text-gray-9 font-size-14 pb-2 border-color-1 border-bottom mb-3">
-                                Stok Durumu: <span class="text-green font-weight-bold">Stokta Mevcut</span></div>
+                                Stok Durumu: <span class="text-green font-weight-bold">1000 Adet - 10</span></div>
                             <div class="mb-3">
                                 <div class="font-size-28 font-weight-bold">{{ money($Detay->price) }}₺ -
                                     <del class="font-size-20">{{ money($Detay->old_price) }}₺</del>
@@ -131,48 +147,8 @@
                                     @endif
                                 @endif
                             </div>
-                            <form action="{{ route('hizlisatinal') }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="id" value="{{ $Detay->id }}">
-                                <input type="hidden" name="qty" value="1">
-                                <div class="mb-3">
-                                    <button type="submit" class="btn btn-block btn-secondary">
-                                        <i class="fas fa-shopping-basket"></i> Hızlı Satın Al
-                                    </button>
-                                </div>
-                            </form>
-                            <form action="{{ route('sepeteekle') }}" method="POST">
-                                @csrf
-                                <div class="mb-3">
-                                    <h6 class="font-size-14">Adet</h6>
-                                    <div class="border rounded-pill py-1 w-md-60 height-35 px-3 border-color-1">
-                                        <div class="js-quantity row align-items-center">
-                                            <div class="col">
-                                                <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" name="qty" type="text" value="1">
-                                            </div>
-                                            <div class="col-auto pr-1">
-                                                <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
-                                                    <small class="fas fa-minus btn-icon__inner"></small>
-                                                </a>
-                                                <a class="js-plus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
-                                                    <small class="fas fa-plus btn-icon__inner"></small>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-2 pb-0dot5">
-                                    <input type="hidden" name="id" value="{{ $Detay->id }}">
-                                    <button type="submit" class="btn btn-block btn-primary-dark">
-                                        <i class="ec ec-add-to-cart mr-2 font-size-20"></i> Sepete Ekle
-                                    </button>
-                                </div>
-                            </form>
 
-                            <div class="mb-3">
-                                <a href="https://api.whatsapp.com/send?phone=905523020000&text=Merhaba sipariş vermek istiyorum. {{ $Detay->title }} {{ route('urun', $Detay->slug) }}" class="btn btn-block btn-green" target="_blank">
-                                    <i class="fab fa-whatsapp"></i> Whatsapp Sipariş</a>
-                            </div>
+
                             <span>
                                 <i class="fa fa-eye"></i> Bugün <b>({{$Count}})</b> kişi baktı<br>
                                 <i class="ec ec-transport mr-1"></i> Aynı gün kargoda<br>

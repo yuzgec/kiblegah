@@ -1,12 +1,22 @@
 <?php
     //SWEETALERT MESAJLARI -
-    define('SWEETALERT_MESSAGE_CREATE', 'Eklendi');
+use Gloudemans\Shoppingcart\Facades\Cart;
+
+define('SWEETALERT_MESSAGE_CREATE', 'Eklendi');
     define('SWEETALERT_MESSAGE_UPDATE', 'Güncellendi');
     define('SWEETALERT_MESSAGE_DELETE', 'Silindi');
     define('CARGO_LIMIT', 50);
     define('CARGO_PRICE', 19.90);
     define('MAIL_SEND', 'siparis@kiblegahaileoyunlari.com.tr');
 
+
+    function cartControl($id, $text = null){
+        foreach (Cart::content() as $c){
+            if($c->id == $id){
+                echo $text;
+            }
+        }
+    }
 
     //KULLANICI ADI BAŞ HARFLERİNİ GÖSTERME
     function isim($isim){
@@ -21,7 +31,7 @@
 
     function cargo($toplam)
     {
-        if ($toplam > 0){
+        if ($toplam >= 0){
             if ($toplam > CARGO_LIMIT) {
                 return 'Ücretsiz Kargo';
             } else {

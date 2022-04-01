@@ -122,6 +122,8 @@
                             <div class="border-bottom border-color-1 mb-5">
                                 <h3 class="section-title mb-0 pb-2 font-size-25">Sipariş <b>Detayı</b></h3>
                             </div>
+                            <p>Kıymetli Dostumuz;<br>
+                                99.90₺ değerindeki <b>Görsel Zeka ve Gelişim Kavram Kartları Oyununu</b> almaya hak kazandınız adres teyidi ve sipariş onayı için müşteri temsilcisi arkadaşımız saat 10:00 - 20:00 saatleri arasında <b>0 212 945 26 00</b> numaralı telefondan sizleri arayacaktır. Lütfen telefonunuzu açınız. <br>Adres teyidi alınmayan siparişler  kargoya verilmeyecektir.</p>
                             <table class="table">
                                 <thead>
                                 <tr>

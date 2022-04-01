@@ -221,7 +221,6 @@ class HomeController extends Controller
             $price = $p->price;
             $campagin = false;
         }
-
         Cart::add(
         [
             'id' => $p->id,
