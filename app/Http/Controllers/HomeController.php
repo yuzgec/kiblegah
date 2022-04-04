@@ -341,7 +341,7 @@ class HomeController extends Controller
     }
 
     public function kiblegahkampanya(){
-        $Detay = Product::with('getCategory')->where('id',40)->firstOrFail();
+        $Detay = Product::with('getCategory')->where('id',37)->firstOrFail();
         $Stock = DB::table('campagin_stock')->where('product_id', $Detay->id)->first();
 
         SEOTools::setTitle($Detay->title);
