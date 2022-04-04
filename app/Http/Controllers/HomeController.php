@@ -30,6 +30,7 @@ class HomeController extends Controller
         $Slider = Slider::with('getProduct')->get();
         return view('frontend.index', compact('Products','Slider'));
     }
+
     public function kategori($url){
         $Detay = ProductCategory::where('slug', $url)->select('id','title','slug')->first();
 
@@ -323,6 +324,7 @@ class HomeController extends Controller
 
         $Detay = Product::with('getCategory')->where('opportunity', 1)->firstOrFail();
         $Stock = DB::table('campagin_stock')->where('product_id', $Detay->id)->first();
+
         SEOTools::setTitle($Detay->title);
         SEOTools::setDescription($Detay->seo_desc);
         SEOTools::opengraph()->setUrl(url()->current());
@@ -336,5 +338,24 @@ class HomeController extends Controller
         $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->inRandomOrder()->paginate(12);
 
         return view('frontend.shop.kampanya', compact('Detay', 'Count', 'Comments', 'Stock'));
+    }
+
+    public function kiblegahkampanya(){
+        $Detay = Product::with('getCategory')->where('id',40)->firstOrFail();
+        $Stock = DB::table('campagin_stock')->where('product_id', $Detay->id)->first();
+
+        SEOTools::setTitle($Detay->title);
+        SEOTools::setDescription($Detay->seo_desc);
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(route('urun', $Detay->slug));
+        SEOTools::opengraph()->addProperty('type', 'product');
+        SEOTools::twitter()->setSite('@kiblegahaile');
+        SEOTools::jsonLd()->addImage($Detay->getFirstMediaUrl('page','thumb'));
+
+        views($Detay)->cooldown(60)->record();
+        $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
+        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->inRandomOrder()->paginate(12);
+
+        return view('frontend.shop.kampanyakiblegah', compact('Detay', 'Count', 'Comments', 'Stock'));
     }
 }

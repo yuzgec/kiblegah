@@ -29,6 +29,8 @@ use Spatie\Sitemap\SitemapGenerator;
     Route::get('/kurumsal/{url}', 'HomeController@kurumsal')->name('kurumsal');
     Route::get('/kampanya', 'HomeController@kampanya')->name('kampanya');
 
+    Route::get('/kampanya-kiblegah', 'HomeController@kiblegahkampanya')->name('kiblegahkampanya');
+
     Route::post('/siparis/kaydet', 'HomeController@kaydet')->name('kaydet');
     Route::get('/siparis/sonuc', 'HomeController@sonuc')->name('sonuc');
 
