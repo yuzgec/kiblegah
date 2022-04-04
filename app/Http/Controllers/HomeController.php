@@ -44,6 +44,7 @@ class HomeController extends Controller
         $ProductList = Product::join('product_category_pivots', 'product_category_pivots.product_id', '=', 'products.id' )
             ->join('product_categories', 'product_categories.id', '=', 'product_category_pivots.category_id')
             ->where('product_category_pivots.category_id', '=', $Detay->id)
+            ->where('products.status', '=', 1)
             ->where(['category_id' => $Detay->id])
             ->select('products.id','products.title','products.slug','products.price','products.old_price','products.slug','product_category_pivots.category_id', 'product_categories.parent_id')
             ->inRandomOrder()

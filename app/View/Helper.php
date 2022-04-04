@@ -6,7 +6,7 @@ define('SWEETALERT_MESSAGE_CREATE', 'Eklendi');
     define('SWEETALERT_MESSAGE_UPDATE', 'Güncellendi');
     define('SWEETALERT_MESSAGE_DELETE', 'Silindi');
     define('CARGO_LIMIT', 50);
-    define('CARGO_PRICE', 19.90);
+    define('CARGO_PRICE', 29.90);
     define('MAIL_SEND', 'siparis@kiblegahaileoyunlari.com.tr');
 
 
