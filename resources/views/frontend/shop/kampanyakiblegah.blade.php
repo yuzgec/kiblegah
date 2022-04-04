@@ -91,7 +91,7 @@
                                     <input type="hidden" name="id" value="{{ $Detay->id }}">
                                     <button type="submit" class="btn btn-block btn-primary"
                                             {{cartControl($Detay->id, 'disabled')}}>
-                                        <i class="ec ec-add-to-cart mr-2 font-size-20"></i> HEDİYE KAMPANYASINA KATIL
+                                        <i class="ec ec-add-to-cart mr-2 font-size-20"></i> TEKTAŞ HEDİYE KAMPANYASINA KATIL
                                     </button>
                                 </div>
                             </form>
