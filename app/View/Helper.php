@@ -32,7 +32,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
     function cargo($toplam)
     {
         if ($toplam >= 0){
-            if ($toplam > CARGO_LIMIT) {
+            if ($toplam >= CARGO_LIMIT) {
                 return 'Ücretsiz Kargo';
             } else {
                 return money(CARGO_PRICE);
