@@ -2,7 +2,7 @@
     //SWEETALERT MESAJLARI -
 use Gloudemans\Shoppingcart\Facades\Cart;
 
-define('SWEETALERT_MESSAGE_CREATE', 'Eklendi');
+    define('SWEETALERT_MESSAGE_CREATE', 'Eklendi');
     define('SWEETALERT_MESSAGE_UPDATE', 'Güncellendi');
     define('SWEETALERT_MESSAGE_DELETE', 'Silindi');
     define('CARGO_LIMIT', 69.90);
