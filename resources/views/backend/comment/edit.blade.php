@@ -27,7 +27,7 @@
                 <div class="card-body">
                     <x-form-inputtext label="İsim Soyisim" name="name"/>
                     <x-form-select label="Ürün" name="product_id" :list="$Product"/>
-                    <x-form-textarea label="Yorum" name="comment" />
+                    <x-form-textarea label="Yorum" name="comment" ck="null" />
                 </div>
             </div>
         </div>
