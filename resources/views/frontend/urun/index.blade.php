@@ -231,7 +231,7 @@
                                 @foreach($Comments as $comment)
                                     <div class="col-md-6 col-12 p-1">
                                         <div class="card p-2 border-width-2 border-color-1 borders-radius-17">
-                                            <span class="text-gray-90 mb-2">{{ $comment->comment }}</span>
+                                            <span class="text-gray-90 mb-2">{!! $comment->comment !!}</span>
                                             <div class="d-flex justify-content-between">
                                                 <strong>{{ isim($comment->name) }}</strong>
                                                 <span class="font-size-14 text-gray-10"><i class="far fa-clock"></i> {{ $comment->created_at->diffForHumans() }}</span>
