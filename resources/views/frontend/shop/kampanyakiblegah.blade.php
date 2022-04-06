@@ -81,7 +81,7 @@
                         </div>
                         <div class="mb-2">
                             <ul class="font-size-14 pl-3 ml-1 text-gray-110">
-                                {!! $Detay->note !!}
+                                {!! $Detay->short !!}
                             </ul>
 
                             <form action="{{ route('hizlisatinal') }}" method="POST">
@@ -91,7 +91,7 @@
                                     <input type="hidden" name="id" value="{{ $Detay->id }}">
                                     <button type="submit" class="btn btn-block btn-primary"
                                             {{cartControl($Detay->id, 'disabled')}}>
-                                        <i class="ec ec-add-to-cart mr-2 font-size-20"></i> TEKTAŞ HEDİYE KAMPANYASINA KATIL
+                                        <i class="ec ec-add-to-cart mr-2 font-size-20"></i> HEMEN SPARİŞ VER
                                     </button>
                                 </div>
                             </form>
