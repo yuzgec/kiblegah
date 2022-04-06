@@ -99,7 +99,7 @@ class HomeController extends Controller
 
         views($Detay)->cooldown(60)->record();
         $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
-        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->inRandomOrder()->paginate(12);
+        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->paginate(40);
 
         return view('frontend.urun.index', compact('Detay','Count','Comments'));
     }
@@ -281,7 +281,6 @@ class HomeController extends Controller
 
         return view('frontend.shop.search', compact('Result'));
     }
-
     public function hizlisatinal(Request $request){
 
         $p = Product::find($request->id);
@@ -318,7 +317,6 @@ class HomeController extends Controller
         return redirect()->route('siparis');
 
     }
-
     public function kampanya(){
 
 
@@ -335,7 +333,7 @@ class HomeController extends Controller
 
         views($Detay)->cooldown(60)->record();
         $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
-        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->inRandomOrder()->paginate(12);
+        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->paginate(40);
 
         return view('frontend.shop.kampanya', compact('Detay', 'Count', 'Comments', 'Stock'));
     }
@@ -354,8 +352,64 @@ class HomeController extends Controller
 
         views($Detay)->cooldown(60)->record();
         $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
-        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->inRandomOrder()->paginate(12);
-
+        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->paginate(40);
         return view('frontend.shop.kampanyakiblegah', compact('Detay', 'Count', 'Comments', 'Stock'));
+    }
+
+
+    public function sozcukkampanya(){
+        $Detay = Product::with('getCategory')->where('id',41)->firstOrFail();
+        $Stock = DB::table('campagin_stock')->where('product_id', $Detay->id)->first();
+
+        SEOTools::setTitle($Detay->title);
+        SEOTools::setDescription($Detay->seo_desc);
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(route('urun', $Detay->slug));
+        SEOTools::opengraph()->addProperty('type', 'product');
+        SEOTools::twitter()->setSite('@kiblegahaile');
+        SEOTools::jsonLd()->addImage($Detay->getFirstMediaUrl('page','thumb'));
+
+        views($Detay)->cooldown(60)->record();
+        $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
+        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->paginate(40);
+        return view('frontend.shop.sozcukkampanya', compact('Detay', 'Count', 'Comments', 'Stock'));
+    }
+
+
+    public function hayvankampanya(){
+        $Detay = Product::with('getCategory')->where('id',43)->firstOrFail();
+        $Stock = DB::table('campagin_stock')->where('product_id', $Detay->id)->first();
+
+        SEOTools::setTitle($Detay->title);
+        SEOTools::setDescription($Detay->seo_desc);
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(route('urun', $Detay->slug));
+        SEOTools::opengraph()->addProperty('type', 'product');
+        SEOTools::twitter()->setSite('@kiblegahaile');
+        SEOTools::jsonLd()->addImage($Detay->getFirstMediaUrl('page','thumb'));
+
+        views($Detay)->cooldown(60)->record();
+        $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
+        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->paginate(40);
+        return view('frontend.shop.hayvankampanya', compact('Detay', 'Count', 'Comments', 'Stock'));
+    }
+
+
+    public function ilmihalkampanya(){
+        $Detay = Product::with('getCategory')->where('id',42)->firstOrFail();
+        $Stock = DB::table('campagin_stock')->where('product_id', $Detay->id)->first();
+
+        SEOTools::setTitle($Detay->title);
+        SEOTools::setDescription($Detay->seo_desc);
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(route('urun', $Detay->slug));
+        SEOTools::opengraph()->addProperty('type', 'product');
+        SEOTools::twitter()->setSite('@kiblegahaile');
+        SEOTools::jsonLd()->addImage($Detay->getFirstMediaUrl('page','thumb'));
+
+        views($Detay)->cooldown(60)->record();
+        $Count = views($Detay)->unique()->period(Period::create(Carbon::today()))->count();;
+        $Comments = Comment::where('product_id', $Detay->id)->where('status', 1)->paginate(40);
+        return view('frontend.shop.ilmihalkampanya', compact('Detay', 'Count', 'Comments', 'Stock'));
     }
 }

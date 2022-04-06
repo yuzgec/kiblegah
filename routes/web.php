@@ -27,9 +27,12 @@ use Spatie\Sitemap\SitemapGenerator;
     Route::post('/sepet-cikar/{rowId}', 'HomeController@cartdelete')->name('sepetcikar');
     Route::post('/sepet-bosalt}', 'HomeController@cartdestroy')->name('sepetbosalt');
     Route::get('/kurumsal/{url}', 'HomeController@kurumsal')->name('kurumsal');
-    Route::get('/kampanya', 'HomeController@kampanya')->name('kampanya');
 
+    Route::get('/kampanya', 'HomeController@kampanya')->name('kampanya');
     Route::get('/kampanya-kiblegah', 'HomeController@kiblegahkampanya')->name('kiblegahkampanya');
+    Route::get('/kampanya-120sozcuk', 'HomeController@sozcukkampanya')->name('120sozcukkampanya');
+    Route::get('/kampanya-120hayvan', 'HomeController@hayvankampanya')->name('120hayvankampanya');
+    Route::get('/kampanya-ilmihal', 'HomeController@ilmihalkampanya')->name('ilmihalkampanya');
 
     Route::post('/siparis/kaydet', 'HomeController@kaydet')->name('kaydet');
     Route::get('/siparis/sonuc', 'HomeController@sonuc')->name('sonuc');
