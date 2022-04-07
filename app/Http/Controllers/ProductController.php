@@ -39,12 +39,14 @@ class ProductController extends Controller
         $New->old_price = $request->old_price;
         $New->campagin_price = $request->campagin_price;
         $New->sku = $request->sku;
+        $New->external = $request->external;
 
         $New->short = $request->short;
         $New->note = $request->note;
         $New->cargo = $request->cargo;
         $New->featrues = $request->featrues;
         $New->desc = $request->desc;
+
 
         $New->freecargo = $request->freecargo;
         $New->fastkargo = $request->fastkargo;
@@ -107,6 +109,7 @@ class ProductController extends Controller
         $Update->old_price = $request->old_price;
         $Update->campagin_price = $request->campagin_price;
         $Update->sku = $request->sku;
+        $Update->external = $request->external;
 
         $Update->short = $request->short;
         $Update->note = $request->note;

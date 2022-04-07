@@ -17,6 +17,7 @@
 
                 <x-form-inputtext label="Adı Giriniz" name="title"/>
                 <x-form-select label="Kategori" name="category[]" multiple :list="$Kategori"/>
+                <x-form-inputtext label="Kampanya Link" name="external"/>
                 <x-form-inputtext label="Ürün Kodu " name="sku"/>
 
                 <div class="form-group mb-3 row">
