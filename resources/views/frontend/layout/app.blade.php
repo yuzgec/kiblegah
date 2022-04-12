@@ -35,6 +35,12 @@
             gtag('js', new Date());
             gtag('config', 'AW-10883748311');
         </script>
+        <script>
+            gtag('event', 'conversion', {
+                'send_to': 'AW-10883748311/H7GLCP2817IDENej48Uo',
+                'transaction_id': ''
+            });
+        </script>
 
     </body>
 </html>
