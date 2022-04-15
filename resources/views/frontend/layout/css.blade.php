@@ -11,4 +11,15 @@
 <link rel="stylesheet" href="/frontend/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
 <link rel="stylesheet" href="/frontend/assets/css/theme.css">
 <meta name="facebook-domain-verification" content="15l74aqrqynbg0t0etwzqhtjj7g5o3" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NEV5N51PQG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NEV5N51PQG');
+</script>
 <livewire:styles />
+
+
