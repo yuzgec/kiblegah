@@ -19,22 +19,5 @@
         @include('frontend.layout.js')
         @yield('customJS')
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-216042717-1">
-        </script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-216042717-1');
-        </script>
-
-        <script>
-            gtag('event', 'conversion', {
-                'send_to': 'AW-10883748311/H7GLCP2817IDENej48Uo',
-                'transaction_id': ''
-            });
-        </script>
-
     </body>
 </html>

@@ -9,7 +9,6 @@ use Gloudemans\Shoppingcart\Facades\Cart;
     define('CARGO_PRICE', 29.90);
     define('MAIL_SEND', 'siparis@kiblegahaileoyunlari.com.tr');
 
-
     function cartControl($id, $text = null){
         foreach (Cart::content() as $c){
             if($c->id == $id){

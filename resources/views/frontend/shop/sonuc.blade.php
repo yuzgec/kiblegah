@@ -183,11 +183,14 @@
     @endsection
 
 @section('CustomJs')
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10883748311"></script>
+    <!-- Global site tag (gtag.js) - Google Ads: 10885450163 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10885450163"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'AW-10883748311');
+
+        gtag('config', 'AW-10885450163');
     </script>
+
     @endsection
