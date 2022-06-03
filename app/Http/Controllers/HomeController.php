@@ -162,32 +162,33 @@ class HomeController extends Controller
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS =>'{
-				"Credential": {
-				"Username":"kiblegah",
-				"Password":"KiBlEgAh.ReK2600",
-				"ResellerID":1298
-				},
-				"Sms": {
-				"ToMsisdns": [
-				{
-				"Msisdn": '.$ShopCart->phone.',
-				"Name": "",
-				"Surname": "",
-				"CustomField1": "[Mesaj1]:'.$Sms.'"
-				}
-				],
-				"ToGroups": [
-				0
-				],
-				"IsCreateFromTeplate": true,
-				"SmsTitle": "KIBLEGAH",
-				"SmsContent": "[Mesaj1]",
-				"SmsSendingType": "ByNumber",
-				"SmsCoding": "SmsCoding",
-				"SenderName": "KIBLEGAH",
-				"DataCoding": "Default"
-
-				}
+                    "Credential": {
+                        "Username":'.env("SMS_USER_NAME").',
+                        "Password":'.env("SMS_PASSWORD").',
+                        "ResellerID":'.env("SMS_RESELLER_ID").'
+                    },
+                    "Sms": {
+                        "ToMsisdns":
+                        [
+                            {
+                                "Msisdn": '.$ShopCart->phone.',
+                                "Name": "",
+                                "Surname": "",
+                                "CustomField1": "[Mesaj1]:'.$Sms.'"
+                            }
+                        ],
+                        "ToGroups":
+                            [
+                                0
+                            ],
+                        "IsCreateFromTeplate": true,
+                        "SmsTitle": '.env("SMS_SENDER_NO").',
+                        "SmsContent": "[Mesaj1]",
+                        "SmsSendingType": "ByNumber",
+                        "SmsCoding": "SmsCoding",
+                        "SenderName": '.env("SMS_SENDER_NO").',
+                        "DataCoding": "Default"
+                    }
 				}',
                 CURLOPT_HTTPHEADER => array(
                     'Content-Type: application/json'
