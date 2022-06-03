@@ -35,7 +35,7 @@ class SliderController extends Controller
         $New->button_link = $request->button_link;
 
         if($request->hasfile('image')){
-            $New->addMedia($request->image)->withResponsiveImages()->toMediaCollection('page');
+            $New->addMedia($request->image)->toMediaCollection('page');
         }
 
         $New->save();
@@ -70,8 +70,8 @@ class SliderController extends Controller
         $Update->button_link = $request->button_link;
 
         if ($request->hasFile('image')) {
-            $Update->media()->where('collection_name', 'slider')->delete();
-            $Update->addMedia($request->image)->withResponsiveImages()->toMediaCollection('page');
+            $Update->media()->where('collection_name', 'page')->delete();
+            $Update->addMedia($request->image)->toMediaCollection('page');
         }
 
         $Update->save();

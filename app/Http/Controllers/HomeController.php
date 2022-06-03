@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $Products = Product::select('id', 'title', 'price', 'old_price', 'slug','bestselling')->orderBy('rank')->get();
-        $Slider = Slider::with('getProduct')->get();
+        $Slider = Slider::with('getProduct')->orderBy('rank')->get();
         return view('frontend.index', compact('Products','Slider'));
     }
 
