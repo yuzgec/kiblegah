@@ -123,6 +123,7 @@ class HomeController extends Controller
             $ShopCart->city             = $request->province;
             $ShopCart->province         = $request->city;
             $ShopCart->note             = $request->note;
+            $ShopCart->order_medium     = 'kiblegah.com.tr';
             $ShopCart->order_cargo      = (Cart::total() < CARGO_LIMIT) ? CARGO_PRICE : null;
 
             $ShopCart->save();
