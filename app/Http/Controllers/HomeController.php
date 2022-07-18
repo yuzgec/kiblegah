@@ -126,6 +126,15 @@ class HomeController extends Controller
             $ShopCart->order_medium     = 'kiblegah.com.tr';
             $ShopCart->order_cargo      = (Cart::total() < CARGO_LIMIT) ? CARGO_PRICE : null;
 
+            $details = [];
+            foreach (Cart::content() as $c) {
+                $details[] = 'Ürün : '.$c->name.' x '. $c->qty;
+            }
+
+            //dd($details);
+
+            $ShopCart->order_details    = implode(',', $details);
+
             $ShopCart->save();
 
             foreach (Cart::content() as $c) {
